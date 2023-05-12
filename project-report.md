@@ -2,9 +2,4 @@
 ## ANALYSIS
 ### What is the problem and why am I trying to solve it?
 
-The problem I want to solve is creating an **AI** *(Artificial Intelegence)* model, more specifically a **GNN** *(Graph Neural Network)* model
-to efficiently find **the shortest path** between any two vertices in any given graph.
-
-Each graph consists of vertices (can also be called nodes) which are connected by edges. 
-Graphs are widely used in computer science to represent variety of things like roads between cities, 
-social networks, data organization, flow in tubes etc. Graph theory is a part of discrete mathematics that studies graphs. 
+The problem I want to solve is the **Travelling Salesman problem (TSP)** using **AI techniques**. It is a well-known NP-hard optimization problem in combinatorial computer science. The TSP has the following statement: *"Given a list of cities and the distances between cities (weighted graph), what is the shortest route that visits each city exactly once and returns to the starting city?"*. The problem has practical applications in various fields, such as logistics, transportation planning, and network optimization. I want to solve this problem because it is a challenging and intellectually stimulating problem, important in theoretical computer science. And I'm very interested in solving challenging theoretical computer science problems. Also, this allows me to explore applications of artificial intelligence and research further into using AI for competitive programming. Moreover, the Travelling Salesman Problem is an NP-hard (nondeterministic polynomial time) problem; in simple words, it hasn't been completely solved in polynomial time by anyone yet, and most probably never will be. However, by developing my method of solving the TSP, I can improve the efficiency of existing algorithms.
