@@ -1,8 +1,17 @@
 # NEA PROJECT REPORT
-## ANALYSIS
-### What is the problem and why am I trying to solve it?
+## 1. ANALYSIS
+### 1.1 What is the problem and why am I trying to solve it?
 
-The problem I want to solve is the **Travelling Salesman problem (TSP)** using **AI techniques**. It is a well-known NP-hard optimization problem in combinatorial computer science. The TSP has the following statement: *"Given a list of cities and the distances between cities (weighted graph), what is the shortest route that visits each city exactly once and returns to the starting city?"*. The problem has practical applications in various fields, such as logistics, transportation planning, and network optimization. I want to solve this problem because it is a challenging and intellectually stimulating problem, important in theoretical computer science. And I'm very interested in solving challenging theoretical computer science problems. Also, this allows me to explore applications of artificial intelligence and research further into using AI for competitive programming. Moreover, the Travelling Salesman Problem is an NP-hard (nondeterministic polynomial time) problem; in simple words, it hasn't been completely solved in polynomial time by anyone yet, and most probably never will be. The only way to solve the Salesman Traveling problem for large problem sizes is to find an approximate solution. However, by developing my method of solving the TSP with the use of artificial intelligence, I can improve the efficiency and accurac of existing algorithms.
+The problem I want to solve is the **Travelling Salesman problem (TSP)** using **Ant Colony Optimization (ACO)**. **TSP** is a well-known NP-hard optimization problem in combinatorial computer science. The TSP has the following statement: *"Given a list of cities and the distances between cities (weighted graph), what is the shortest route that visits each city exactly once and returns to the starting city?"*. 
+
+The problem has important practical applications in real world, such as optimizing delivery routes, reducing travel costs, and improving resource allocation. I want to solve this problem because it is a challenging and intellectually stimulating problem, important in theoretical computer science. And I'm very interested in solving challenging theoretical computer science problems. Also, this allows me to explore biology inspired optimization algorithms and research further into a specific algorithm such as ACO. 
+
+Moreover, the Travelling Salesman Problem is an NP-hard (nondeterministic polynomial time) problem; in simple words, there is no algorithm that can find the exact solution in a relatively short time, and most probably there will never be. The only way to solve the Salesman Traveling problem for large problem sizes is to find an approximate solution. However, by developing my method of solving the TSP with the use of ACO, I can improve the efficiency and accuracy of existing algorithms and make a real contribution to theoretical computer science, and this part really excites me.
+
+Also, I want to build a visualization of the Ant Colony Optimization algorothm, so that it is easier to understand how it works for people who have no background in biology inspired algorithms. Furthermore, this visualization can then become a useful learning tool for students who want to specialize in this field.
+
+
+### 1.2 Interview with a primary user
 
 There are many algorithms to solve the TSP. The most common ones are:
 1. **Exact algortihms**
