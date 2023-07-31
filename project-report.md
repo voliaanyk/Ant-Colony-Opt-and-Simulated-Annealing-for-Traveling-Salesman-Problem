@@ -1,6 +1,6 @@
 # NEA PROJECT REPORT
 ## 1. ANALYSIS
-### 1.1 What is the problem and why am I trying to solve it?
+### 1.1 What is the problem and why do I want to solve it?
 
 The problem I want to solve is the **Travelling Salesman problem (TSP)** using **Ant Colony Optimization (ACO)**. **TSP** is a well-known NP-hard optimization problem in combinatorial computer science. The TSP has the following statement: *"Given a list of cities and the distances between cities (weighted graph), what is the shortest route that visits each city exactly once and returns to the starting city?"*. 
 
@@ -13,7 +13,19 @@ Also, I want to build a visualization of the Ant Colony Optimization algorothm, 
 
 ### 1.2 Interview with a primary user
 
+### 1.3 Data from survey of prospective users
 
+
+
+### 1.4 List of user requirements
+
+### 1.5 Background analysis
+
+### 1.6 Analysis of current systems (2 systems)
+
+### 1.7 Table of objectives
+
+### 1.8 Modelling (eg. basic high level overview, hierarchy diagram, overview of how most complex part could be implemented) 
 
 
 
