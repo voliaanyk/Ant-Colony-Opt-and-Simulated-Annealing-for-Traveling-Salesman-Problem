@@ -39,7 +39,7 @@ There are many algorithms that can be used to solve TSP, the most common ones ar
    - *Potential to work on larger problem sizes, but efficiency depends on the complexity of the learning process.*
    - The time complexity of reinforcement learning algorithms can vary significantly depending on the specific approach, learning rate, and the complexity of the problem.
 
-
+![figure1](figure 1.png)
 
 ACO is inspired by behavior of real-world ants and how they use pheromones to communicate with each other. For instance, ants use trail pheromones to help other members of their colony to navigate from the nest to the source of food, and then back to the nest.
 ACO is a probabilistic technique that uses a multi-agent method (where agents are artificial ants) and simulates a colony of ants to solve complex optimization problems.
