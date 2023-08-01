@@ -39,14 +39,18 @@ There are many algorithms that can be used to solve TSP, the most common ones ar
    - *Potential to work on larger problem sizes, but efficiency depends on the complexity of the learning process.*
    - The time complexity of reinforcement learning algorithms can vary significantly depending on the specific approach, learning rate, and the complexity of the problem.
 
-![figure 1.png](https://github.com/RGS-Newcastle/git-fundamentals-playground-voliaanyk/blob/87ea825340c8a5083e374877a0435fa04bde00cd/figure%201.png)
-
-
 
 ACO is inspired by behavior of real-world ants and how they use pheromones to communicate with each other. For instance, ants use trail pheromones to help other members of their colony to navigate from the nest to the source of food, and then back to the nest.
 ACO is a probabilistic technique that uses a multi-agent method (where agents are artificial ants) and simulates a colony of ants to solve complex optimization problems.
 
 The way it works with TSP, is such that each artificial ant starts from a random city, and then constructs its path until it visits every single city, not visiting any vertice twice (in TSP it's possible to get from any city to any other city, so such path will always exist no matter what the ant's choices are). When an ant chooses an edge at each construction step, it's more likely to choose the edge with a higher pheromone level and heuristic value. When the ants finish their tour, the pheromone values of edges are updated. Firstly, all values are decreased by a certain percent, and then increased.  The increase in pheromone value of a certain edge is proportional to the quality of the solutions that use tours to which it belongs. This is repeated until the algorithm finds an optimal solution.
+
+
+![figure 1.png](https://github.com/RGS-Newcastle/git-fundamentals-playground-voliaanyk/blob/87ea825340c8a5083e374877a0435fa04bde00cd/figure%201.png)
+
+The figure above is taken from 
+Cheikhrouhou, O., Khoufi, I. (2021). A comprehensive survey on the Multiple Traveling Salesman Problem: Applications, approaches and taxonomy. https://arxiv.org/pdf/2102.12772.pdf
+The first figure shows that ACO is being used to solve TSP in 18% of reviewed papers, same as Exact Algorithms. The most common algorithm appears to be GA (genetic algorithms), 36%. The figure also shows the range of applications of TSP from Transport and Delivery to Disaster Managing, the most common application is General.
 
 
 ### 1.5 Analysis of current systems (2 systems)
