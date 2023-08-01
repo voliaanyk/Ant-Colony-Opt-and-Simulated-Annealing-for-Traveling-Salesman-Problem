@@ -13,19 +13,45 @@ Also, I want to build a visualization of the Ant Colony Optimization algorothm, 
 
 ### 1.2 Interview with a primary user
 
-### 1.3 Data from survey of prospective users
+### 1.3 List of user requirements
+
+### 1.4 Background analysis
+
+In this section I will provide background information about algorithms that are commonly used to solve TSP, with a focus on the Ant Colony Optimzation algortihm, and its relevance in solving optimization problems.
+
+There are many algorithms that can be used to solve TSP, the most common ones are:
+1. **Exact algortihms**
+    - *Work fast only on small problem sizes but guarantee the optimal solution.*
+    - The time complexity is $O(n^2 \times 2^n)$
+2. **Heuristic algorithms**
+    - *Heuristic algorithms work fast on bigger problem sizes, but produce an approximate solution.*
+    - The time complexity can range from $O(n^2)$ to $O(n^3)$ depending on the type of the algorithm.
+3. **Genetic Algorithms**
+   - *Work well on larger problem sizes and provide good approximate solutions.*
+   - Genetic algorithms can be efficient in practice for large problem sizes but can vary based on the implementation and problem complexity.
+4. **Ant Colony Optimization (ACO)**
+   - *Well-suited for large problem sizes and often provide good approximate solutions.*
+   - ACO's time complexity is generally moderate, but it can be influenced by the number of ants and iterations.
+5. **Simulated Annealing**
+   - *Works well on small to medium-sized problem instances and provides good approximate solutions.*
+   - Simulated Annealing's time complexity depends on the number of iterations and the cooling schedule but is generally moderate for small to medium-sized instances.
+6. **Reinforcement Learning**
+   - *Potential to work on larger problem sizes, but efficiency depends on the complexity of the learning process.*
+   - The time complexity of reinforcement learning algorithms can vary significantly depending on the specific approach, learning rate, and the complexity of the problem.
 
 
 
-### 1.4 List of user requirements
+ACO is inspired by behavior of real-world ants and how they use pheromones to communicate with each other. For instance, ants use trail pheromones to help other members of their colony to navigate from the nest to the source of food, and then back to the nest.
+ACO is a probabilistic technique that uses a multi-agent method (where agents are artificial ants) and simulates a colony of ants to solve complex optimization problems.
 
-### 1.5 Background analysis
+The way it works with TSP, is such that each artificial ant starts from a random city, and then constructs its path until it visits every single city, not visiting any vertice twice (in TSP it's possible to get from any city to any other city, so such path will always exist no matter what the ant's choices are). When an ant chooses an edge at each construction step, it's more likely to choose the edge with a higher pheromone level and heuristic value. When the ants finish their tour, the pheromone values of edges are updated. Firstly, all values are decreased by a certain percent, and then increased.  The increase in pheromone value of a certain edge is proportional to the quality of the solutions that use tours to which it belongs. This is repeated until the algorithm finds an optimal solution.
 
-### 1.6 Analysis of current systems (2 systems)
 
-### 1.7 Table of objectives
+### 1.5 Analysis of current systems (2 systems)
 
-### 1.8 Modelling (eg. basic high level overview, hierarchy diagram, overview of how most complex part could be implemented) 
+### 1.6 Table of objectives
+
+### 1.7 Modelling (eg. basic high level overview, hierarchy diagram, overview of how most complex part could be implemented) 
 
 
 
