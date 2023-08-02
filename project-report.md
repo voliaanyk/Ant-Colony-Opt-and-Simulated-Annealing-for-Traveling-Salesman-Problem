@@ -71,7 +71,7 @@ The first figure shows that ACO is being used to solve TSP in 18% of reviewed pa
 
 
 
-### 1.5 Analysis of current systems (2 systems)
+### 1.5 Analysis of current systems
 
 I will examine 2 visualisation of ACO for TSP open-source tools, compare them to gain insight into their strengths and weaknesses, and then apply this knowledge to developing my own project.
 
@@ -94,11 +94,19 @@ This system is more user-friendly than the previous one and has less functionali
 
 
 <br><br>
+**The comparison table for both systems is below**
 
+| feature | visual-aco | aco-tsp |
+| ----------- | ----------- | ----------- |
+| design | fairly user-friendly, but not so intuitive | very user-friendly, intuitive design |
+| target audience | advanced users | beginners |
+| customization of ACO parameters | can customize most of the main parameters | only the number of ants is customized |
+| showing the ants | lets you look at how ants move between cities | doesn't have this feature |
+| pheromone levels | shows pheromone levels | shows pheromone levels |
+| adjustable speed | ants speed is adjustable and fast forwarding through iterations is available | iterations speed is adjustable, only fast forwarding through iterations is available|
 
-
-
-
+<br><br>
+**Overall**, both systems provide great visualisation of Ant Colony Optimisation for Travelling Salesman Problem, however the first system has more functionality, and the second system has more intuitive design. I want to strike the balance between functionality and user-friendliness, drawing inspiration from both systems.
 
 
 ### 1.6 Table of objectives
