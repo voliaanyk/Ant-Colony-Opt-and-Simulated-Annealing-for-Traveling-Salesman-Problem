@@ -1,6 +1,11 @@
 # NEA PROJECT REPORT
+<br>
+
 ## 1. ANALYSIS
+<br>
+
 ### 1.1 What is the problem and why do I want to solve it?
+<br>
 
 The problem I want to solve is the **Travelling Salesman problem (TSP)** using **Ant Colony Optimization (ACO)**. **TSP** is a well-known NP-hard optimization problem in combinatorial computer science. The TSP has the following statement: 
 >Given a list of cities and the distances between cities (weighted graph), what is the shortest route that visits each city exactly once and returns to the starting city?
@@ -11,13 +16,17 @@ Moreover, the Travelling Salesman Problem is an NP-hard (nondeterministic polyno
 
 Also, I want to build a visualization of the Ant Colony Optimization algorothm, so that it is easier to understand how it works for people who have no background in biology inspired algorithms. Furthermore, this visualization can then become a useful learning tool for students who want to specialize in this field.
 
-
-
+<br><br>
 
 
 ### 1.2 Interview with a primary user
 
+
+<br><br>
+
 ### 1.3 List of user requirements
+
+<br><br>
 
 ### 1.4 Background analysis
 
@@ -42,14 +51,14 @@ There are many algorithms that can be used to solve TSP, the most common ones ar
 6. **Reinforcement Learning**
    - *Potential to work on larger problem sizes, but efficiency depends on the complexity of the learning process.*
    - The time complexity of reinforcement learning algorithms can vary significantly depending on the specific approach, learning rate, and the complexity of the problem.
-
+<br><br>
 
 ACO is inspired by behavior of real-world ants and how they use pheromones to communicate with each other. For instance, ants use trail pheromones to help other members of their colony to navigate from the nest to the source of food, and then back to the nest.
 ACO is a probabilistic technique that uses a multi-agent method (where agents are artificial ants) and simulates a colony of ants to solve complex optimization problems.
 
 The way it works with TSP, is such that each artificial ant starts from a random city, and then constructs its path until it visits every single city, not visiting any vertice twice (in TSP it's possible to get from any city to any other city, so such path will always exist no matter what the ant's choices are). When an ant chooses an edge at each construction step, it's more likely to choose the edge with a higher pheromone level and heuristic value. When the ants finish their tour, the pheromone values of edges are updated. Firstly, all values are decreased by a certain percent, and then increased.  The increase in pheromone value of a certain edge is proportional to the quality of the solutions that use tours to which it belongs. This is repeated until the algorithm finds an optimal solution.
 
-
+<br><br><br>
 
 ![figure 1.png](https://github.com/RGS-Newcastle/git-fundamentals-playground-voliaanyk/blob/87ea825340c8a5083e374877a0435fa04bde00cd/figure%201.png)
 
@@ -57,7 +66,7 @@ The figure above is taken from
 [Cheikhrouhou, O., Khoufi, I. (2021). A comprehensive survey on the Multiple Traveling Salesman Problem: Applications, approaches and taxonomy.](https://arxiv.org/pdf/2102.12772.pdf)
 The first figure shows that ACO is being used to solve TSP in 18% of reviewed papers, same as Exact Algorithms. The most common algorithm appears to be GA (genetic algorithms), 36%. The figure also shows the range of applications of TSP from Transport and Delivery to Disaster Managing, the most common application is General.
 
-
+<br><br>
 
 
 
@@ -67,20 +76,25 @@ The first figure shows that ACO is being used to solve TSP in 18% of reviewed pa
 I will examine 2 visualisation of ACO for TSP open-source tools, compare them to gain insight into their strengths and weaknesses, and then apply this knowledge to developing my own project.
 
 
-
+<br>
 
 - **The first system is [visual-aco created in the University of Tartu](https://courses.cs.ut.ee/demos/visual-aco/#/visualisation)**
 
-![figure 2](https://github.com/RGS-Newcastle/git-fundamentals-playground-voliaanyk/blob/baea7bb2911a5349d5a61b8127a40c8b6df8c9aa/figure%202.png)
+![figure 2](https://github.com/RGS-Newcastle/git-fundamentals-playground-voliaanyk/blob/afe1f8136f576ba8b5a4e203f59a0ee5fee20b0d/figure%202.png)
 
-Visual-aco has a fairly simple and easy-to-understand design, I quite like how it shows the ants and the pheromone level of each edge. What is also great, that it allows us to look inside the algorithm and see what happens throughout each iteration, and it shows the number of iteration on the bottom right. The ants speed is adjustable and I would say that the range of speeds used is perfect for this kind of visualisation. Furthermore, all the parameteres of ACO such as the percentage of ants, evaporation, etc can be also adjusted that is useful for advanced users. The cities can be automaticaly generated on the website or exported.  
+Visual-aco has a fairly simple and easy-to-understand design, I quite like how it shows the ants and the pheromone level of each edge. What is also great, that it allows us to look inside the algorithm and see what happens throughout each iteration, and it shows the number of iteration on the bottom right. The ants speed is adjustable and I would say that the range of speeds used is perfect for this kind of visualisation. Furthermore, all the parameteres of ACO such as the percentage of ants, evaporation, etc can be also adjusted that is useful for advanced users. The cities can be automaticaly generated on the website or exported. A very important thing is that you can fast-forward through the iterations by choosing to "Skip drawing ants". 
 
-
-
+<br><br>
 
 - **The second system is [Ant Colony Optimization Visualization for the Traveling Salesman Problem (aco-tsp)](https://jtp.io/2015/11/22/ant-colony-tsp-visualization.html)**
 
 ![figure 3](https://github.com/RGS-Newcastle/git-fundamentals-playground-voliaanyk/blob/4957d27eaa0da96d93f41944d86558cf699ef15f/figure%203.png)
+
+This system is more user-friendly than the previous one and has less functionality, so I would assume that it's not made for advanced users, but for users who want to gain basic insights into how ACO works. In terms of editing the city points, you can only add them yourslef by clicking on the screen or move existing ones. The biggest downside of this visualisation is that although pheromone levels can be seen, it's not possible to see how ants move thoughout iteration. Also, there is not much in terms of customization of ACO parameteres. In colnclusion, this visualisation has less features, but more intuitive design and therefore, is more user-friendly than the first visualisation.
+
+
+<br><br>
+
 
 
 
