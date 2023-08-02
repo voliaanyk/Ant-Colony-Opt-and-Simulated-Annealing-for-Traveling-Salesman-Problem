@@ -115,7 +115,7 @@ This system is more user-friendly than the previous one and has less functionali
 
 <br>
 
-1. Explore the maths behind ACO
+1. Explore the maths behind ACO <br>
    This is needed to implement ACO in the next step
 2. Implement ACO algorithm for TSP
    - should succesfully construct a route that visits each city and returns to the starting city
@@ -123,10 +123,10 @@ This system is more user-friendly than the previous one and has less functionali
    - should have an adjustable running speed
    - should return data about the ants, pheromone levels, routes, etc. so that the live visualisation can be created
    - should be quick, efficient and accurate
-3. Implement an exact algorithm for TSP
+3. Implement an exact algorithm for TSP <br>
    This algorithm should find the exact solution for TSP for smaller problem instances (for comparing to ACO output)
     - should be a very efficient and fast implementation 
-4. Create a visualisation of ACO
+4. Create a visualisation of ACO <br>
     Create an informative and interactive interface that allows users with different level of expertise to interact with ACO visualisation easily
     - visualisation of how ants move between cities and how pheromone levels change
     - provide the ability for users to customize ACO parameters, such as the number of ants, evaporation rate, etc.
@@ -136,21 +136,31 @@ This system is more user-friendly than the previous one and has less functionali
     - make it possible to generate cities, create cities via the interface, and also upload the cities information
     - show the exact best route found using an exact algorithm for smaller problem instances 
     - display documentation and user guide
-5. Link the ACO algorithm and its visualisation
+5. Link the ACO algorithm and its visualisation <br>
    Link two systems together so that the visualisation can be updated simultaneously as ACO finds the optimal solution
     - the visualisation displayed needs to be quick or appropriately to the speed chosen by user
 
 <br><br>
+   
+### 1.7 Modelling. High level overview and hierarchy diagram
+<br>
 
-### 1.7 Modelling 
+1. **ACO Algorithm Implementation**. Implement the Ant Colony Optimization (ACO) algorithm to solve the Traveling Salesman Problem (TSP)
+    **input**: cities and distances between them, ants speed, the number of iterations, ACO parameters (such as evaporation, Q, alpha, beta, etc)
+    **output**: the locations of ants at every moment, pheromone levels and the best route after each iteration
+    **implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as ACO, however python has many scientific libraries (e.g., NumPy, SciPy) that provide efficient array operations; so this is still open for discussion
+2. **Exact Algorithm Implementation**. Implement an exact algorithm (Dynamic Programming) to find the optimal solution for smaller TSP instances (for comparison purposes).
+   **input**: cities and distances between them
+   **output**: the best route
+   **implementation**: C++ will provide the highest performance
+3. **Visualization Creation**. Create an interactive visualization to show the ACO algorithm's progress and results
+    **input**: user's actions
+    **ouput**: interactive visualisation of ACO
+    **implementation**: JavaScript, HTML, CSS
+4. **Integration of Algorithm and Visualization**.Link the ACO algorithm and the visualization together.
+    **implementation**: JavaScript is a sensible option since the visualisation will be created in JS, but I will also consider a python framework Flask if ACO will be implemented in python
 
-(eg. basic high level overview, hierarchy diagram, overview of how most complex part could be implemented) 
-
-
-
-
-
-
+<br><br>
 
 
 
