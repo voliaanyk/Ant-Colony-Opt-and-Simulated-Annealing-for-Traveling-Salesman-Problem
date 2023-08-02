@@ -71,7 +71,7 @@ The first figure shows that ACO is being used to solve TSP in 18% of reviewed pa
 
 
 
-### 1.5 Analysis of current systems
+### 1.5 Analysis of current systems    
 
 I will examine 2 visualisation of ACO for TSP open-source tools, compare them to gain insight into their strengths and weaknesses, and then apply this knowledge to developing my own project.
 
@@ -111,7 +111,31 @@ This system is more user-friendly than the previous one and has less functionali
 
 ### 1.6 Table of objectives
 
-### 1.7 Modelling (eg. basic high level overview, hierarchy diagram, overview of how most complex part could be implemented) 
+1. Explore the maths behind ACO
+   This is needed to implement ACO in the next step
+2. Implement ACO algorithm for TSP
+   - should succesfully construct a route that visits each city and returns to the starting city
+   - should have input parameters that control its performance such as the number of ants, evaporation, iterations, etc.
+   - should have an adjustable running speed
+   - should return data about the ants, pheromone levels, routes, etc. so that the live visualisation can be created
+   - should be quick and efficient
+3. Implement an exact algorithm for TSP
+   This algorithm should find the exact solution for TSP for smaller problem instances (for comparing to ACO output)
+    - this needs to have a very efficient and fast implementation (possibly in C++)
+4. Visualisation of ACO
+    Create an informative and interactive interface that allows users with different level of expertise to interact with ACO visualisation easily
+    - visualisation of how ants move between cities and how pheromone levels change
+    - provide the ability for users to customize ACO parameters, such as the number of ants, evaporation rate, etc.
+    - adjustable speed and pause functionality
+    - fast-forwarding through iterations
+    - showing important information such as the number of iteration, the best route and its length, and when it was found
+    - make it possible to generate cities, create cities via the interface, and also upload the cities information
+    - show the exact best route found using an exact algorithm for smaller problem instances 
+    - display documentation and user guide
+
+### 1.7 Modelling 
+
+(eg. basic high level overview, hierarchy diagram, overview of how most complex part could be implemented) 
 
 
 
