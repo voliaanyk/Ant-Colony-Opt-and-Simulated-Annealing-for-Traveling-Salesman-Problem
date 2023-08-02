@@ -30,7 +30,7 @@ Also, I want to build a visualization of the Ant Colony Optimization algorothm, 
 
 ### 1.4 Background analysis
 
-In this section I will provide background information about algorithms that are commonly used to solve TSP, with a focus on the Ant Colony Optimzation algortihm, and its relevance in solving optimization problems.
+In this section I will provide background information about algorithms that are commonly used to solve TSP, with a focus on the Ant Colony Optimization algorithm, and its relevance in solving optimization problems.
 
 There are many algorithms that can be used to solve TSP, the most common ones are:
 1. **Exact algortihms**
@@ -56,7 +56,7 @@ There are many algorithms that can be used to solve TSP, the most common ones ar
 ACO is inspired by behavior of real-world ants and how they use pheromones to communicate with each other. For instance, ants use trail pheromones to help other members of their colony to navigate from the nest to the source of food, and then back to the nest.
 ACO is a probabilistic technique that uses a multi-agent method (where agents are artificial ants) and simulates a colony of ants to solve complex optimization problems.
 
-The way it works with TSP, is such that each artificial ant starts from a random city, and then constructs its path until it visits every single city, not visiting any vertice twice (in TSP it's possible to get from any city to any other city, so such path will always exist no matter what the ant's choices are). When an ant chooses an edge at each construction step, it's more likely to choose the edge with a higher pheromone level and heuristic value. When the ants finish their tour, the pheromone values of edges are updated. Firstly, all values are decreased by a certain percent, and then increased.  The increase in pheromone value of a certain edge is proportional to the quality of the solutions that use tours to which it belongs. This is repeated until the algorithm finds an optimal solution.
+The way it works to solve TSP, is such that each artificial ant starts from a random city, and then constructs its path until it visits every single city, not visiting any city twice (in TSP it's possible to get from any city to any other city, so such path will always exist no matter what the previous ant's choices are). When an ant chooses an edge at each construction step, it's more likely to choose the edge with a higher pheromone level and heuristic value. When the ants finish their tour, the pheromone values of edges are updated. Firstly, all values are decreased by a certain percent, and then increased. The increase in pheromone value of a certain edge is proportional to the quality of the solutions that use tours to which it belongs. This is repeated until the algorithm finds an optimal solution.
 
 <br><br><br>
 
@@ -122,11 +122,11 @@ This system is more user-friendly than the previous one and has less functionali
    - should have input parameters that control its performance such as the number of ants, evaporation, iterations, etc.
    - should have an adjustable running speed
    - should return data about the ants, pheromone levels, routes, etc. so that the live visualisation can be created
-   - should be quick and efficient
+   - should be quick, efficient and accurate
 3. Implement an exact algorithm for TSP
    This algorithm should find the exact solution for TSP for smaller problem instances (for comparing to ACO output)
-    - this needs to have a very efficient and fast implementation (possibly in C++)
-4. Visualisation of ACO
+    - should be a very efficient and fast implementation 
+4. Create a visualisation of ACO
     Create an informative and interactive interface that allows users with different level of expertise to interact with ACO visualisation easily
     - visualisation of how ants move between cities and how pheromone levels change
     - provide the ability for users to customize ACO parameters, such as the number of ants, evaporation rate, etc.
@@ -136,6 +136,9 @@ This system is more user-friendly than the previous one and has less functionali
     - make it possible to generate cities, create cities via the interface, and also upload the cities information
     - show the exact best route found using an exact algorithm for smaller problem instances 
     - display documentation and user guide
+5. Link the ACO algorithm and its visualisation
+   Link two systems together so that the visualisation can be updated simultaneously as ACO finds the optimal solution
+    - the visualisation displayed needs to be quick or appropriately to the speed chosen by user
 
 <br><br>
 
