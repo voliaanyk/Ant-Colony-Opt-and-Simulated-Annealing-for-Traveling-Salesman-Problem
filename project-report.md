@@ -115,30 +115,34 @@ This system is more user-friendly than the previous one and has less functionali
 
 <br>
 
-1. Explore the maths behind ACO <br>
-   This is needed to implement ACO in the next step
-2. Implement ACO algorithm for TSP
+**1. Explore the maths behind ACO** <br>
+   *This is needed to implement ACO in the next step*
+
+**2. Implement ACO algorithm for TSP**
    - should succesfully construct a route that visits each city and returns to the starting city
    - should have input parameters that control its performance such as the number of ants, evaporation, iterations, etc.
    - should have an adjustable running speed
    - should return data about the ants, pheromone levels, routes, etc. so that the live visualisation can be created
    - should be quick, efficient and accurate
-3. Implement an exact algorithm for TSP <br>
-   This algorithm should find the exact solution for TSP for smaller problem instances (for comparing to ACO output)
-    - should be a very efficient and fast implementation 
-4. Create a visualisation of ACO <br>
-    Create an informative and interactive interface that allows users with different level of expertise to interact with ACO visualisation easily
-    - visualisation of how ants move between cities and how pheromone levels change
-    - provide the ability for users to customize ACO parameters, such as the number of ants, evaporation rate, etc.
-    - adjustable speed and pause functionality
-    - fast-forwarding through iterations
-    - showing important information such as the number of iteration, the best route and its length, and when it was found
-    - make it possible to generate cities, create cities via the interface, and also upload the cities information
-    - show the exact best route found using an exact algorithm for smaller problem instances 
-    - display documentation and user guide
-5. Link the ACO algorithm and its visualisation <br>
-   Link two systems together so that the visualisation can be updated simultaneously as ACO finds the optimal solution
-    - the visualisation displayed needs to be quick or appropriately to the speed chosen by user
+
+**3. Implement an exact algorithm for TSP** <br>
+   *This algorithm should find the exact solution for TSP for smaller problem instances (for comparing to ACO output)*
+   - should be a very efficient and fast implementation
+
+**4. Create a visualisation of ACO** <br>
+    *Create an informative and interactive interface that allows users with different level of expertise to interact with ACO visualisation easily*
+   - visualisation of how ants move between cities and how pheromone levels change
+   -  provide the ability for users to customize ACO parameters, such as the number of ants, evaporation rate, etc.
+   - adjustable speed and pause functionality
+   - fast-forwarding through iterations
+   - showing important information such as the number of iteration, the best route and its length, and when it was found
+   - make it possible to generate cities, create cities via the interface, and also upload the cities information
+   - show the exact best route found using an exact algorithm for smaller problem instances 
+   - display documentation and user guide
+
+**5. Link the ACO algorithm and its visualisation** <br>
+   *Link the systems together so that the visualisation can be updated simultaneously as ACO finds the optimal solution*
+   - the visualisation displayed needs to be quick or appropriately to the speed chosen by user <br>
 
 <br><br>
    
