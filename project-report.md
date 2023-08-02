@@ -72,6 +72,7 @@ The first figure shows that ACO is being used to solve TSP in 18% of reviewed pa
 
 
 ### 1.5 Analysis of current systems    
+<br>
 
 I will examine 2 visualisation of ACO for TSP open-source tools, compare them to gain insight into their strengths and weaknesses, and then apply this knowledge to developing my own project.
 
@@ -108,8 +109,11 @@ This system is more user-friendly than the previous one and has less functionali
 <br><br>
 **Overall**, both systems provide great visualisation of Ant Colony Optimisation for Travelling Salesman Problem, however the first system has more functionality, and the second system has more intuitive design. I want to strike the balance between functionality and user-friendliness, drawing inspiration from both systems.
 
+<br><br>
 
 ### 1.6 Table of objectives
+
+<br>
 
 1. Explore the maths behind ACO
    This is needed to implement ACO in the next step
@@ -132,6 +136,8 @@ This system is more user-friendly than the previous one and has less functionali
     - make it possible to generate cities, create cities via the interface, and also upload the cities information
     - show the exact best route found using an exact algorithm for smaller problem instances 
     - display documentation and user guide
+
+<br><br>
 
 ### 1.7 Modelling 
 
