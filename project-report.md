@@ -163,6 +163,7 @@ This system is more user-friendly than the previous one and has less functionali
     <br>**implementation**: JavaScript, HTML, CSS
 4. **Integration of Algorithm and Visualization**.Link the ACO algorithm and the visualization together.
     <br>**implementation**: JavaScript is a sensible option since the visualisation will be created in JS, but I will also consider a python framework Flask if ACO will be implemented in python
+![figure 4](https://github.com/RGS-Newcastle/git-fundamentals-playground-voliaanyk/blob/4031fdda0ca044fc88453df92a3f99c0de58b62b/figure%204.png)
 
 <br><br>
 
