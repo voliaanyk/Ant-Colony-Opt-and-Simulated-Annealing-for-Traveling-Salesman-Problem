@@ -21,6 +21,53 @@ Also, I want to build a visualization of the Ant Colony Optimization algorothm, 
 
 ### 1.2 Interview with a primary user
 
+<br>
+
+When it comes to developing and implementing complex algorithms such as ACO, it's always nice to have a friend who has expertise in the field and can give you a hand with directing you. Luckily, I have such friend, Oleh Naver from Ukraine, who did his first year at Jagiellonian University and transferred to the National University of Singapore (NUS) to study computer science. Oleh is a gold medalist of IOI, and I actually met him at one of the informatics olympiads, where he was a problem-setter.
+
+Oleh agreed to be the primary user for this project, so I will interview him (virtually, of course, I'm not going to Singapore) and write down my questions and corresponding answers below.
+
+<br>
+
+> Are you familiar with the Travelling Salesman Problem?
+
+*answer*
+
+> Have you studied the Ant Colony Optimisation and how it's used to solve TSP?
+
+*answer*
+
+> What are your main goals for using this visualization tool for the TSP with ACO?
+
+*answer*
+
+> What specific features would you like to see in the visualization tool?
+
+*answer*
+
+> How important is the user-friendliness of the interface to you?
+
+*answer*
+
+> Would you like to have the option to compare the results of the ACO algorithm with an exact algorithm for smaller problem instances or with some other algorithm?
+
+*answer*
+
+> How important is real-time interactivity in the visualization?
+
+*answer*
+
+> What level of user guide would you find helpful for using the visualization tool effectively?
+
+*answer*
+
+> Is there anything else you would like to mention or any specific requirements you have for the visualization tool?
+
+*answer*
+
+
+
+
 
 <br><br>
 
