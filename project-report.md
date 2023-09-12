@@ -107,7 +107,7 @@ ACO is a probabilistic technique that uses a multi-agent method (where agents ar
 
 The way it works to solve TSP, is such that each artificial ant starts from a random city, and then constructs its path until it visits every single city, not visiting any city twice (in TSP it's possible to get from any city to any other city, so such path will always exist no matter what the previous ant's choices are). When an ant chooses an edge at each construction step, it's more likely to choose the edge with a higher pheromone level and heuristic value. When the ants finish their tour, the pheromone values of edges are updated. Firstly, all values are decreased by a certain percent, and then increased. The increase in pheromone value of a certain edge is proportional to the quality of the solutions that use tours to which it belongs. This is repeated until the algorithm finds an optimal solution.
 
-**add text about SI**
+SA is a combinatorial optimizational technique just like ACO. It's inspired by the process of annealing a metal or glass by raising it to a high temperature and then gradually reducing the temperature, allowing local regions of order to grow outward. In simulated annealing, the equivalent of temperature is a measure of the randomness by which changes are made to the best path, in order to minimise it. When the temperature is high, larger random changes are made, avoiding the risk of becoming trapped in a local minimum. And as the temperature decreases, the probability of accepting worse solution reduces exponentially, allowing the algorithm to converge towards an optimal or near-optimal solution.
 
 
 <br><br><br>
@@ -173,12 +173,14 @@ This system is more user-friendly than the previous one and has less functionali
 2. **Implement ACO algorithm for TSP**
    - should succesfully construct a route that visits each city and returns to the starting city
    - should have input parameters that control its performance such as the number of ants, evaporation, iterations, etc.
-   - should have an adjustable running speed
    - should return data about the ants, pheromone levels, routes, etc. so that the live visualisation can be created
    - should be quick, efficient and accurate
   
 3. **Implement Simulated Annealing** <br>
-   - text
+   - should succesfully construct a route that visits each city and returns to the starting city
+   - should have input parameters that control its performance such as initial temperature, Markov chains, alpha, etc.
+   - should return data about the best route, temperature, etc. so that the live visualisation can be created
+   - should be quick, efficient and accurate
 
 4. **Implement an exact algorithm for TSP** <br>
    *This algorithm should find the exact solution for TSP for smaller problem instances (for comparing to ACO and SA output)*
@@ -207,11 +209,11 @@ This system is more user-friendly than the previous one and has less functionali
 <br>
 
 1. **ACO Algorithm Implementation**. Implement the Ant Colony Optimization algorithm to solve the Traveling Salesman Problem
-    <br>**input**: cities and distances between them, ants speed, the number of iterations, ACO parameters (such as evaporation, Q, alpha, etc)
+    <br>**input**: cities and distances between them, the number of iterations, ACO parameters (such as evaporation, Q, alpha, etc)
     <br>**output**: the locations of ants at every moment, pheromone levels and the best route after each iteration
     <br>**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as ACO
 2. **Simulated Annealing Implemenation**. Implement the Simulated Annealing algorithm to solve the Traveling Salesman Problem
-    <br>**input**: cities and distances between them, ants speed, the number of iterations, SA parameters (initial temperature, Markov chains, alpha)
+    <br>**input**: cities and distances between them, SA parameters (initial temperature, Markov chains, alpha)
     <br>**output**: the best route, temperature, acceptance probability after each iteration
     <br>**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as SA
 3. **Exact Algorithm Implementation**. Implement an exact algorithm (Dynamic Programming) to find the optimal solution for smaller TSP instances (for comparison purposes).
