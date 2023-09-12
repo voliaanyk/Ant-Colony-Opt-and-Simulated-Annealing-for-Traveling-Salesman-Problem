@@ -167,8 +167,8 @@ This system is more user-friendly than the previous one and has less functionali
 
 <br>
 
-1. **Explore the maths behind ACO** <br>
-   *This is needed to implement ACO in the next step*
+1. **Explore the maths behind ACO and SA** <br>
+   *This is needed to implement ACO and SA in the next step*
 
 2. **Implement ACO algorithm for TSP**
    - should succesfully construct a route that visits each city and returns to the starting city
@@ -181,13 +181,15 @@ This system is more user-friendly than the previous one and has less functionali
    - text
 
 4. **Implement an exact algorithm for TSP** <br>
-   *This algorithm should find the exact solution for TSP for smaller problem instances (for comparing to ACO output)*
+   *This algorithm should find the exact solution for TSP for smaller problem instances (for comparing to ACO and SA output)*
    - should be a very efficient and fast implementation
 
-5. **Create a visualisation of ACO** <br>
-    *Create an informative and interactive interface that allows users with different level of expertise to interact with ACO visualisation easily*
+5. **Create a visualisation of algorithms** <br>
+    *Create an informative and interactive interface that allows users with different level of expertise to interact with visualisation easily*
    - visualisation of how ants move between cities and how pheromone levels change
-   -  provide the ability for users to customize ACO parameters, such as the number of ants, evaporation rate, etc.
+   - visualisation of how output of SA changes with each iteration
+   - make it possible to hide/show any visualisation
+   - provide the ability for users to customize ACO and SA parameters
    - adjustable speed and pause functionality
    - fast-forwarding through iterations
    - showing important information such as the number of iteration, the best route and its length, and when it was found
@@ -207,11 +209,11 @@ This system is more user-friendly than the previous one and has less functionali
 1. **ACO Algorithm Implementation**. Implement the Ant Colony Optimization algorithm to solve the Traveling Salesman Problem
     <br>**input**: cities and distances between them, ants speed, the number of iterations, ACO parameters (such as evaporation, Q, alpha, etc)
     <br>**output**: the locations of ants at every moment, pheromone levels and the best route after each iteration
-    <br>**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as ACO, however python has many scientific libraries (e.g., NumPy, SciPy) that provide efficient array operations; so this is still open for discussion
+    <br>**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as ACO
 2. **Simulated Annealing Implemenation**. Implement the Simulated Annealing algorithm to solve the Traveling Salesman Problem
     <br>**input**: cities and distances between them, ants speed, the number of iterations, SA parameters (initial temperature, Markov chains, alpha)
     <br>**output**: the best route, temperature, acceptance probability after each iteration
-    <br>**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as ACO, however python has many scientific libraries (e.g., NumPy, SciPy) that provide efficient array operations; so this is still open for discussion
+    <br>**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as SA
 3. **Exact Algorithm Implementation**. Implement an exact algorithm (Dynamic Programming) to find the optimal solution for smaller TSP instances (for comparison purposes).
    <br>**input**: cities and distances between them
    <br>**output**: the best route
@@ -221,7 +223,7 @@ This system is more user-friendly than the previous one and has less functionali
     <br>**ouput**: interactive visualisation
     <br>**implementation**: JavaScript, HTML, CSS
 5. **Integration of Algorithm and Visualization**. Link the algorithms and the visualization together.
-    <br>**implementation**: JavaScript is a sensible option since the visualisation will be created in JS, but I will also consider a python framework Flask if ACO will be implemented in python
+    <br>**implementation**: JavaScript is a sensible option since the visualisation will be created in JS, but I will also consider a python framework Flask
 ![figure 4](https://github.com/RGS-Newcastle/git-fundamentals-playground-voliaanyk/blob/4031fdda0ca044fc88453df92a3f99c0de58b62b/figure%204.png)
 
 <br><br>
