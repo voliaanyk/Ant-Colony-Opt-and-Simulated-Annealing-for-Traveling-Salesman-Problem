@@ -7,14 +7,14 @@
 ### 1.1 What is the problem and why do I want to solve it?
 <br>
 
-The problem I want to solve is the **Travelling Salesman problem (TSP)** using **Ant Colony Optimization (ACO)**. **TSP** is a well-known NP-hard optimization problem in combinatorial computer science. The TSP has the following statement: 
+The problem I want to solve is implementing 3 algorithms such as **Ant Colony Optimization(ACO)**, **Simulated Annealing(SA)** and an **Exact Algorithm(EA)** to compare their solutions to the **Travelling Salesman problem (TSP)** and create a visualisation in order to understand better how these algorithms work. **TSP** is a well-known NP-hard optimization problem in combinatorial computer science. The TSP has the following statement: 
 >Given a list of cities and the distances between cities (weighted graph), what is the shortest route that visits each city exactly once and returns to the starting city?
 
 The problem has important practical applications in real world, such as optimizing delivery routes, reducing travel costs, and improving resource allocation. I want to solve this problem because it is a challenging and intellectually stimulating problem, important in theoretical computer science. And I'm very interested in solving challenging theoretical computer science problems. Also, this allows me to explore biology inspired optimization algorithms and research further into a specific algorithm such as ACO. 
 
 Moreover, the Travelling Salesman Problem is an NP-hard (nondeterministic polynomial time) problem; in simple words, there is no algorithm that can find the exact solution in a relatively short time, and most probably there will never be. The only way to solve the Salesman Traveling problem for large problem sizes is to find an approximate solution. However, by developing my method of solving the TSP with the use of ACO, I can surpass the efficiency and accuracy of existing algorithms and make a real contribution to theoretical computer science, and this part really excites me.
 
-Also, I want to build a visualization of the Ant Colony Optimization algorothm, so that it is easier to understand how it works for people who have no background in biology inspired algorithms. Furthermore, this visualization can then become a useful learning tool for students who want to specialize in this field.
+Also, I want to build a visualization of the algorithms, so that it is easier to understand how they work for people who have no background in optimizational computer science. Furthermore, this visualization can then become a powerful learning tool for students who want to specialize in this field.
 
 <br><br>
 
@@ -100,10 +100,15 @@ There are many algorithms that can be used to solve TSP, the most common ones ar
    - The time complexity of reinforcement learning algorithms can vary significantly depending on the specific approach, learning rate, and the complexity of the problem.
 <br><br>
 
+Exact algorthms simply check every route and choose the best. They guarantees to find the best possible solution, but the the time comlexity is exponential, so it increases vastly as the problem size increases. This means that they can only be used for small data instances (up to 10 cities on an average computer).
+
 ACO is inspired by behavior of real-world ants and how they use pheromones to communicate with each other. For instance, ants use trail pheromones to help other members of their colony to navigate from the nest to the source of food, and then back to the nest.
 ACO is a probabilistic technique that uses a multi-agent method (where agents are artificial ants) and simulates a colony of ants to solve complex optimization problems.
 
 The way it works to solve TSP, is such that each artificial ant starts from a random city, and then constructs its path until it visits every single city, not visiting any city twice (in TSP it's possible to get from any city to any other city, so such path will always exist no matter what the previous ant's choices are). When an ant chooses an edge at each construction step, it's more likely to choose the edge with a higher pheromone level and heuristic value. When the ants finish their tour, the pheromone values of edges are updated. Firstly, all values are decreased by a certain percent, and then increased. The increase in pheromone value of a certain edge is proportional to the quality of the solutions that use tours to which it belongs. This is repeated until the algorithm finds an optimal solution.
+
+**add text about SI**
+
 
 <br><br><br>
 
@@ -121,7 +126,7 @@ The first figure shows that ACO is being used to solve TSP in 18% of reviewed pa
 ### 1.5 Analysis of current systems    
 <br>
 
-I will examine 2 visualisation of ACO for TSP open-source tools, compare them to gain insight into their strengths and weaknesses, and then apply this knowledge to developing my own project.
+I will examine 2 visualisation of ACO for TSP open-source tools, because there are no tools like that for Simulated Annealing, compare them to gain insight into their strengths and weaknesses, and then apply this knowledge to developing my own project.
 
 
 <br>
@@ -171,12 +176,15 @@ This system is more user-friendly than the previous one and has less functionali
    - should have an adjustable running speed
    - should return data about the ants, pheromone levels, routes, etc. so that the live visualisation can be created
    - should be quick, efficient and accurate
+  
+3. **Implement Simulated Annealing** <br>
+   - text
 
-3. **Implement an exact algorithm for TSP** <br>
+4. **Implement an exact algorithm for TSP** <br>
    *This algorithm should find the exact solution for TSP for smaller problem instances (for comparing to ACO output)*
    - should be a very efficient and fast implementation
 
-4. **Create a visualisation of ACO** <br>
+5. **Create a visualisation of ACO** <br>
     *Create an informative and interactive interface that allows users with different level of expertise to interact with ACO visualisation easily*
    - visualisation of how ants move between cities and how pheromone levels change
    -  provide the ability for users to customize ACO parameters, such as the number of ants, evaporation rate, etc.
@@ -187,7 +195,7 @@ This system is more user-friendly than the previous one and has less functionali
    - show the exact best route found using an exact algorithm for smaller problem instances 
    - display documentation and user guide
 
-5. **Link the ACO algorithm and its visualisation** <br>
+6. **Link the ACO algorithm and its visualisation** <br>
    *Link the systems together so that the visualisation can be updated simultaneously as ACO finds the optimal solution*
    - the visualisation displayed needs to be quick or appropriately to the speed chosen by user <br>
 
@@ -200,15 +208,19 @@ This system is more user-friendly than the previous one and has less functionali
     <br>**input**: cities and distances between them, ants speed, the number of iterations, ACO parameters (such as evaporation, Q, alpha, etc)
     <br>**output**: the locations of ants at every moment, pheromone levels and the best route after each iteration
     <br>**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as ACO, however python has many scientific libraries (e.g., NumPy, SciPy) that provide efficient array operations; so this is still open for discussion
-2. **Exact Algorithm Implementation**. Implement an exact algorithm (Dynamic Programming) to find the optimal solution for smaller TSP instances (for comparison purposes).
+2. **Simulated Annealing Implemenation**. Implement the Simulated Annealing algorithm to solve the Traveling Salesman Problem
+    <br>**input**: cities and distances between them, ants speed, the number of iterations, SA parameters (initial temperature, Markov chains, alpha)
+    <br>**output**: the best route, temperature, acceptance probability after each iteration
+    <br>**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as ACO, however python has many scientific libraries (e.g., NumPy, SciPy) that provide efficient array operations; so this is still open for discussion
+3. **Exact Algorithm Implementation**. Implement an exact algorithm (Dynamic Programming) to find the optimal solution for smaller TSP instances (for comparison purposes).
    <br>**input**: cities and distances between them
    <br>**output**: the best route
    <br>**implementation**: C++ will provide the highest performance
-3. **Visualization Creation**. Create an interactive visualization to show the ACO algorithm's progress and results
+4. **Visualization Creation**. Create an interactive visualization to show the algorithms' progresses and results
     <br>**input**: user's actions
-    <br>**ouput**: interactive visualisation of ACO
+    <br>**ouput**: interactive visualisation
     <br>**implementation**: JavaScript, HTML, CSS
-4. **Integration of Algorithm and Visualization**.Link the ACO algorithm and the visualization together.
+5. **Integration of Algorithm and Visualization**. Link the algorithms and the visualization together.
     <br>**implementation**: JavaScript is a sensible option since the visualisation will be created in JS, but I will also consider a python framework Flask if ACO will be implemented in python
 ![figure 4](https://github.com/RGS-Newcastle/git-fundamentals-playground-voliaanyk/blob/4031fdda0ca044fc88453df92a3f99c0de58b62b/figure%204.png)
 
