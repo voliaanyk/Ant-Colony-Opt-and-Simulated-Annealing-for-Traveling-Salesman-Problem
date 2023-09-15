@@ -23,49 +23,45 @@ Also, I want to build a visualization of the algorithms, so that it is easier to
 
 <br>
 
-When it comes to developing and implementing complex algorithms such as ACO, it's always nice to have a friend who has expertise in the field and can give you a hand with directing you. Luckily, I have such friend, Oleh Naver from Ukraine, who did his first year at Jagiellonian University and transferred to the National University of Singapore (NUS) to study computer science. Oleh is a gold medalist of IOI, and I actually met him at one of the informatics olympiads, where he was a problem-setter.
+When it comes to developing and implementing complex algorithms such as ACO, it's always nice to have friends who has expertise in the field and can give you a piece of valuable advice. Luckily, I have such friends, and I talked to them about implementing ACO for TSP, which was my initial idea and this is the feedback I got:
 
-Oleh agreed to be the primary user for this project, so I will interview him (virtually, of course, I'm not going to Singapore) and write down my questions and corresponding answers below.
+> Simulated Annealing is easier to set up for Travelling Salesman Problem and usually requires less iterations, so it would be interesting to compare it to the Ant Colony Optimization.
+
+> If you are going to implement ACO, you should compare it to other algorithms. Simulated Annealing is an algorithm that is really easy but works well periodically for some reason. Ants will probably work better for TSP, but there Simulated Annealing is a good competition.
+
+So after hearing the exact thing twice from different people, I got interested in Simulated Annealing and decided to include it in my NEA project.
+
+My primary user is a maths teacher from my school, who teaches me decision maths, where TSP is one of the topics. 
 
 <br>
 
-> Are you familiar with the Travelling Salesman Problem?
+> Why is Travelling Salesman Problem important in decision mathematics and where can we use it practically?
 
 *answer*
 
-> Have you studied the Ant Colony Optimisation and how it's used to solve TSP?
+> When students learn about TSP and similar problems, what do they usually find difficult?
 
 *answer*
 
-> What are your main goals for using this visualization tool for the TSP with ACO?
+> Have you seen any tools or resources that help students learn about TSP effectively? What was good or not so good about them?
 
 *answer*
 
-> What specific features would you like to see in the visualization tool?
+> I'm going to create a visualisation of 2 algorihtms that solve TSP - Ant Colony Optimization and Simulated Annealing. Should the visualization tool provide a detailed, step-by-step explanation of how they work, or should it focus on giving an overall idea??
 
 *answer*
 
-> How important is the user-friendliness of the interface to you?
+> Do you think students should be able to change input parameters of the algorithms like the number of ants or evaporation rate in the visualization tool? Why or why not?
 
 *answer*
 
-> Would you like to have the option to compare the results of the ACO algorithm with an exact algorithm for smaller problem instances or with some other algorithm?
+> When students can interact with a tool in real-time, do they learn better?
 
 *answer*
 
-> How important is real-time interactivity in the visualization?
+> Is there anything else you'd like to share about how the visualization tool can be useful in teaching decision mathematics? Any special requests or ideas?
 
 *answer*
-
-> What level of user guide would you find helpful for using the visualization tool effectively?
-
-*answer*
-
-> Is there anything else you would like to mention or any specific requirements you have for the visualization tool?
-
-*answer*
-
-
 
 
 
