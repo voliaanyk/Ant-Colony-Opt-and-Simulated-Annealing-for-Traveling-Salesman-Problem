@@ -122,7 +122,7 @@ The first figure shows that ACO is being used to solve TSP in 18% of reviewed pa
 ### 1.5 Analysis of current systems    
 <br>
 
-I will examine 2 visualisation of ACO for TSP open-source tools, because there are no tools like that for Simulated Annealing, compare them to gain insight into their strengths and weaknesses, and then apply this knowledge to developing my own project.
+I will examine 2 visualisation of ACO for TSP open-source tools, compare them to gain insight into their strengths and weaknesses, and then apply this knowledge to developing my own project.
 
 
 <br>
@@ -140,6 +140,7 @@ Visual-aco has a fairly simple and easy-to-understand design, I quite like how i
 ![figure 3](https://github.com/RGS-Newcastle/git-fundamentals-playground-voliaanyk/blob/4957d27eaa0da96d93f41944d86558cf699ef15f/figure%203.png)
 
 This system is more user-friendly than the previous one and has less functionality, so I would assume that it's not made for advanced users, but for users who want to gain basic insights into how ACO works. In terms of editing the city points, you can only add them yourslef by clicking on the screen or move existing ones. The biggest downside of this visualisation is that although pheromone levels can be seen, it's not possible to see how ants move thoughout iteration. Also, there is not much in terms of customization of ACO parameteres. In colnclusion, this visualisation has less features, but more intuitive design and therefore, is more user-friendly than the first visualisation.
+
 
 
 <br><br>
@@ -222,7 +223,7 @@ This system is more user-friendly than the previous one and has less functionali
     <br>**implementation**: JavaScript, HTML, CSS
 5. **Integration of Algorithm and Visualization**. Link the algorithms and the visualization together.
     <br>**implementation**: JavaScript is a sensible option since the visualisation will be created in JS, but I will also consider a python framework Flask
-![figure 4](https://github.com/RGS-Newcastle/git-fundamentals-playground-voliaanyk/blob/4031fdda0ca044fc88453df92a3f99c0de58b62b/figure%204.png)
+   ![hierarchy diagram](https://github.com/RGS-Newcastle/git-fundamentals-playground-voliaanyk/blob/77ed97a1c7ef98d766f9a77292ce8464e5c7ff1a/hierarchy%20diagram.png)
 
 <br><br>
 
