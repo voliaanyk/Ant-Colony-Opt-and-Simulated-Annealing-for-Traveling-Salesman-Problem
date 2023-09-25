@@ -27,7 +27,7 @@ int held_karp(tsp_input input){
                 if (u==v || !(mask & (1<<v)) || !(mask & (1<<u))) continue; //S has to contain v and u
                 // ^ is xor, so mask ^ (1<<v) is S\v
                 if (dist[u][v] != -1){
-                    int x = mask ^ (1<<v);
+                    //int x = mask ^ (1<<v);
                     //cout<<"  "<<x<<" "<<u<<" "<<dist[u][v]<<endl;
                     dp[mask][v] = min(dp[mask][v], dp[mask ^ (1<<v)][u] + dist[u][v]); 
                 }
