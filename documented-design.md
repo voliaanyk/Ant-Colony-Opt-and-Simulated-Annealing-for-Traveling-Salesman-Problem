@@ -8,8 +8,26 @@ There are different exact algorithms that can be used for solving TSP. I have ch
 The main idea of Held-Karp is to compute the shortest tour length for all subsets of cities that end at a specific city. Here's the solution:
 
 $dp[S][v]$ - the shortest path from $1$ to $v$ that visits all cities in subset $S$
-at the start all $dp[S][v]=$&infin; and $dp[\{i\}][i]=0$ as the length of the path that visits one city only is $0$ <br>
+at the start all $dp[S][v]=$&infin; and $dp[1][0]=0$ as the length of the path that visits the first city only is $0$ <br>
 $dist[v1][v2]$ - the distance table 
+
+#### Bitmasks
+
+For this algorithm I'm going to use bitmasks. Bitmask is a binary number that represents a subset of a set. If the number has 1 at a point x (that is $2^x$ bit), then element number x in the superset is included in the subset. 
+
+Example:
+
+4 3 2 1 0
+1 0 0 1 1  = 32 + 2 + 1 = 35
+So bitmask 35 represents a subset {0, 1, 4}
+
+Some binary operations in C++:
+
+$1<<n$ - shift of 1, n times to the left
+$x\^y$ - x xor y
+$mask & (1<<x)$ - returns 1 if element x is in the subset represented by bitmask
+$mask ^ (1<<x)$ - bitmask that represents S\x
+
 
 #### Pseudo code:
 
