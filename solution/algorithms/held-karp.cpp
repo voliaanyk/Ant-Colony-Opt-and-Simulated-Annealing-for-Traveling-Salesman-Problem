@@ -15,24 +15,24 @@ int held_karp(tsp_input input){
             dp[mask][v] = inf;
         }
     }
-    dp[0][0] = 0; //distance from 1 to 1 is 0
+    dp[1][0] = 0; //distance from 1 to 1 is 0
 
     for(int mask=1; mask<(1<<n); mask++){ //mask represents a set S
-        cout<<mask<<endl;
+        //cout<<mask<<endl;
         for(int v=1; v<n; v++){
             for(int u=0; u<n; u++){
                 /* 1<<v is left shift of 1, v bits (the same as 2 to the power of v)
                    mask & (1<<v) is 0 if mask has 0 at position v -> so S doesn't contain v
                    mask & (1<<v) is 1 if mask has 1 at position v -> so S contains v */
-                if (u==v || !(mask & (1<<v)) || (mask & (1<<u))) continue; //S has to contain v but not u
+                if (u==v || !(mask & (1<<v)) || !(mask & (1<<u))) continue; //S has to contain v and u
                 // ^ is xor, so mask ^ (1<<v) is S\v
                 if (dist[u][v] != -1){
                     int x = mask ^ (1<<v);
-                    cout<<"  "<<x<<" "<<u<<" "<<dist[u][v]<<endl;
+                    //cout<<"  "<<x<<" "<<u<<" "<<dist[u][v]<<endl;
                     dp[mask][v] = min(dp[mask][v], dp[mask ^ (1<<v)][u] + dist[u][v]); 
                 }
             }
-            if(mask & (1<<v)) cout<<" "<<v<<" "<<dp[mask][v]<<endl;
+            //if(mask & (1<<v)) cout<<" "<<v<<" "<<dp[mask][v]<<endl;
         }
     }
     int mask = (1<<n)-1; //represents set S = {1,2,3,...,n}
@@ -61,7 +61,7 @@ int main() {
         }
     }
 
-    cout<<held_karp(input);
+    cout<<held_karp(input)<<endl;
     
 
     return 0;
