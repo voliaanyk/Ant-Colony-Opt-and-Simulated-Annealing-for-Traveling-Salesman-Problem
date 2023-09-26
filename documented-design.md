@@ -9,15 +9,15 @@ There are different exact algorithms that can be used for solving TSP. I have ch
 The main idea of Held-Karp is to compute the shortest tour length for all subsets of cities that end at a specific city. Here's the solution:
 
 $dp[S][v]$ - the shortest path from $1$ to $v$ that visits all cities in subset $S$
-at the start all $dp[S][v]=$&infin; and $dp[1][0]=0$ as the length of the path that visits the first city only is $0$ `<br/>`
+at the start all $dp[S][v]=$&infin; and $dp[1][0]=0$ as the length of the path that visits the first city only is $0$  \<br>
 $dist[v1][v2]$ - the distance table
 
 #### Pseudo code:
 
-for $s$ from $2$ to $n-1$:
-&nbsp;&nbsp;      for all $S$ &sube; {2,3,..,n} and $|S|$ = $s$:
-&nbsp; &nbsp; &nbsp; &nbsp;         for all $v∈S$: 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;             $dp[S][v]$ = $min$ $\{dp[S\setminus\{v\}][u] + dist[u][v]\}$ (for all $u&ne;v$, $u∈S$)
+for $s$ from $2$ to $n-1$: \<br>
+&nbsp;&nbsp;      for all $S$ &sube; {2,3,..,n} and $|S|$ = $s$: \<br>
+&nbsp; &nbsp; &nbsp; &nbsp;         for all $v∈S$: \<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;             $dp[S][v]$ = $min$ $\{dp[S\setminus\{v\}][u] + dist[u][v]\}$ (for all $u&ne;v$, $u∈S$) \<br>
 
  $S = \{2, 3, ..., n\}$
 min_dist = min over all $j$ in $S$:
