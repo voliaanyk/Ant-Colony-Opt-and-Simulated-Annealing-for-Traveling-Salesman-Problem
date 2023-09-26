@@ -31,43 +31,58 @@ When it comes to developing and implementing complex algorithms such as ACO, it'
 
 So after hearing the exact thing twice from different people, I got interested in Simulated Annealing and decided to include it in my NEA project.
 
-My primary user is a maths teacher from my school, who teaches me decision maths, where TSP is one of the topics. 
+My primary user is a decision maths teacher from my school, Ms. Sharp. 
 
 <br>
 
 > Why is Travelling Salesman Problem important in decision mathematics and where can we use it practically?
 
-*answer*
+Lots of real world applications – most businesses need to move products, services or people between several different places, and using the most efficient route possible can save a lot of time and money, meaning that the business could reduce prices and increase profit.
 
 > When students learn about TSP and similar problems, what do they usually find difficult?
 
-*answer*
+Following instructions precisely can be difficult, especially when students are experienced mathematicians who are used to choosing their own methods and applying their own ideas. Some algorithms are quite similar to others – e.g. nearest neighbour is starts a bit like Prim’s. The idea of lower bounds can be confusing, especially as we want the highest possible lower bound and the lowest possible upper bound.
 
 > Have you seen any tools or resources that help students learn about TSP effectively? What was good or not so good about them?
 
-*answer*
+The Dr Frost powerpoint is quite helpful but there can be a lot to take in on every page. I’m not aware of much else, other than textbooks.
 
 > I'm going to create a visualisation of 2 algorihtms that solve TSP - Ant Colony Optimization and Simulated Annealing. Should the visualization tool provide a detailed, step-by-step explanation of how they work, or should it focus on giving an overall idea??
 
-*answer*
+I would want a visualisation to show me each step of the algorithm, telling me what is being done and what doing the step has achieved. A brief explanation of how/why it works would also be helpful (not essential), but too much detail would probably be a distraction. This would enable students to use the visualisation independently to practice carrying out the algorithm, but a teacher could also show it to a class, adding more detail alongside each step as necessary.
 
 > Do you think students should be able to change input parameters of the algorithms like the number of ants or evaporation rate in the visualization tool? Why or why not?
 
-*answer*
+Yes, I think so. Trying algorithms out with different inputs can give a clearer idea of how it works.
 
 > When students can interact with a tool in real-time, do they learn better?
 
-*answer*
+Yes, definitely – when you meet an algorithm for the first time, unless it’s a very simple one, you don’t really know what it’s doing until you actually start putting it into practice.
 
 > Is there anything else you'd like to share about how the visualization tool can be useful in teaching decision mathematics? Any special requests or ideas?
 
-*answer*
-
-
+Students need to be experienced at running through algorithms by hand, and on exactly what needs to be written down in exams, but using a visualisation means they can focus on understanding what’s happening and why, rather than on what they’re writing down, or on carrying out calculations for themselves. Without wanting to make things too complicated for you, I would like something that gave me options that you can turn on or off, e.g.
+ - Choose difficulty level of example
+ - Automatic inputs or choose own inputs
+ - Show either description of step only, or brief explanation as well
 
 <br><br>
 
 ### 1.3 List of user requirements
+
+Based on the interview with Ms. Sharp, here are the main user requirements I outlined:
+
+- show each step of the algorithm, telling what is being done and what doing the step has achieved
+- a brief explanation of how/why it works, but not too much detail
+- enable changing input parameters (such as evaporation rate, number of ants, alpha, etc); trying algorithms out with different inputs can give a clearer idea of how it works
+- interaction in real-time
+- help students to understand what’s happening and why, rather than on what they’re writing down, or on carrying out calculations for themselves
+- customization; ability to turn on and off some options to make it more or less complicated/advanced
+- enable both automatic and own inputs
+
+Also, advice from my friends
+
+- Compare Ant Colony Optimization to Simulated Annealing
 
 <br><br>
 
@@ -226,48 +241,3 @@ This system is more user-friendly than the previous one and has less functionali
    ![hierarchy diagram](https://github.com/RGS-Newcastle/git-fundamentals-playground-voliaanyk/blob/77ed97a1c7ef98d766f9a77292ce8464e5c7ff1a/hierarchy%20diagram.png)
 
 <br><br>
-
-
-
-## drafts for future
-
-There are many algorithms to solve the TSP. The most common ones are:
-1. **Exact algortihms**
-    <br> *Work fast only on small problem sizes but guarantee the optimal solution.*
-     - ***Held-Karp Algorithm (Dynamic Programming)***
-    <br> This algorithm breaks the graph down into smaller problems and builds up to the optimal solution. 
-    <br> The time complexity is $O(n^2 \times 2^n)$
-    - ***Branch and Bound***
-    <br> For current node, we calculate the bound on the best possible solution we can get if we go down this node. If this bound is worse than the current best solution, we ignore the node. 
-    <br> The time complexity is $O(n^2 \times 2^n)$
-    
-2. **Heuristic algorithms**
-    <br> *Heuristic algorithms work fast on bigger problem sizes, but produce an approximate solution.*
-    - ***Nearest neighbour (NN) algorithm (greedy algorithm)***
-    <br> Always chooses the closest unvisited city as it next destination. For N cities randomly distributed on a plane, the path chosen by the NN algorithm is on average 25% longer than the shortest possible path.
-    <br> The time complexity is $O(n^2)$
-    - ***Inserion Heuristics***
-    <br> At the step *k* takes a sub-tour of the first *k* nodes and decides which one of the remaining *n-k* nodes should be inserted into the route and where it should be inserted. Can often find solution that are within a reasonable persentage of the optimal solution, expecially for small problem instances.
-    <br> The time complexity can range from $O(n^2)$ to $O(n^3)$ depending on the type of the algorithm.
-
-3. **Genetic Algorithms**
-   - *Work well on larger problem sizes and provide good approximate solutions.*
-   - **Description:** Genetic Algorithms are inspired by the process of natural selection and evolution. The algorithm starts with a population of potential solutions (chromosomes). Each solution represents a possible tour. These solutions undergo reproduction, crossover (recombination), mutation, and selection to produce new generations of solutions. Over generations, the solutions tend to improve in quality. The process continues until a stopping criterion is met.
-   - **Time Complexity:** Genetic algorithms can be efficient in practice for large problem sizes but can vary based on the implementation and problem complexity.
-
-4. **Ant Colony Optimization (ACO)**
-   - *Well-suited for large problem sizes and often provide good approximate solutions.*
-   - **Description:** ACO is inspired by the foraging behavior of ants. The algorithm simulates a colony of artificial ants that traverse the graph (cities) while depositing pheromones on the edges they traverse. The pheromone trail guides other ants' decisions, and over time, paths with stronger pheromone concentrations are more likely to be chosen. The algorithm exploits the concept of positive feedback to find good solutions.
-   - **Time Complexity:** ACO's time complexity is generally moderate, but it can be influenced by the number of ants and iterations.
-
-5. **Simulated Annealing**
-   - *Works well on small to medium-sized problem instances and provides good approximate solutions.*
-   - **Description:** Simulated Annealing is inspired by the annealing process in metallurgy. The algorithm starts with an initial solution and then iteratively explores neighboring solutions. It allows moves that lead to worse solutions with a probability that decreases over time (similar to decreasing temperature in annealing). This probabilistic approach allows the algorithm to escape local optima and continue searching for better solutions.
-   - **Time Complexity:** Simulated Annealing's time complexity depends on the number of iterations and the cooling schedule but is generally moderate for small to medium-sized instances.
-
-6. **Reinforcement Learning**
-   - *Potential to work on larger problem sizes, but efficiency depends on the complexity of the learning process.*
-   - **Description:** Reinforcement Learning is a type of machine learning where an agent learns to make decisions by interacting with an environment. In the context of TSP, the agent (salesman) learns to navigate the cities and receives positive or negative rewards based on the quality of the tour (shorter or longer). The agent updates its policy based on the rewards received and aims to improve its tour over time.
-   - **Time Complexity:** The time complexity of reinforcement learning algorithms can vary significantly depending on the specific approach, learning rate, and the complexity of the problem.
-
-Remember that these algorithms provide approximate solutions and may not guarantee the optimal solution, but they are useful when finding an optimal solution is computationally infeasible for large problem instances.
