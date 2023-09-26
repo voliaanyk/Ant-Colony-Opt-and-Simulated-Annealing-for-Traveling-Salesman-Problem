@@ -9,7 +9,9 @@ There are different exact algorithms that can be used for solving TSP. I have ch
 The main idea of Held-Karp is to compute the shortest tour length for all subsets of cities that end at a specific city. Here's the solution:
 
 $dp[S][v]$ - the shortest path from $1$ to $v$ that visits all cities in subset $S$
-at the start all $dp[S][v]=$&infin; and $dp[1][0]=0$ as the length of the path that visits the first city only is $0$  \<br>
+at the start all $dp[S][v]=$&infin; and $dp[1][0]=0$ as the length of the path that visits the first city only is $0$ 
+
+
 $dist[v1][v2]$ - the distance table
 
 #### Pseudo code:
@@ -20,16 +22,20 @@ for $s$ from $2$ to $n-1$:
 &nbsp;&nbsp;      for all $S$ &sube; {2,3,..,n} and $|S|$ = $s$:
 
 
-&nbsp; &nbsp; &nbsp; &nbsp;         for all $v∈S$: \
+&nbsp; &nbsp; &nbsp; &nbsp;         for all $v∈S$:
+
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;             $dp[S][v]$ = $min$ $\{dp[S\setminus\{v\}][u] + dist[u][v]\}$ (for all $u&ne;v$, $u∈S$) 
 
 
  $S = \{2, 3, ..., n\}$
 min_dist = min over all $j$ in $S$:
+
+
 &nbsp; &nbsp; $dp[S][j] + dist[j, 1]$
 
 #### Explanation
+
 
 This is a recursive algorithm that uses memoization technique. The base case is $dp[1][0]=0$. The algorithm calculates $dp[S][v]$ for $S$ of size $s$ after it did the same for all sets of size $s-1$. The shortest path from $1$ to $v$ that visits all cities in subset $S$ is equal to the minimum possible distance among all valid paths. To compute this, we consider all possible choices for the last city visited before reaching $v$. Let's denote this last city as $u$, where $u$ is an element of subset $S$, and $u ≠ v$.
 
@@ -42,20 +48,29 @@ The solution to TSP is found by selecting the minimum distance among the paths t
 
 #### Bitmasks
 
-For this algorithm I'm going to use bitmasks. Bitmask is a binary number that represents a subset of a set. If the number has 1 at a point x (that is $2^x$ bit), then element number x in the superset is included in the subset.  `<br>`
 
-Example: `<br>`
+For this algorithm I'm going to use bitmasks. Bitmask is a binary number that represents a subset of a set. If the number has 1 at a point x (that is $2^x$ bit), then element number x in the superset is included in the subset. 
 
-4 3 2 1 0 `<br>`
-1 0 0 1 1  = 16 + 2 + 1 = 19 `<br>`
-So bitmask 19 represents a subset {0, 1, 4} `<br>`
 
-Some binary operations in C++: `<br>`
+Example:
 
-1<<n - shift of 1, n times to the left `<br>`
-x\^y - x xor y  `<br>`
-mask & (1<<x) - returns 1 if element x is in the subset represented by bitmask `<br>`
-mask ^ (1<<x) - bitmask that represents S\x `<br>`
+4 3 2 1 0
+
+1 0 0 1 1  = 16 + 2 + 1 = 19
+
+
+So bitmask 19 represents a subset {0, 1, 4}
+
+
+*Some binary operations in C++:*
+
+1<<n - shift of 1, n times to the left
+
+x\^y - x xor y 
+
+mask & (1<<x) - returns 1 if element x is in the subset represented by bitmask
+
+mask ^ (1<<x) - bitmask that represents S\x 
 
 
 
