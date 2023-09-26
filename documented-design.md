@@ -14,13 +14,13 @@ $dist[v1][v2]$ - the distance table
 
 #### Pseudo code:
 
-for $s$ from $2$ to $n-1$:`<br>`
-&nbsp;&nbsp;      for all $S$ &sube; {2,3,..,n} and $|S|$ = $s$: `<br>`
-&nbsp; &nbsp; &nbsp; &nbsp;         for all $v∈S$: `<br>`
+for $s$ from $2$ to $n-1$:
+&nbsp;&nbsp;      for all $S$ &sube; {2,3,..,n} and $|S|$ = $s$:
+&nbsp; &nbsp; &nbsp; &nbsp;         for all $v∈S$: 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;             $dp[S][v]$ = $min$ $\{dp[S\setminus\{v\}][u] + dist[u][v]\}$ (for all $u&ne;v$, $u∈S$)
 
- $S = \{2, 3, ..., n\}$ `<br>`
-min_dist = min over all $j$ in $S$: `<br>`
+ $S = \{2, 3, ..., n\}$
+min_dist = min over all $j$ in $S$:
 &nbsp; &nbsp; $dp[S][j] + dist[j, 1]$
 
 #### Explanation
