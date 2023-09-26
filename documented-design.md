@@ -9,7 +9,7 @@ There are different exact algorithms that can be used for solving TSP. I have ch
 The main idea of Held-Karp is to compute the shortest tour length for all subsets of cities that end at a specific city. Here's the solution:
 
 $dp[S][v]$ - the shortest path from $1$ to $v$ that visits all cities in subset $S$
-at the start all $dp[S][v]=$&infin; and $dp[1][0]=0$ as the length of the path that visits the first city only is $0$ `<br>`
+at the start all $dp[S][v]=$&infin; and $dp[1][0]=0$ as the length of the path that visits the first city only is $0$ `<br/>`
 $dist[v1][v2]$ - the distance table
 
 #### Pseudo code:
