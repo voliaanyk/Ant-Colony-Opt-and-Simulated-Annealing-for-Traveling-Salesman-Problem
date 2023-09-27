@@ -22,6 +22,7 @@ struct aco_input{
 };
 
 struct aco_output{
+    int n, n_ants;
     vector<int> ant_route[max_n_ants];
     vector<int> best_route;
     float length, pheromone[max_n][max_n];
