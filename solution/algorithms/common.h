@@ -20,6 +20,7 @@ struct tsp_output{
 struct aco_input{
     float alpha, beta, Q, evaporation_rate;
     int n_ants, iterations;
+    bool shake;
 };
 
 struct aco_output{
