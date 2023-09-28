@@ -1,12 +1,14 @@
 #define inf 1000000
 #define max_n 100
+#define max_n_ants 100
 
 using namespace std;
 
 
 
 struct tsp_input{
-    int n, dist[max_n][max_n]; //number of citites, adjacency matrix
+    int n; //number of cities
+    float dist[max_n][max_n]; //adjacency matrix
 };
 
 struct tsp_output{
@@ -15,7 +17,15 @@ struct tsp_output{
 };
 
 struct aco_input{
-    int alpha, beta, Q, evaporation_rate, n_ants, iterations;
+    float alpha, beta, Q, evaporation_rate;
+    int n_ants, iterations;
+};
+
+struct aco_output{
+    int n, n_ants;
+    vector<int> ant_route[max_n_ants];
+    vector<int> best_route;
+    float length, pheromone[max_n][max_n];
 };
 
 int binary_pow(int n, int p){ //faster way to raise a number to a power

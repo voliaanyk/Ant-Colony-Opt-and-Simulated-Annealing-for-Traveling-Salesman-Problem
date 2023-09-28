@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "common.h"
+//#include "common.h"
 using namespace std;
 
 
@@ -29,7 +29,7 @@ int held_karp(tsp_input input){
                 if (dist[u][v] != -1){
                     //int x = mask ^ (1<<v);
                     //cout<<"  "<<x<<" "<<u<<" "<<dist[u][v]<<endl;
-                    dp[mask][v] = min(dp[mask][v], dp[mask ^ (1<<v)][u] + dist[u][v]); 
+                    if(dp[mask][v] > dp[mask ^ (1<<v)][u] + dist[u][v]) dp[mask][v] = dp[mask ^ (1<<v)][u] + dist[u][v];
                 }
             }
             //if(mask & (1<<v)) cout<<" "<<v<<" "<<dp[mask][v]<<endl;
@@ -38,13 +38,13 @@ int held_karp(tsp_input input){
     int mask = (1<<n)-1; //represents set S = {1,2,3,...,n}
     int min_dist = inf;
     for(int v=1;v<n;v++){
-        if (dist[v][0] != -1) min_dist = min(min_dist, dp[mask][v] + dist[v][0]);
+        if (dist[v][0] != -1 && min_dist > dp[mask][v] + dist[v][0]) min_dist = dp[mask][v] + dist[v][0];
     }
     return min_dist;
 
 }
 
-
+/*
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0); //for faster runtime
 
@@ -65,4 +65,4 @@ int main() {
     
 
     return 0;
-}
+}*/
