@@ -11,13 +11,19 @@ class Graph{
         float update[max_n][max_n];
         Graph(tsp_input input) {
             n = input.n;
+            float max_d = 0;
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
                     if (i == j) input.dist[i][j] = inf;
                     dist[i][j] = input.dist[i][j];
-                    heuristic[i][j] = dist[i][j];
+                    if(dist[i][j]>max_d) max_d = dist[i][j];
                     pheromone[i][j] = 1;
                     if (i == j) pheromone[i][j] = 0;
+                }
+            }
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    heuristic[i][j] = max_d/dist[i][j];
                 }
             }
         }
@@ -33,7 +39,7 @@ class Graph{
             for(int i=0;i<n;i++){
                 if(used.count(i) == 0){
                     //cout<<pheromone[last_city][i]<<" "<<heuristic[last_city][i]<<endl;
-                    int probability = (1-used.count(i))*pow(pheromone[last_city][i], parameters.alpha) * pow(heuristic[last_city][i], parameters.beta);
+                    float probability = (1-used.count(i))*pow(pheromone[last_city][i], parameters.alpha) * pow(heuristic[last_city][i], parameters.beta);
                     probabilities.push_back(probability);
                     //cout<<probability<<endl;
                     sum_probabilities += probability;
@@ -47,14 +53,15 @@ class Graph{
             float random_n = (float) rand()/RAND_MAX;
             //cout<<random_n<<endl;
             for(int i=0;i<n;i++){
+                if(used.count(i)!=0) continue;
                 random_n -= probabilities[i];
                 //cout<<i<<" "<<random_n<<" "<<probabilities[i]<<endl;
                 if(random_n<=0) return i;
             }
             return -1;
         }
-        int path_length(vector<int> path){
-            int length = 0;
+        float path_length(vector<int> path){
+            float length = 0;
             for(int i=1;i<path.size();i++){
                 length += dist[path[i-1]][path[i]];
             }
@@ -75,6 +82,20 @@ class Graph{
                 }
             }
         }
+        void shake_pheromones(){
+            float total_pheromone = 0;
+            for(int i=0; i<n; i++){
+                for(int j=0; j<n; j++){
+                    total_pheromone += pheromone[i][j];
+                }
+            }
+            float mean = total_pheromone/=(n*(n-1));
+            for(int i=0; i<n; i++){
+                for(int j=0; j<n; j++){
+                    pheromone[i][j] = mean;
+                }
+            }
+        }
 
 };
 
@@ -82,7 +103,8 @@ class Graph{
 
 class Ant {
     public:
-        int k, path_length;
+        int k;
+        float path_length;
         vector<int> path;
         Ant(int ant_number){
             k = ant_number;
@@ -126,9 +148,11 @@ class ACO {
             for(int k=0; k<ants.size(); k++){
                 auto ant = ants[k];
                 for(int i=1; i<ant.path.size(); i++){
+                    //cout<<ant.path[i-1]<<" "<<ant.path[i]<<" "<<ant.path_length<<" "<<graph.update[ant.path[i-1]][ant.path[i]]<<endl;
                     graph.update[ant.path[i-1]][ant.path[i]] += parameters.Q / ant.path_length;
                 }
             }
+
         }
         aco_output iteration(){
             construct_paths();
@@ -162,6 +186,9 @@ class ACO {
             return output;
 
         }   
+        void shake(){
+            graph.shake_pheromones();
+        }
 };
 
 void print_aco_output(aco_output output){
@@ -196,14 +223,16 @@ void solve_aco(tsp_input input, aco_input p) {
     int found = 0;
     vector<int> best_route;
     for(int i=1;i<=p.iterations;i++){
+        cout<<endl<<endl<<endl<<endl<<"Iteration "<<i<<endl;
         aco_output out = aco.iteration();
         best_routes.push_back(out.length);
         if(out.length<best){
             best = out.length;
             found = i;
             best_route = out.best_route;
+            //aco.shake();
         }
-        //print_aco_output(out);
+        print_aco_output(out);
     }
 
     for(int i=0;i<input.n;i++){

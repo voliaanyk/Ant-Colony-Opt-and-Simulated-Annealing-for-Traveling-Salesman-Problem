@@ -219,7 +219,7 @@ This system is more user-friendly than the previous one and has less functionali
 
 1. **ACO Algorithm Implementation**. Implement the Ant Colony Optimization algorithm to solve the Traveling Salesman Problem
     <br>**input**: cities and distances between them, the number of iterations, ACO parameters (such as evaporation, Q, alpha, etc)
-    <br>**output**: the locations of ants at every moment, pheromone levels and the best route after each iteration
+    <br>**output**: pheromone levels, ants' routes and the best route after each iteration
     <br>**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as ACO
 2. **Simulated Annealing Implemenation**. Implement the Simulated Annealing algorithm to solve the Traveling Salesman Problem
     <br>**input**: cities and distances between them, SA parameters (initial temperature, Markov chains, alpha)

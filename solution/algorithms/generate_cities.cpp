@@ -12,7 +12,7 @@ float distance(float x1, float y1, float x2, float y2){
 
 void generate(){
     tsp_input input;
-    input.n = 13;
+    input.n = 10;
     for(int i=0;i<input.n;i++){
         for(int j=0;j<input.n;j++){
             input.dist[i][j] = rand()%1000 + 2;
@@ -22,7 +22,7 @@ void generate(){
     }
 
     aco_input p;
-    p.alpha = 1; p.beta = 5; p.Q = 10000; p.evaporation_rate = 0.8, p.n_ants = 20, p.iterations = 1000;
+    p.alpha = 1; p.beta = 5; p.Q = 10000; p.evaporation_rate = 0.8, p.n_ants = 8, p.iterations = 10;
 
     solve_aco(input, p);
 
@@ -33,7 +33,7 @@ void generate(){
 void generate_flat(){
     tsp_input input;
 
-    input.n = 11;
+    input.n = 13;
     pair<float, float> pos[max_n];
 
     for(int i=0;i<input.n;i++){
@@ -46,12 +46,12 @@ void generate_flat(){
     for(int i=0;i<input.n;i++){
         for(int j=0;j<input.n;j++){
             input.dist[i][j] = distance(pos[i].first, pos[i].second, pos[j].first, pos[j].second);
-            //cout<<input.dist[i][j]<<" ";
+            cout<<input.dist[i][j]<<" ";
         }
-        //cout<<endl;
+        cout<<endl;
     }
     aco_input p;
-    p.alpha = 1; p.beta = 5; p.Q = 100; p.evaporation_rate = 0.7, p.n_ants = 1, p.iterations = 1;
+    p.alpha = 1; p.beta = 5; p.Q = 100; p.evaporation_rate = 0.7, p.n_ants = 10, p.iterations = 100;
 
     solve_aco(input, p);
 

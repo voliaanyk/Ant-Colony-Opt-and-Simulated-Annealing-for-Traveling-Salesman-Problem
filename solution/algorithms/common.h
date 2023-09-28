@@ -1,6 +1,7 @@
 #define inf 1000000
 #define max_n 100
 #define max_n_ants 100
+#define max_dist 100
 
 using namespace std;
 
