@@ -2,6 +2,7 @@
 //#include "common.h"
 using namespace std;
 
+//change type to float later (think about how to deal with overfloaw)
 
 int held_karp(tsp_input input){
     int n = input.n;
