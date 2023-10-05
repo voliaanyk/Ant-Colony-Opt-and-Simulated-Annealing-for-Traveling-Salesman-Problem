@@ -4,38 +4,30 @@
 
 ### Exact algorithm
 
-
 There are different exact algorithms that can be used for solving TSP. I have chosen to use Held-Karp algorithm which is a dynamic approach with $O(n^2 \times 2^n)$ complexity, so it's more efficient than brute-force algorithms with $O(n!)$ complexity.
 The main idea of Held-Karp is to compute the shortest tour length for all subsets of cities that end at a specific city. Here's the solution:
 
 $dp[S][v]$ - the shortest path from $1$ to $v$ that visits all cities in subset $S$
-at the start all $dp[S][v]=$&infin; and $dp[1][0]=0$ as the length of the path that visits the first city only is $0$ 
-
+at the start all $dp[S][v]=$&infin; and $dp[1][0]=0$ as the length of the path that visits the first city only is $0$
 
 $dist[v1][v2]$ - the distance table
 
 #### Pseudo code:
 
-for $s$ from $2$ to $n-1$: 
-
+for $s$ from $2$ to $n-1$:
 
 &nbsp;&nbsp;      for all $S$ &sube; {2,3,..,n} and $|S|$ = $s$:
 
-
 &nbsp; &nbsp; &nbsp; &nbsp;         for all $v∈S$:
 
-
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;             $dp[S][v]$ = $min$ $\{dp[S\setminus\{v\}][u] + dist[u][v]\}$ (for all $u&ne;v$, $u∈S$) 
-
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;             $dp[S][v]$ = $min$ $\{dp[S\setminus\{v\}][u] + dist[u][v]\}$ (for all $u&ne;v$, $u∈S$)
 
  $S = \{2, 3, ..., n\}$
 min_dist = min over all $j$ in $S$:
 
-
 &nbsp; &nbsp; $dp[S][j] + dist[j, 1]$
 
 #### Explanation
-
 
 This is a recursive algorithm that uses memoization technique. The base case is $dp[1][0]=0$. The algorithm calculates $dp[S][v]$ for $S$ of size $s$ after it did the same for all sets of size $s-1$. The shortest path from $1$ to $v$ that visits all cities in subset $S$ is equal to the minimum possible distance among all valid paths. To compute this, we consider all possible choices for the last city visited before reaching $v$. Let's denote this last city as $u$, where $u$ is an element of subset $S$, and $u ≠ v$.
 
@@ -48,9 +40,7 @@ The solution to TSP is found by selecting the minimum distance among the paths t
 
 #### Bitmasks
 
-
-For this algorithm I'm going to use bitmasks. Bitmask is a binary number that represents a subset of a set. If the number has 1 at a point x (that is $2^x$ bit), then element number x in the superset is included in the subset. 
-
+For this algorithm I'm going to use bitmasks. Bitmask is a binary number that represents a subset of a set. If the number has 1 at a point x (that is $2^x$ bit), then element number x in the superset is included in the subset.
 
 Example:
 
@@ -58,24 +48,20 @@ Example:
 
 1 0 0 1 1  = 16 + 2 + 1 = 19
 
-
 So bitmask 19 represents a subset {0, 1, 4}
-
 
 *Some binary operations in C++:*
 
 1<<n - shift of 1, n times to the left
 
-x\^y - x xor y 
+x\^y - x xor y
 
 mask & (1<<x) - returns 1 if element x is in the subset represented by bitmask
 
-mask ^ (1<<x) - bitmask that represents S\x 
-
+mask ^ (1<<x) - bitmask that represents S\x
 
 
 ### Ant Colony Optimization
-
 
 **Ant Colony Optimization** is an algorithm inspired by ants` behavior. The main idea is to model an ant colony, where at every iteration:
 
@@ -85,13 +71,11 @@ mask ^ (1<<x) - bitmask that represents S\x
 
 So let's consider each step in more detail
 
-
 #### Initializaion
 
 Create artificial ants (number of ants is an input parameter)
 
 Set pheromone levels to small random values
-
 
 #### Route construction
 
@@ -111,7 +95,6 @@ $\eta_{ij}$ is the heuristic information, which can be based for example on the 
 
 The denominator represents the sum of probabilities for all allowed cities.
 
-
 #### Comparison
 
 $\Delta\tau_{ij}^{(k)}$ is a change in the pheremone level of the edge from i to j, contributed by ant k
@@ -122,7 +105,6 @@ where Q is a constant representing total amount of pheromon contributed by ants
 
 $L^{(k)}$ is the length of the route constructed by ant k
 
-
 #### Update
 
 After all the routes were constructed, pheromone levels of each edge are updated using this formula
@@ -131,16 +113,15 @@ $\tau_{ij} \leftarrow (1 - \rho) \cdot \tau_{ij} + \sum_{k=1}^{\text{numAnts}} \
 
 where evaporation (decreasing all pheromone levels by a certain percentage) is this part:
 
-$\tau_{ij} \leftarrow (1 - \rho) \cdot \tau_{ij}$ 
+$\tau_{ij} \leftarrow (1 - \rho) \cdot \tau_{ij}$
 
 and pheromone update (in simple words adapting the pheromone levels of edges to the "goodness" of edges) is this part:
 
 $\tau_{ij} \leftarrow  \tau_{ij} + \sum_{k=1}^{\text{numAnts}} \Delta\tau_{ij}^{(k)}$
 
-$\rho$ is the evaporation rate 
+$\rho$ is the evaporation rate
 
 $\Delta\tau_{ij}^{(k)}$ is a change in the pheremone level of the edge from i to j, contributed by ant k
-
 
 #### Varying parameters
 
@@ -149,5 +130,39 @@ Number of ants, iterations, $\alpha$, $\beta$, $\eta_{ij}$, $Q$, $\rho$ are inpu
 We need to give the opporunity to change these parameters in UI so that users can explore how changing parameters may affect ACO performance.
 
 
-
 ### Simulated Annealing
+
+Simulated annealing is inspired by process of annealing in metallurgy when at first the temperature is raised to high temperature, and then gradually decreased. In Simulated Annealing, when the temperature is high, larger random changes are made, avoiding the risk of becoming trapped in a local minimum. And as the temperature decreases, the probability of accepting worse solution reduces exponentially, allowing the algorithm to converge towards an optimal or near-optimal solution.
+
+#### Initializaion
+
+At first a random solution to TSP is chosen as a current state, $s$; and the initial temperature, $T$, is set.
+
+#### Iteration
+
+At each iteration algorithm probabilistically decides wether to stay in the current state $s$, or move to a neighbour state $s*$.
+
+If cost of $s*$ is less than cost of $s$, then $s*$ is accepted. Cost of a certain state is the price/length of the solution (aka length of the route)
+
+If cost of $s*$ is bigger than cost of $s$ (new solution is worse), then $s*$ is accepted with probability $P$
+
+$P = e^{-ΔC/T}$,
+
+where $ΔC$ is $Cost(s*) - Cost(s)$ and $T$ is the current teperature
+
+This is repeated until the stopping critea is satisfied (such as the Temperature drops below Critical Temperature, or the maximum number of iteration is reached)
+
+#### Neighbouring states
+
+In my implemetaton of Simulated Annealing I'm going to use three methods of state modification:
+
+1. **Swap.** Swaping 2 random cities in a route
+2. **Reverse.** Reversing a random segment
+3. **Insertion.** Inserting a random city into a random place in te route
+
+#### Cooling 
+
+There are two ways of decreasing Temperature in Simulated Annealing:
+
+- Exponential. $T = \alpha * T$
+- Linear. $T = T - ΔT$
