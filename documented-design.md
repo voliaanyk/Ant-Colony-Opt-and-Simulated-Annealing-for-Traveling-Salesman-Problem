@@ -60,7 +60,6 @@ mask & (1<<x) - returns 1 if element x is in the subset represented by bitmask
 
 mask ^ (1<<x) - bitmask that represents S\x
 
-
 ### Ant Colony Optimization
 
 **Ant Colony Optimization** is an algorithm inspired by ants` behavior. The main idea is to model an ant colony, where at every iteration:
@@ -129,7 +128,6 @@ Number of ants, iterations, $\alpha$, $\beta$, $\eta_{ij}$, $Q$, $\rho$ are inpu
 
 We need to give the opporunity to change these parameters in UI so that users can explore how changing parameters may affect ACO performance.
 
-
 ### Simulated Annealing
 
 Simulated annealing is inspired by process of annealing in metallurgy when at first the temperature is raised to high temperature, and then gradually decreased. In Simulated Annealing, when the temperature is high, larger random changes are made, avoiding the risk of becoming trapped in a local minimum. And as the temperature decreases, the probability of accepting worse solution reduces exponentially, allowing the algorithm to converge towards an optimal or near-optimal solution.
@@ -148,7 +146,7 @@ If cost of $s*$ is bigger than cost of $s$ (new solution is worse), then $s*$ is
 
 $P = e^{-ΔC/T}$,
 
-where $ΔC$ is $Cost(s*) - Cost(s)$ and $T$ is the current teperature
+where $ΔC$ is $Cost(s*) - Cost(s)$ and $T$ is the current teperature and change is accepted if $P > random(0,1)$
 
 This is repeated until the stopping critea is satisfied (such as the Temperature drops below Critical Temperature, or the maximum number of iteration is reached)
 
@@ -160,9 +158,17 @@ In my implemetaton of Simulated Annealing I'm going to use three methods of stat
 2. **Reverse.** Reversing a random segment
 3. **Insertion.** Inserting a random city into a random place in te route
 
-#### Cooling 
+#### Cooling
 
 There are two ways of decreasing Temperature in Simulated Annealing:
 
 - Exponential. $T = \alpha * T$
 - Linear. $T = T - ΔT$
+
+I'm going to use exponential decrease as it usualy shows better results for Traveling Salesman Problem
+
+#### Varying parameters
+
+Similar to Ant Colony, Simulated Annealing has parameters that can be varied such as initial temperature $T$, exponential decrease $\alpha$, number of iterations / critical temperature.
+
+These parameters will affect Simulated Annealing perfomance on TSP, so we need to add the opprtuinity to vary them on the website for better understanding of the algorithm.
