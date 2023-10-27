@@ -6,7 +6,7 @@
 
 <br>
 
-The problem I want to solve is implementing 3 algorithms such as **Ant Colony Optimization(ACO)**, **Simulated Annealing(SA)** and an **Exact Algorithm(EA)** to compare their solutions to the **Travelling Salesman problem (TSP)** and create a visualisation in order to understand better how these algorithms work. **TSP** is a well-known NP-hard optimization problem in combinatorial computer science. The TSP has the following statement:
+The problem I want to solve is implementing 3 algorithms such as **Ant Colony Optimization(ACO)**, **Simulated Annealing(SA)** and an **Exact Algorithm(EA)** to compare their solutions to the **Travelling Salesman problem (TSP)** and create a visualisation in order to understand better how these algorithms work. **TSP** is a well-known optimization problem in combinatorial computer science. The TSP has the following statement:
 
 > Given a list of cities and the distances between cities (weighted graph), what is the shortest route that visits each city exactly once and returns to the starting city?
 
@@ -123,7 +123,7 @@ SA is a combinatorial optimizational technique just like ACO. It's inspired by t
 
 `<br><br>``<br>`
 
-![diagram](tsp_diagrams.png)
+![diagram](images/analysis/tsp_diagrams.png)
 
 The figure above is taken from
 [Cheikhrouhou, O., Khoufi, I. (2021). A comprehensive survey on the Multiple Traveling Salesman Problem: Applications, approaches and taxonomy.](https://arxiv.org/pdf/2102.12772.pdf)
@@ -141,7 +141,7 @@ I will examine 2 visualisation of ACO for TSP open-source tools, compare them to
 
 - **The first system is [visual-aco created in the University of Tartu](https://courses.cs.ut.ee/demos/visual-aco/#/visualisation)**
 
-![visual-aco](visual-aco.png)
+![visual-aco](images/analysis/visual-aco.png)
 
 Visual-aco has a fairly simple and easy-to-understand design, I quite like how it shows the ants and the pheromone level of each edge. What is also great, that it allows us to look inside the algorithm and see what happens throughout each iteration, and it shows the number of iteration on the bottom right. The ants speed is adjustable and I would say that the range of speeds used is perfect for this kind of visualisation. Furthermore, all the parameteres of ACO such as the percentage of ants, evaporation, etc can be also adjusted that is useful for advanced users. The cities can be automaticaly generated on the website or exported. A very important thing is that you can fast-forward through the iterations by choosing to "Skip drawing ants".
 
@@ -149,7 +149,7 @@ Visual-aco has a fairly simple and easy-to-understand design, I quite like how i
 
 - **The second system is [Ant Colony Optimization Visualization for the Traveling Salesman Problem (aco-tsp)](https://jtp.io/2015/11/22/ant-colony-tsp-visualization.html)**
 
-![aco-tsp](aco-tsp.png)
+![aco-tsp](images/analysis/aco-tsp.png)
 
 This system is more user-friendly than the previous one and has less functionality, so I would assume that it's not made for advanced users, but for users who want to gain basic insights into how ACO works. In terms of editing the city points, you can only add them yourslef by clicking on the screen or move existing ones. The biggest downside of this visualisation is that although pheromone levels can be seen, it's not possible to see how ants move thoughout iteration. Also, there is not much in terms of customization of ACO parameteres. In colnclusion, this visualisation has less features, but more intuitive design and therefore, is more user-friendly than the first visualisation.
 
@@ -234,6 +234,6 @@ This system is more user-friendly than the previous one and has less functionali
    `<br>`**implementation**: JavaScript, HTML, CSS
 5. **Integration of Algorithm and Visualization**. Link the algorithms and the visualization together.
    `<br>`**implementation**: JavaScript is a sensible option since the visualisation will be created in JS, but I will also consider a python framework Flask
-   ![hierarchy diagram](hierarchy_diagram.png)
+   ![hierarchy diagram](images/analysis/hierarchy_diagram.png)
 
 `<br><br>`

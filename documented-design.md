@@ -191,13 +191,13 @@ I plan to code all of this using the simplest tools and languages such as HTML, 
 
 The design of the start page is below. 
 
-![1698227437392](image/documented-design/1698227437392.png)
+![start page](images/documented-design/start_page.png)
 
 The graph symbolises ACO (in the form of ants on the left side) and Simulated Annealing (fire on the right side). The start page also contains a button "try", that will lead to the main page when pressed; and an additional information icon that will show some context and basic description of what the visualisation.
 
 ### Main page
 
-
+![main page](images/documented-design/main_page.png)
 
 ## Bringing it all together
 
