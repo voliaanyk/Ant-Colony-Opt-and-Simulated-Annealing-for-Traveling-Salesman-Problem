@@ -172,3 +172,57 @@ I'm going to use exponential decrease as it usualy shows better results for Trav
 Similar to Ant Colony, Simulated Annealing has parameters that can be varied such as initial temperature $T$, exponential decrease $\alpha$, number of iterations / critical temperature.
 
 These parameters will affect Simulated Annealing perfomance on TSP, so we need to add the opprtuinity to vary them on the website for better understanding of the algorithm.
+
+## Visualisation design
+
+The visualisation is a website with a start page (with a fancy picture of a graph and a button "try"), a main page where users will be able to:
+
+- create a graph (automatically or manualy)
+- choose an algorithm they want to perform (either Ant Colony Optimisation or Simulated Annealing)
+- vary parameters to see how they affect the performance
+- choose if they want to see each iteration or fast-forward to see the answer straight away
+- adjust the speed
+- see outputs of all the other algorithms (inclusing the Held-Karp algorithm)
+- display a simple user guide
+
+I plan to code all of this using the simplest tools and languages such as HTML, CSS, JavaScript (because I have some previous experience in those languages and feel emotiomaly attached), and also exploring frameworks and JS libraries for doing more complex things (like Sigma.js for graph visualisation and vue.js for building user interface).
+
+### Start page
+
+The design of the start page is below. 
+
+![1698227437392](image/documented-design/1698227437392.png)
+
+The graph symbolises ACO (in the form of ants on the left side) and Simulated Annealing (fire on the right side). The start page also contains a button "try", that will lead to the main page when pressed; and an additional information icon that will show some context and basic description of what the visualisation.
+
+### Main page
+
+
+
+## Bringing it all together
+
+At first I was going to implement algorithms in C++, because this way they would be as fast as they can get. But then, after a carefull consideration, I've changed my mind to Python mainly for its wider functionality. Python has frameworks like Flask (Web Application Framework) and Python functions can be uploaded to Google Cloud Platrofm (this is not the case for C++) and then be triggered from the website, which makes everything much easier.
+
+### Flask
+
+Flask is a light framework, which means that it's fast and efficient. Furthermore, it's very easy to learn and understand it. For example this is code that returns "Hello world" when you navigate to https:/`<domain>`/hello_world
+
+```
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/hello_world')
+def hello_world():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run()
+```
+
+I'm going to create 3 functions in Flask, for Held-Karp, Ant Colony Optimisation, and Simulated Annealing. These functions will simply fetch the information and send the output of the corresponding algorithm back to the web application.
+
+### Google Cloud Platform
+
+Google Cloud Platform (GCP) Console is a useful tool for deploying functions of different purposes, including triggered functions. When a function like that is deployed to GCP, it gives back a URL for triggering the function. To trigger a certain function from the deployed file you simply have to send a request to
+
+`gcp_url/function_name?data=your_data`
