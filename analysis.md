@@ -121,7 +121,7 @@ The way it works to solve TSP, is such that each artificial ant starts from a ra
 
 SA is a combinatorial optimizational technique just like ACO. It's inspired by the process of annealing a metal or glass by raising it to a high temperature and then gradually reducing the temperature, allowing local regions of order to grow outward. In simulated annealing, the equivalent of temperature is a measure of the randomness by which changes are made to the best path, in order to minimise it. When the temperature is high, larger random changes are made, avoiding the risk of becoming trapped in a local minimum. And as the temperature decreases, the probability of accepting worse solution reduces exponentially, allowing the algorithm to converge towards an optimal or near-optimal solution.
 
-`<br><br>``<br>`
+<br><br><br>
 
 ![diagram](images/analysis/tsp_diagrams.png)
 
@@ -129,7 +129,7 @@ The figure above is taken from
 [Cheikhrouhou, O., Khoufi, I. (2021). A comprehensive survey on the Multiple Traveling Salesman Problem: Applications, approaches and taxonomy.](https://arxiv.org/pdf/2102.12772.pdf)
 The first figure shows that ACO is being used to solve TSP in 18% of reviewed papers, same as Exact Algorithms. The most common algorithm appears to be GA (genetic algorithms), 36%. The figure also shows the range of applications of TSP from Transport and Delivery to Disaster Managing, the most common application is General.
 
-`<br><br>`
+<br><br>
 
 ## 1.5 Analysis of current systems
 
@@ -144,6 +144,15 @@ I will examine 2 visualisation of ACO for TSP open-source tools, compare them to
 ![visual-aco](images/analysis/visual-aco.png)
 
 Visual-aco has a fairly simple and easy-to-understand design, I quite like how it shows the ants and the pheromone level of each edge. What is also great, that it allows us to look inside the algorithm and see what happens throughout each iteration, and it shows the number of iteration on the bottom right. The ants speed is adjustable and I would say that the range of speeds used is perfect for this kind of visualisation. Furthermore, all the parameteres of ACO such as the percentage of ants, evaporation, etc can be also adjusted that is useful for advanced users. The cities can be automaticaly generated on the website or exported. A very important thing is that you can fast-forward through the iterations by choosing to "Skip drawing ants".
+
+| pros | cons |
+|------|----------|
+| simple design | limited user-friendliness for begginers |
+| shows ants and pheromone levels | limited control over city point manipulation |
+| adjustable parameters | |
+
+
+
 
 <br><br>
 
