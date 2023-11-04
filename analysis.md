@@ -16,7 +16,7 @@ Moreover, the Travelling Salesman Problem is an NP-hard (nondeterministic polyno
 
 Also, I want to build a visualization of the algorithms, so that it is easier to understand how they work for people who have no background in optimizational computer science. Furthermore, this visualization can then become a powerful learning tool for students who want to specialize in this field.
 
-`<br><br>`
+<br><br>
 
 ## 1.2 Interview with a primary user
 
@@ -66,7 +66,7 @@ Students need to be experienced at running through algorithms by hand, and on ex
 - Automatic inputs or choose own inputs
 - Show either description of step only, or brief explanation as well
 
-`<br><br>`
+<br><br>
 
 ## 1.3 List of user requirements
 
@@ -84,7 +84,7 @@ Also, advice from my friends
 
 - Compare Ant Colony Optimization to Simulated Annealing
 
-`<br><br>`
+<br><br>
 
 ## 1.4 Background analysis
 
@@ -110,7 +110,7 @@ There are many algorithms that can be used to solve TSP, the most common ones ar
 6. **Reinforcement Learning**
    - *Potential to work on larger problem sizes, but efficiency depends on the complexity of the learning process.*
    - The time complexity of reinforcement learning algorithms can vary significantly depending on the specific approach, learning rate, and the complexity of the problem.
-     `<br><br>`
+     <br><br>
 
 Exact algorthms simply check every route and choose the best. They are guaranteed to find the best possible solution, but the the time comlexity is exponential, so it increases vastly as the problem size increases. This means that they can only be used for small data instances (up to 10 cities on an average computer).
 
