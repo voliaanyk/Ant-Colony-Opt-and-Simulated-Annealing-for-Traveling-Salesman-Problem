@@ -234,21 +234,21 @@ This system is more user-friendly than the previous one and has less functionali
 1. **ACO Algorithm Implementation**. Implement the Ant Colony Optimization algorithm to solve the Traveling Salesman Problem
    <br>**input**: cities and distances between them, the number of iterations, ACO parameters (such as evaporation, Q, alpha, etc)
    <br>**output**: pheromone levels, ants' routes and the best route after each iteration
-   <br>**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as ACO
+   <br>**implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation 
 2. **Simulated Annealing Implemenation**. Implement the Simulated Annealing algorithm to solve the Traveling Salesman Problem
    <br>**input**: cities and distances between them, SA parameters (initial temperature, Markov chains, alpha)
    <br>**output**: the best route, temperature, acceptance probability after each iteration
-   <br>**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as SA
+   <br>**implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation 
 3. **Exact Algorithm Implementation**. Implement an exact algorithm (Dynamic Programming) to find the optimal solution for smaller TSP instances (for comparison purposes).
    <br>**input**: cities and distances between them
    <br>**output**: the best route
-   <br>**implementation**: C++ will provide the highest performance
+   <br>**implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation 
 4. **Visualization Creation**. Create an interactive visualization to show the algorithms' progresses and results
    <br>**input**: user's actions 
    <br>**ouput**: interactive visualisation
    <br>**implementation**: JavaScript, HTML, CSS
 5. **Integration of Algorithm and Visualization**. Link the algorithms and the visualization together.
-   <br>**implementation**: JavaScript is a sensible option since the visualisation will be created in JS, but I will also consider a python framework Flask
+   <br>**implementation**: Flask is a sensible option as it's very intuitive, I've used it before and the algorithms will be written in python
    ![hierarchy diagram](images/analysis/hierarchy_diagram.png)
 
 <br><br>
