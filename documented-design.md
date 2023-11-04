@@ -20,7 +20,7 @@ for $s$ from $2$ to $n-1$:
 
 &nbsp; &nbsp; &nbsp; &nbsp;         for all $v∈S$:
 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;             $dp[S][v]$ = $min$ $\{dp[S\setminus\{v\}][u] + dist[u][v]\}$ (for all $u&ne;v$, $u∈S$)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;             $dp[S][v]$ = $min$ $\(dp[S\setminus\{v\}][u] + dist[u][v]\)$ (for all $u&ne;v$, $u∈S$)
 
  $S = \{2, 3, ..., n\}$
 min_dist = min over all $j$ in $S$:
@@ -41,16 +41,16 @@ The solution to TSP is found by selecting the minimum distance among the paths t
 #### Bitmasks
 
 For this algorithm I'm going to use bitmasks. Bitmask is a binary number that represents a subset of a set. If the number has 1 at a point x (that is $2^x$ bit), then element number x in the superset is included in the subset.
-
-Example:
+<br><br>
+**Example:**
 
 4 3 2 1 0
 
 1 0 0 1 1  = 16 + 2 + 1 = 19
 
 So bitmask 19 represents a subset {0, 1, 4}
-
-*Some binary operations in C++:*
+<br><br>
+**Some binary operations in C++:**
 
 1<<n - shift of 1, n times to the left
 
@@ -59,7 +59,7 @@ x\^y - x xor y
 mask & (1<<x) - returns 1 if element x is in the subset represented by bitmask
 
 mask ^ (1<<x) - bitmask that represents S\x
-
+<br><br><br>
 ### Ant Colony Optimization
 
 **Ant Colony Optimization** is an algorithm inspired by ants` behavior. The main idea is to model an ant colony, where at every iteration:
