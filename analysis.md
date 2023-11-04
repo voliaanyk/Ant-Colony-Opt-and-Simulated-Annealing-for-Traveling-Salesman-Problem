@@ -162,7 +162,14 @@ Visual-aco has a fairly simple and easy-to-understand design, I quite like how i
 
 This system is more user-friendly than the previous one and has less functionality, so I would assume that it's not made for advanced users, but for users who want to gain basic insights into how ACO works. In terms of editing the city points, you can only add them yourslef by clicking on the screen or move existing ones. The biggest downside of this visualisation is that although pheromone levels can be seen, it's not possible to see how ants move thoughout iteration. Also, there is not much in terms of customization of ACO parameteres. In colnclusion, this visualisation has less features, but more intuitive design and therefore, is more user-friendly than the first visualisation.
 
-`<br><br>`
+| pros | cons |
+|------|----------|
+| intuitive design | limited control over algorithm parameters |
+| control over cities | doesn't show how ants move |
+| perfect for beginners |  |
+
+<br><br>
+
 **The comparison table for both systems is below**
 
 | feature                         | visual-aco                                                                   | aco-tsp                                                                              |
@@ -177,35 +184,34 @@ This system is more user-friendly than the previous one and has less functionali
 `<br><br>`
 **Overall**, both systems provide great visualisation of Ant Colony Optimisation for Travelling Salesman Problem, however the first system has more functionality, and the second system has more intuitive design. I want to strike the balance between functionality and user-friendliness, drawing inspiration from both systems.
 
-`<br><br>`
+<br><br>
 
 ## 1.6 Table of objectives
 
 <br>
 
-1. **Explore the maths behind ACO and SA** `<br>`
+1. **Explore the maths behind ACO and SA** <br>
    *This is needed to implement ACO and SA in the next step*
 2. **Implement ACO algorithm for TSP**
 
    - should succesfully construct a route that visits each city and returns to the starting city
    - should have input parameters that control its performance such as the number of ants, evaporation, iterations, etc.
-   - should return data about the ants, pheromone levels, routes, etc. so that the live visualisation can be created
-   - should be quick, efficient and accurate
-3. **Implement Simulated Annealing** `<br>`
+   - should return data about the best route after each iteration for the live visualisation
+   - should be quick, efficient and accurate 
+3. **Implement Simulated Annealing** <br>
 
    - should succesfully construct a route that visits each city and returns to the starting city
    - should have input parameters that control its performance such as initial temperature, Markov chains, alpha, etc.
    - should return data about the best route, temperature, etc. so that the live visualisation can be created
    - should be quick, efficient and accurate
-4. **Implement an exact algorithm for TSP** `<br>`
+4. **Implement an exact algorithm for TSP** <br>
    *This algorithm should find the exact solution for TSP for smaller problem instances (for comparing to ACO and SA output)*
-
    - should be a very efficient and fast implementation
-5. **Create a visualisation of algorithms** `<br>`
+5. **Create a visualisation of algorithms** <br>
    *Create an informative and interactive interface that allows users with different level of expertise to interact with visualisation easily*
 
-   - visualisation of how ants move between cities and how pheromone levels change
-   - visualisation of how output of SA changes with each iteration
+   - visualisation of how the output of Ant Colony Optimization changes with each iteration
+   - visualisation of how the output of Simulated Annealing changes with each iteration
    - make it possible to hide/show any visualisation
    - provide the ability for users to customize ACO and SA parameters
    - adjustable speed and pause functionality
@@ -214,35 +220,35 @@ This system is more user-friendly than the previous one and has less functionali
    - make it possible to generate cities, create cities via the interface, and also upload the cities information
    - show the exact best route found using an exact algorithm for smaller problem instances
    - display documentation and user guide
-6. **Link the ACO algorithm and its visualisation** `<br>`
+6. **Link the ACO algorithm and its visualisation** <br>
    *Link the systems together so that the visualisation can be updated simultaneously as ACO finds the optimal solution*
 
-   - the visualisation displayed needs to be quick or appropriately to the speed chosen by user `<br>`
+   - the visualisation displayed needs to be quick or appropriate to the speed chosen by user <br>
 
-`<br><br>`
+<br><br>
 
 ## 1.7 Modelling. High level overview and hierarchy diagram
 
 <br>
 
 1. **ACO Algorithm Implementation**. Implement the Ant Colony Optimization algorithm to solve the Traveling Salesman Problem
-   `<br>`**input**: cities and distances between them, the number of iterations, ACO parameters (such as evaporation, Q, alpha, etc)
-   `<br>`**output**: pheromone levels, ants' routes and the best route after each iteration
-   `<br>`**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as ACO
+   <br>**input**: cities and distances between them, the number of iterations, ACO parameters (such as evaporation, Q, alpha, etc)
+   <br>**output**: pheromone levels, ants' routes and the best route after each iteration
+   <br>**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as ACO
 2. **Simulated Annealing Implemenation**. Implement the Simulated Annealing algorithm to solve the Traveling Salesman Problem
-   `<br>`**input**: cities and distances between them, SA parameters (initial temperature, Markov chains, alpha)
-   `<br>`**output**: the best route, temperature, acceptance probability after each iteration
-   `<br>`**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as SA
+   <br>**input**: cities and distances between them, SA parameters (initial temperature, Markov chains, alpha)
+   <br>**output**: the best route, temperature, acceptance probability after each iteration
+   <br>**implementation**: C++ has a high performance anf low-memory control, so its the best option for implementing complex algorithms such as SA
 3. **Exact Algorithm Implementation**. Implement an exact algorithm (Dynamic Programming) to find the optimal solution for smaller TSP instances (for comparison purposes).
-   `<br>`**input**: cities and distances between them
-   `<br>`**output**: the best route
-   `<br>`**implementation**: C++ will provide the highest performance
+   <br>**input**: cities and distances between them
+   <br>**output**: the best route
+   <br>**implementation**: C++ will provide the highest performance
 4. **Visualization Creation**. Create an interactive visualization to show the algorithms' progresses and results
-   `<br>`**input**: user's actions 
-   `<br>`**ouput**: interactive visualisation
-   `<br>`**implementation**: JavaScript, HTML, CSS
+   <br>**input**: user's actions 
+   <br>**ouput**: interactive visualisation
+   <br>**implementation**: JavaScript, HTML, CSS
 5. **Integration of Algorithm and Visualization**. Link the algorithms and the visualization together.
-   `<br>`**implementation**: JavaScript is a sensible option since the visualisation will be created in JS, but I will also consider a python framework Flask
+   <br>**implementation**: JavaScript is a sensible option since the visualisation will be created in JS, but I will also consider a python framework Flask
    ![hierarchy diagram](images/analysis/hierarchy_diagram.png)
 
-`<br><br>`
+<br><br>
