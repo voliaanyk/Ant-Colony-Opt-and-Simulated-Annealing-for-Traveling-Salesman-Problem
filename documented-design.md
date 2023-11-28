@@ -1,3 +1,5 @@
+<div style="page-break-after: always;"></div>
+
 # DOCUMENTED DESIGN
 
 ## Algorithms
@@ -60,6 +62,9 @@ mask & (1<<x) - returns 1 if element x is in the subset represented by bitmask
 
 mask ^ (1<<x) - bitmask that represents S\x
 <br><br><br>
+
+<div style="page-break-after: always;"></div>
+
 ### Ant Colony Optimization
 
 **Ant Colony Optimization** is an algorithm inspired by ants` behavior. The main idea is to model an ant colony, where at every iteration:
@@ -128,6 +133,8 @@ Number of ants, iterations, $\alpha$, $\beta$, $\eta_{ij}$, $Q$, $\rho$ are inpu
 
 We need to give the opporunity to change these parameters in UI so that users can explore how changing parameters may affect ACO performance.
 
+<div style="page-break-after: always;"></div>
+
 ### Simulated Annealing
 
 Simulated annealing is inspired by process of annealing in metallurgy when at first the temperature is raised to high temperature, and then gradually decreased. In Simulated Annealing, when the temperature is high, larger random changes are made, avoiding the risk of becoming trapped in a local minimum. And as the temperature decreases, the probability of accepting worse solution reduces exponentially, allowing the algorithm to converge towards an optimal or near-optimal solution.
@@ -173,6 +180,8 @@ Similar to Ant Colony, Simulated Annealing has parameters that can be varied suc
 
 These parameters will affect Simulated Annealing perfomance on TSP, so we need to add the opprtuinity to vary them on the website for better understanding of the algorithm.
 
+<div style="page-break-after: always;"></div>
+
 ## Visualisation design
 
 The visualisation is a website with a start page (with a fancy picture of a graph and a button "try"), a main page where users will be able to:
@@ -198,6 +207,9 @@ The graph symbolises ACO (in the form of ants on the left side) and Simulated An
 ### Main page
 
 ![main page](images/documented-design/main_page.png)
+
+
+<div style="page-break-after: always;"></div>
 
 ## Bringing it all together
 
