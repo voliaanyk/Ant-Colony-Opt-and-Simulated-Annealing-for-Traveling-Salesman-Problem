@@ -20,7 +20,7 @@ for $s$ from $2$ to $n-1$:
 
 &nbsp; &nbsp; &nbsp; &nbsp;         for all $v∈S$:
 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;             $dp[S][v]$ = $min$ $\(dp[S/v][u] + dist[u][v]\)$ (for all $u \neq v$, $u∈S$)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;             $dp[S][v]$ = $min$ $(dp[S/v][u] + dist[u][v])$ (for all $u \neq v$, $u∈S$)
 
  $S = \{2, 3, ..., n\}$
 min_dist = min over all $j$ in $S$:
