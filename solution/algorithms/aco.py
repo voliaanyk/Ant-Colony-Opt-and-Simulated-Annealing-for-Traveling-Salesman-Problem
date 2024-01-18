@@ -162,22 +162,18 @@ class ACO():
         self.graph.update_pheromone_levels(self.parameters) #update pheromone levels
 
         #the rest of this function is creating the output
-        output = ACO_output()
         best_length = inf
         best_route = []
+        ant_route = []
         
         for k in range(len(self.ants)):
             ant = self.ants[k]
             if ant.path_length < best_length:
                 best_length = ant.path_length
                 best_route = ant.path
-            output.ant_route.append(ant.path)
+            ant_route.append(ant.path)
             
-        output.pheromone = self.graph.pheromone
-        output.best_route = best_route
-        output.length = best_length
-        output.n = self.graph.n
-        output.n_ants = self.parameters.n_ants
+        output = ACO_output(self.graph.n, self.parameters.n_ants, ant_route, best_route, self.graph.pheromone, best_length)
         return output
 
     def shake(self): #shake function
@@ -195,8 +191,8 @@ def solve_aco(input, parameters):
     for iteration in range(parameters.iterations):
         output = aco.iteration()
         
-        if output.length < best: #if the length is less than the best length stored
-            best = output.length
+        if output.cost < best: #if the length is less than the best length stored
+            best = output.cost
             found = iteration
             best_route = output.best_route
             if parameters.shake:    aco.shake() #optional shake function
