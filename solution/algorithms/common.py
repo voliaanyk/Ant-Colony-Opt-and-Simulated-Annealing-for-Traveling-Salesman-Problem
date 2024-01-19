@@ -1,6 +1,7 @@
+import math
 
-
-inf = 100000000000
+inf = 10000000000
+max_n = 16 #for held karp
         
 class TSP_input():
     def __init__(self, n, dist, coordinates):
@@ -36,9 +37,16 @@ class SA_parameters():
         self.iterations = iterations
         
 class SA_output():
-    def __init__(self, T, path, cost):
+    def __init__(self, T, path, cost, probability):
         self.T = T
         self.path = path
         self.cost = cost
+        self.probability = probability
+
+class heldkarp_output():
+    def __init__(self, cost, path):
+        self.path = path
+        self.cost = cost
+
         
         

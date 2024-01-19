@@ -146,7 +146,7 @@ class SA():
         # Temperature decay 
         self.T = self.alpha*self.T
         
-        output = SA_output(self.T, current_state.path, current_state.cost) 
+        output = SA_output(self.T, current_state.path, current_state.cost, probability) 
         
         return output
 
@@ -179,15 +179,17 @@ def solve_sa_with_display(tsp_input, sa_params):
     # Setting up the plot in a 2x2 layout
     fig, axs = plt.subplots(2, 2, figsize=(10, 10))
 
+    
+
     def update(frame):
         # Perform an iteration
-        sa_output, probability = sa.iteration()
+        sa_output = sa.iteration()
 
         # Update lists for plotting
         paths.append(sa_output.path)
         costs.append(sa_output.cost)
         temperatures.append(sa_output.T)
-        probabilities.append(probability)
+        probabilities.append(sa_output.probability)
 
         # Clear previous plots
         for ax in axs.flat:
@@ -221,3 +223,56 @@ def solve_sa_with_display(tsp_input, sa_params):
     plt.show()
     return paths[-1], costs[-1], temperatures[-1]
 
+
+def solve_sa_with_display_non_animated(tsp_input, sa_params):
+    sa = SA(tsp_input, sa_params)
+
+    # Lists to store values for plotting
+    paths, costs, temperatures, probabilities = [], [], [], []
+
+    # Setting up the plot in a 2x2 layout
+    fig, axs = plt.subplots(2, 2, figsize=(10, 10))
+
+    best = inf
+    found = 0
+    best_route = None
+
+    for i in range(sa_params.iterations):
+        # Perform an iteration
+        sa_output = sa.iteration()
+
+        # Update lists for plotting
+        paths.append(sa_output.path)
+        costs.append(sa_output.cost)
+        temperatures.append(sa_output.T)
+        probabilities.append(sa_output.probability)
+
+        if sa_output.cost < best: #if the length is less than the best length stored
+            best = sa_output.cost
+            found = i
+            best_route = sa_output.path
+    
+
+    # Plotting the path
+    path = best_route
+    x = [tsp_input.coordinates[i][0] for i in path]
+    y = [tsp_input.coordinates[i][1] for i in path]
+    axs[0, 0].plot(x, y, marker='o')
+    axs[0, 0].set_title("Path")
+
+    # Plotting cost graph
+    axs[0, 1].plot(costs, color='blue')
+    axs[0, 1].set_title("Cost over Iterations")
+
+    # Plotting temperature graph
+    axs[1, 0].plot(temperatures, color='red')
+    axs[1, 0].set_title("Temperature over Iterations")
+
+    # Plotting probability graph as dots
+    axs[1, 1].scatter(range(len(probabilities)), probabilities, color='green')
+    axs[1, 1].set_title("Acceptance Probability")
+
+    # Draw the plots
+    plt.draw()
+
+    plt.show()

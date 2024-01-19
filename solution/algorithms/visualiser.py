@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import math
 import random
 from sa import *
+from held_karp import *
 
 def generate_random_tsp(n):
     coordinates = [(random.uniform(0, 100), random.uniform(0, 100)) for _ in range(n)]
@@ -14,7 +15,7 @@ def generate_random_tsp(n):
     return TSP_input(n, dist, coordinates)
 
 
-def visualize_routes(route1, route2, points):
+def visualize_routes(route1, route2, route3, points):
     plt.figure()
     
     for i in range(-1, len(route1) - 1):
@@ -25,6 +26,10 @@ def visualize_routes(route1, route2, points):
         plt.plot([points[route2[i]][0], points[route2[i+1]][0]],
                  [points[route2[i]][1], points[route2[i+1]][1]], 'orange')
     
+    for i in range(-1, len(route3) - 1):
+        plt.plot([points[route3[i]][0], points[route3[i+1]][0]],
+                 [points[route3[i]][1], points[route3[i+1]][1]], 'blue')
+    
     plt.scatter(*zip(*points), s=100, c='purple', marker='o')
     plt.show()
     
@@ -32,27 +37,31 @@ def visualize_routes(route1, route2, points):
 
 def main():
     
-    n_cities = 20
+    n_cities = 16
     tsp_input = generate_random_tsp(n_cities)
 
-    parameters = ACO_parameters(2, 3, 100, 0.6, 25, 100, 0)
-    sa_parameters = SA_parameters(0.92, 10000, 1000)
+    parameters = ACO_parameters(2, 3, 100, 0.6, 25, 50, 0)
+    sa_parameters = SA_parameters(0.97, 1000, 1000)
     
     
     best, found, route = solve_aco(tsp_input, parameters)
     sa_best, sa_found, sa_route = solve_sa(tsp_input, sa_parameters)
+    print(1)
+    hk_best, hk_path = held_karp(tsp_input)
+    print(hk_path)
     
     print("ACO best: ", str(best), " found: ", str(found))
     print("SA best: ", str(sa_best), " found: ", str(sa_found))
-    visualize_routes(route, sa_route, tsp_input.coordinates)
+    print("Actual best (held-karp): ", str(hk_best))
+    visualize_routes(route, sa_route, hk_path, tsp_input.coordinates)
 
 
 def test_sa():
     n_cities = 20
     tsp_input = generate_random_tsp(n_cities)
-    sa_parameters = SA_parameters(0.97, 3000, 1000)
+    sa_parameters = SA_parameters(0.97, 1000, 1000)
     
-    solve_sa_with_display(tsp_input, sa_parameters)
+    solve_sa_with_display_non_animated(tsp_input, sa_parameters)
 
 
 main()
