@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <title>Start Page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="top-section">
+            <h1>Welcome to the Start Page</h1>
+            <p>This is the start page content.</p>
+        </div>
+
+        <div class="middle-section">
+            <img src="{{ url_for('static', filename='images/start_page_image.png') }}" alt="Image">
+        </div>
+
+        <div class="bottom-section">
+            <div class="info-icon" onclick="showInfoPopup()">ℹ️</div>
+            <button onclick="redirectToMainPage()">Try</button>
+        </div>
+    </div>
+
+    <div id="info-popup" class="popup">
+        <span class="close" onclick="closeInfoPopup()">&times;</span>
+        <p>This is some information about the page.</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            setBackgroundImageColor();
+        });
+    </script>
+</body>
+</html>
