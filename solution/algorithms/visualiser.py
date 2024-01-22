@@ -64,4 +64,4 @@ def test_sa():
     solve_sa_with_display_non_animated(tsp_input, sa_parameters)
 
 
-main()
+test_sa()
