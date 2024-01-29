@@ -57,11 +57,11 @@ def main():
 
 
 def test_sa():
-    n_cities = 20
+    n_cities = 10
     tsp_input = generate_random_tsp(n_cities)
-    sa_parameters = SA_parameters(0.97, 1000, 1000)
+    sa_parameters = SA_parameters(0.95, 100, 100)
     
-    solve_sa_with_display_non_animated(tsp_input, sa_parameters)
+    solve_sa_with_display(tsp_input, sa_parameters)
 
 
 test_sa()
