@@ -4,11 +4,79 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>tsp</title>
+
+    <link rel="stylesheet" href="../static/css/main.min.css">
+
   </head>
   <body>
-    <h1>travelling salesman problem</h1>
+    <p class="text-center fs-3 fw-bold hm">travelling salesman problem</p>
 
-    <img src = "/solution/images/start_page.jpg" alt="image">
+    <div class="input">
+
+      <div class="cities">
+        <label for="cities-input" class="form-label">cities</label>
+        <input class="form-control form-control-sm" type="number" id="cities-input">
+        <button type="button" class="btn btn-outline-primary btn-sm">generate</button>
+      </div>
+
+      <div class = "speed">
+        <label for="speed-input" class="form-label">speed</label>
+        <input type="range" class="form-range" id="speed-input">
+      </div>
+
+      <div class = "radio">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio" id="show-iterations" checked>
+          <label class="form-check-label" for="show-iterations">
+            show iterations
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio" id="fast-forward">
+          <label class="form-check-label" for="fast-forward">
+            fast forward
+          </label>
+        </div>
+      </div>
+
+      <div class="start-stop">
+        <button type="button" class="btn btn-primary btn-sm btn-start">start</button>
+        <button type="button" class="btn btn-primary btn-sm btn-stop">stop</button>
+        <button type="button" class="btn btn-primary btn-sm btn-iteration">next iteration</button>
+      </div>
+
+
+      <div class="accordion accordition-params">
+        <div class="accordion-item accordition-aco">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#parameters-aco" aria-expanded="true" aria-controls="parameters-aco">
+              ant colony optimisation
+            </button>
+          </h2>
+          <div id="parameters-aco" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+              <strong>This is the first item's accordion body.</strong> 
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#parameters-sa" aria-expanded="false" aria-controls="parameters-sa">
+              simulated annealing
+            </button>
+          </h2>
+          <div id="parameters-sa" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <strong>This is the third item's accordion body.</strong> 
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>         

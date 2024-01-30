@@ -1,0 +1,50 @@
+$body-bg: #11001E;
+$body-color: #7511a3;
+$primary: #A600F3;
+$form-range-track-width: 50%;
+$accordion-border-color: $body-bg;
+$accordion-button-active-bg: $body-bg;
+$accordion-button-active-color: #d680fd;
+$accordion-padding-x: 0;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+.hm{
+    margin-top: $spacer*1.5 !important;
+    margin-bottom: $spacer*.25 !important;
+}
+
+.speed{
+    display: flex !important;
+}
+.form-range{
+    width: 11.5%;
+    margin-left: $spacer*1;
+}
+.cities{
+    display: flex !important;
+    margin-bottom: $spacer*1;
+}
+.form-control{
+    width: 5%;
+    margin-left: $spacer*1.3;
+    margin-right: $spacer*1.2;
+}
+.input{
+    margin-left: $spacer*3;
+}
+.radio{
+    margin-top: $spacer*1;
+}
+.start-stop{
+    margin-top: $spacer*1;
+}
+.btn-stop{
+    margin-left: $spacer*.4;
+    margin-right: $spacer*.4;
+}
+
+.accordition-params{
+    margin-top: $spacer*1;
+    width: 15.5%;
+}
