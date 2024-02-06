@@ -1,6 +1,11 @@
 $body-bg: #11001E;
 $body-color: #7511a3;
 $primary: #A600F3;
+$aco-color: #c3448e;
+$sa-color: #d79840;
+$hk-color: #4f6daa;
+$grey: #6e6e6e;
+
 $form-range-track-width: 50%;
 $accordion-border-color: $body-bg;
 $accordion-button-active-bg: $body-bg;
@@ -25,8 +30,8 @@ $accordion-padding-x: 0;
     margin-right: $spacer*1.2;
 }
 .input{
-    margin-left: $spacer*3;
-    width: 18%;
+    margin-left: $spacer*2;
+    width: 25%;
 }
 .radio{
     margin-top: $spacer*1;
@@ -48,4 +53,37 @@ $accordion-padding-x: 0;
 }
 .btn-import{
     margin-left: $spacer;
+}
+.graph-output-div{
+    margin-left: $spacer*2;
+    margin-right: $spacer*2;
+    width: 100%;
+}
+.graph-div{
+    background-color: #7511a3;
+    height: $spacer*38;
+}
+.output-div{
+    margin-top: $spacer;
+    justify-content: space-between;
+    margin-left: $spacer;
+    margin-right: $spacer*3;
+}
+.aco-output-div{
+    color: $aco-color;
+}
+.sa-output-div{
+    color: $sa-color;
+}
+.hk-output-div{
+    color: $hk-color;
+}
+.hide{
+    color: $grey;
+}
+.aco-color-div{
+    color: $aco-color;
+}
+.sa-color-div{
+    color: $sa-color;
 }
