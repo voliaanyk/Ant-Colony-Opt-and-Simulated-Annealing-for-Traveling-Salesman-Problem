@@ -87,3 +87,12 @@ $accordion-padding-x: 0;
 .sa-color-div{
     color: $sa-color;
 }
+.node{
+    border-radius: 50%;
+    width: $spacer;
+    height: $spacer;
+    margin-left: -0.5*$spacer;
+    margin-top: -0.5*$spacer;
+    position: absolute;
+    background-color: $grey;
+}
