@@ -62,6 +62,10 @@ $accordion-padding-x: 0;
 .graph-div{
     background-color: #7511a3;
     height: $spacer*38;
+    margin-top: $spacer;
+    margin-left: $spacer;
+    margin-right: $spacer;
+    margin-bottom: $spacer;
 }
 .output-div{
     margin-top: $spacer;
@@ -89,10 +93,8 @@ $accordion-padding-x: 0;
 }
 .node{
     border-radius: 50%;
-    width: $spacer;
-    height: $spacer;
-    margin-left: -0.5*$spacer;
-    margin-top: -0.5*$spacer;
+    width: $spacer*.7;
+    height: $spacer*.7;
     position: absolute;
     background-color: $grey;
     cursor: grab;

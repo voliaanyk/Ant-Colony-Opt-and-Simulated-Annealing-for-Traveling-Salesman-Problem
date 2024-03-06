@@ -24,15 +24,47 @@ function clear_graph(graph_div){
     coordinates.splice(0, coordinates.length);
 }
 
+function get_node_width(graph_div){
+    const node = document.createElement('div');
+    node.classList.add('node');
+    graph_div.appendChild(node);
+    const nodeStyle = window.getComputedStyle(node);
+    const nodeWidth = parseFloat(nodeStyle.width);
+    graph_div.removeChild(node);
+
+    return nodeWidth;
+}
+
+function isWithinGraphDiv(graph_div, x, y){
+    
+    nodeWidth = get_node_width(graph_div);
+
+    const containerRect = graph_div.getBoundingClientRect();
+    const isWithinContainer = (
+        x >= containerRect.left + nodeWidth &&
+        x <= containerRect.right - nodeWidth &&
+        y >= containerRect.top + nodeWidth &&
+        y <= containerRect.bottom - nodeWidth
+    );
+    return isWithinContainer;
+}
+
 function add_node(graph_div, x, y){
+
+    if(!isWithinGraphDiv(graph_div, x, y)) return false;
+
     const node = document.createElement('div');
     node.classList.add('node');
     node.id = x + "-" + y;
-
-    node.style.left = x+'px';
-    node.style.top = y+'px';
-
+    
     graph_div.appendChild(node);
+
+    const nodeStyle = window.getComputedStyle(node);
+    const nodeWidth = parseFloat(nodeStyle.width);
+
+    node.style.left = x - nodeWidth/2 +'px';
+    node.style.top = y - nodeWidth/2 +'px';
+
     coordinates.push([x, y]);
 
     return true;
@@ -41,11 +73,13 @@ function add_node(graph_div, x, y){
 function generate_cities(div, n){
     clear_graph(div);
 
+    nodeWidth = get_node_width(div);
+
     const containerRect = div.getBoundingClientRect();
-    const left = containerRect.left + 10;
-    const right = containerRect.right - 10;
-    const top = containerRect.top + 10;
-    const bottom = containerRect.bottom - 10;
+    const left = containerRect.left + nodeWidth;
+    const right = containerRect.right - nodeWidth;
+    const top = containerRect.top + nodeWidth;
+    const bottom = containerRect.bottom - nodeWidth;
 
     
     generated = 0;
@@ -70,35 +104,21 @@ document.addEventListener('DOMContentLoaded', function(){
         const x = event.clientX;
         const y = event.clientY;
 
-        const containerRect = graph_div.getBoundingClientRect();
-        const isWithinContainer = (
-            x >= containerRect.left + 10 &&
-            x <= containerRect.right - 10 &&
-            y >= containerRect.top + 10 &&
-            y <= containerRect.bottom - 10
-        );
-
-        if(isWithinContainer){
+        if(isWithinGraphDiv(graph_div, x, y)){
 
             let close_to_coordinate = close_to(x, y);
             if (close_to_coordinate[0]!=-1){
                 let id = close_to_coordinate[0]+"-"+close_to_coordinate[1];
-                //console.log(id);
                 selected_node = document.getElementById(id);
+                selected_node.style.cursor = 'grabbing';
 
                 if(event.button == 2){
-                    
                     event.preventDefault();
                     graph_div.removeChild(selected_node);
-                }
-                else{
-                    //console.log(selected_node)
-                    selected_node.style.cursor = 'grabbing';
                 }
 
             }
             else if (event.button != 2) created_node = 1;
-
             
         }
     })
@@ -107,16 +127,7 @@ document.addEventListener('DOMContentLoaded', function(){
         const x = event.clientX;
         const y = event.clientY;
 
-        const containerRect = graph_div.getBoundingClientRect();
-        const isWithinContainer = (
-            x >= containerRect.left + 10 &&
-            x <= containerRect.right - 10 &&
-            y >= containerRect.top + 10 &&
-            y <= containerRect.bottom - 10
-        );
-
-        if(isWithinContainer && selected_node){
-
+        if(isWithinGraphDiv(graph_div, x, y) && selected_node){
             selected_node.style.left = x+'px';
             selected_node.style.top = y+'px';
             selected_node.id = x+"-"+y;
@@ -135,15 +146,8 @@ document.addEventListener('DOMContentLoaded', function(){
             created_node = 0;
             const x = event.clientX;
             const y = event.clientY;
-    
-            const containerRect = graph_div.getBoundingClientRect();
-            const isWithinContainer = (
-                x >= containerRect.left + 10 &&
-                x <= containerRect.right - 10 &&
-                y >= containerRect.top + 10 &&
-                y <= containerRect.bottom - 10
-            );
-            if(isWithinContainer){
+
+            if(isWithinGraphDiv(graph_div, x, y)){
                 add_node(graph_div, x, y);
             }
         }
