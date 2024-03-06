@@ -1,5 +1,5 @@
 from random import randint, random
-from common import *
+from algorithms.common import *
 
 class Graph():
     def __init__(self, n, dist): #n - number of cities, dist - distance matrix
@@ -173,7 +173,7 @@ class ACO():
                 best_route = ant.path
             ant_route.append(ant.path)
             
-        output = ACO_output(self.graph.n, self.parameters.n_ants, ant_route, best_route, self.graph.pheromone, best_length)
+        output = ACO_output(self.graph.n, self.parameters.n_ants, [], best_route, [], best_length)
         return output
 
     def shake(self): #shake function
@@ -194,7 +194,7 @@ def solve_aco(input, parameters):
         output.append(iteration_output)
         
         
-    return best, found, best_route
+    return output
     
     
     

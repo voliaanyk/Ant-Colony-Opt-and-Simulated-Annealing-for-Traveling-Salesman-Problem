@@ -1,16 +1,17 @@
-from common import *
+from algorithms.common import *
 
 
 def held_karp(input):
     n = input.n
     dist = input.dist
 
+    print(n)
     if n>max_n:
-        return heldkarp_output(-1, [])
-
-    dp = [[inf] * max_n for _ in range(1 << n)]  # Set S is represented as a binary number of length n where 1 at position x corresponds to including city x
+        return -1
+    
+    dp = [[inf] * max_n ]  # Set S is represented as a binary number of length n where 1 at position x corresponds to including city x
     path = [[-1] * max_n for _ in range(1 << n)]  # To store the path information
-
+    print(dp)
 
     for mask in range(1, 1 << n): #set all elements of dp array to infinity
         for v in range(1, n):
@@ -51,4 +52,4 @@ def held_karp(input):
         end_vertex = u
 
     path_list.append(path_list[-1])
-    return min_dist, path_list
+    return heldkarp_output(min_dist, path_list)

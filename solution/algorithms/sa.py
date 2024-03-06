@@ -1,10 +1,12 @@
 from math import exp
-from common import *
+from algorithms.common import *
 import numpy as np
 import random
+import copy
+"""
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-import copy
+"""
 
 
 class Graph():
@@ -146,30 +148,24 @@ class SA():
         # Temperature decay 
         self.T = self.alpha*self.T
         
-        output = SA_output(self.T, current_state.path, current_state.cost, probability) 
+        output = SA_output(self.T, current_state.path.tolist(), current_state.cost, probability) 
         
         return output
 
 
 def solve_sa(tsp_input, sa_params):
     sa = SA(tsp_input, sa_params) #initialise the problem
-    
-    best = inf
-    found = 0
-    best_route = None
+    output = []
     
     for iteration in range(sa_params.iterations):
         
-        sa_output = sa.iteration()
-        
-        if sa_output.cost < best: #if the length is less than the best length stored
-            best = sa_output.cost
-            found = iteration
-            best_route = sa_output.path
+        iteration_output = sa.iteration()
+        output.append(iteration_output)
     
-    return best, found, best_route
+    return output
 
 
+"""
 def solve_sa_with_display(tsp_input, sa_params):
     sa = SA(tsp_input, sa_params)
 
@@ -276,3 +272,4 @@ def solve_sa_with_display_non_animated(tsp_input, sa_params):
     plt.draw()
 
     plt.show()
+"""

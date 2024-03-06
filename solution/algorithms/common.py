@@ -48,5 +48,17 @@ class heldkarp_output():
         self.path = path
         self.cost = cost
 
+
+def calculate_distance_matrix(coordinates):
+    dist = []
+    n = len(coordinates)
+
+    for [x1, y1] in coordinates:
+        dist_row = []
+        for [x2, y2] in coordinates:
+            dist_row.append(math.sqrt(pow(x1-x2, 2)+pow(y1-y2, 2)))
+        dist.append(dist_row)
+    return n, dist
+
         
         
