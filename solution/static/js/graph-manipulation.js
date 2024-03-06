@@ -104,6 +104,8 @@ document.addEventListener('DOMContentLoaded', function(){
         const x = event.clientX;
         const y = event.clientY;
 
+        const right_click = (event.button == 2) || (event.ctrlKey);
+
         if(isWithinGraphDiv(graph_div, x, y)){
 
             let close_to_coordinate = close_to(x, y);
@@ -112,13 +114,13 @@ document.addEventListener('DOMContentLoaded', function(){
                 selected_node = document.getElementById(id);
                 selected_node.style.cursor = 'grabbing';
 
-                if(event.button == 2){
+                if(right_click){
                     event.preventDefault();
                     graph_div.removeChild(selected_node);
                 }
 
             }
-            else if (event.button != 2) created_node = 1;
+            else if (!right_click) created_node = 1;
             
         }
     })
