@@ -99,3 +99,18 @@ $accordion-padding-x: 0;
     background-color: $grey;
     cursor: grab;
 }
+
+.arc{
+    position:absolute;
+    height: $spacer;
+    z-index: -1;
+}
+.aco-path{
+    background-color: $aco-color;
+}
+.sa-path{
+    background-color: $sa-color;
+}
+.hk-path{
+    background-color: $hk-color;
+}
