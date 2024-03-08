@@ -3,6 +3,9 @@ var last_aco_path = null;
 var last_sa_path = null;
 var last_hk_path = null;
 
+var visualisation_on = false;
+var iteration = -1;
+
 
 
 function get_coordinates(){
@@ -162,7 +165,7 @@ function display_iteration_path(path, coordinates, class_name){
 }
 function hide_path(class_name){
     var elements = document.getElementsByClassName(class_name);
-    for (var i = 0; i < elements.length; i++) {
+    for (var i = elements.length-1; i>=0; i--) {
         elements[i].remove();
     }
 }
@@ -171,6 +174,20 @@ function hide_path(class_name){
 function updateValue(id, value) {
     const valueElement = document.getElementById(id);
     valueElement.textContent = value;
+}
+
+
+function update_hide_paths(){
+    custom_parameters = get_custom_parameters();
+
+    if(custom_parameters["hide-aco"] == false && last_aco_path != null) display_iteration_path(last_aco_path, coordinates, "aco-path");
+    if(custom_parameters["hide-aco"] == true) hide_path("aco-path");
+
+    if(custom_parameters["hide-sa"] == false && last_sa_path != null) display_iteration_path(last_sa_path, coordinates, "sa-path");
+    if(custom_parameters["hide-sa"] == true) hide_path("sa-path");
+
+    if(custom_parameters["hide-hk"] == false && last_hk_path != null) display_iteration_path(last_hk_path, coordinates, "hk-path");
+    if(custom_parameters["hide-hk"] == true) hide_path("hk-path");
 }
 
 
@@ -189,7 +206,23 @@ function display_output(output, custom_parameters){
     var aco_best = -1;
     var sa_best = -1;
 
-    for (let i=0;i<max_iteration;i++){
+    function display_iteration(){
+
+        var i = iteration;
+        iteration ++;
+        if(iteration > max_iteration){
+            visualisation_on = false;
+            iteration = -1;
+            return;
+        }
+
+        if(!visualisation_on) return;
+
+        custom_parameters = get_custom_parameters();
+        if (hk_output == -1) custom_parameters["hide-hk"] = true;
+
+        var speed = custom_parameters["speed-input"]; //1 to 100
+        var fast_forward = custom_parameters["fast-forward"]; //true if display with maximum speed
 
         updateValue("iteration-number", i+1);
 
@@ -220,23 +253,43 @@ function display_output(output, custom_parameters){
             display_iteration_path(hk_output["path"], coordinates, "sa-path");
             updateValue("hk-value", Math.round(parseFloat(hk_output["cost"])));
         }
+        var delay = fast_forward ? 0 : (100 - speed) * 10;
+        setTimeout(function () {
+            display_iteration();
+        }, delay);
         
     }
+
+    display_iteration();
 
 }
 
 
 
+
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.btn-start').addEventListener('click', async function() {
+        if(visualisation_on) return;
+
         var output = await get_algorithms_output();
         var custom_parameters = get_custom_parameters();
         console.log(output);
         console.log(custom_parameters);
 
+        visualisation_on = true;
+        iteration = 0;
         display_output(output, custom_parameters);
     });
+    document.querySelector('.btn-stop').addEventListener('click', async function() {
+        visualisation_on = false;
+    });
     document.getElementById("aco-hide").addEventListener('change', function(){
-
+        update_hide_paths();
+    })
+    document.getElementById("sa-hide").addEventListener('change', function(){
+        update_hide_paths();
+    })
+    document.getElementById("hk-hide").addEventListener('change', function(){
+        update_hide_paths();
     })
 });
