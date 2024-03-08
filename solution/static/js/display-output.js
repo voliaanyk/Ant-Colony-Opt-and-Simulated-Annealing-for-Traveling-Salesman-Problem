@@ -1,4 +1,10 @@
 
+var last_aco_path = null;
+var last_sa_path = null;
+var last_hk_path = null;
+
+
+
 function get_coordinates(){
     coordinates = []
     var graphDiv = document.getElementById('graph-div');
@@ -67,7 +73,8 @@ async function get_algorithms_output() {
         edInput = parseFloat(edInput)
         edInput = (isValidFloat(edInput) && edInput>0 && edInput<1) ? edInput : (alert('Alpha (SA decrease rate) must be a number between 0 and 1'), reject('Wrong format'));
 
-        var coordinates = get_coordinates();
+        coordinates = get_coordinates();
+        console.log(coordinates);
 
         var requestData = {
             coordinates: coordinates,
@@ -82,7 +89,6 @@ async function get_algorithms_output() {
             sa_T: tInput,
             sa_iter: iterationsSAInput
         };
-
         
         const response = await fetch('/calculate_outputs', {
             method: 'POST',
@@ -142,12 +148,14 @@ function draw_arc(div, x1, y1, x2, y2, class_name){
 
 function display_iteration_path(path, coordinates, class_name){
 
+    hide_path(class_name);
+
     for(let i=0; i<path.length-1; i++){
-        var x1 = coordinates[i][0]; var y1 = coordinates[i][1];
-        var x2 = coordinates[i+1][0]; var y2 = coordinates[i+1][1];
+        var x1 = coordinates[path[i]][0]; var y1 = coordinates[path[i]][1];
+        var x2 = coordinates[path[i+1]][0]; var y2 = coordinates[path[i+1]][1];
 
         graph_div = document.getElementById("graph-div");
-        draw_arc(graphDiv, x1, y1, x2, y2, class_name);
+        draw_arc(graph_div, x1, y1, x2, y2, class_name);
 
     }
 
@@ -163,24 +171,19 @@ function hide_path(class_name){
 function updateValue(id, value) {
     const valueElement = document.getElementById(id);
     valueElement.textContent = value;
-  }
+}
 
 
 function display_output(output, custom_parameters){
 
-    var hk_output = JSON.stringify(output["hk_output"]);
+    var hk_output = JSON.parse(output["hk_output"]);
     var aco_output = output["aco_output"];
     var sa_output = output["sa_output"];
 
     var coordinates = output["coordinates"];
 
     if (hk_output == -1) custom_parameters["hide-hk"] = true;
-
-    if(!custom_parameters["hide-hk"]){
-        display_iteration_path(hk_output["path"], coordinates, "sa-path");
-        updateValue("hk-value", Math.round(parseFloat(hk_output["cost"])));
-    }
-
+    else last_hk_path = hk_output["path"];
 
     var max_iteration = Math.max(aco_output.length, sa_output.length);
     var aco_best = -1;
@@ -190,28 +193,32 @@ function display_output(output, custom_parameters){
 
         updateValue("iteration-number", i+1);
 
-        if(i<aco_output.length && custom_parameters["hide-aco"] == false) {
-            var aco_iteration = JSON.stringify(aco_output[i]);
-
+        if(i<aco_output.length) {
+            var aco_iteration = JSON.parse(aco_output[i]);
             if (aco_best == -1 || parseFloat(aco_iteration.cost) <aco_best){
                 aco_best = parseFloat(aco_iteration.cost);
-                display_iteration_path(aco_iteration.best_route, coordinates, "aco-path");
+                if(custom_parameters["hide-aco"]==false) display_iteration_path(aco_iteration.best_route, coordinates, "aco-path");
                 updateValue("aco-value", Math.round(aco_best));
                 updateValue("aco-found", i+1);
-
+                last_aco_path = aco_iteration.best_route;
             }
         }
 
-        if(i<sa_output.length && custom_parameters["hide-sa"] == false) {
-            var sa_iteration = JSON.stringify(sa_output[i]);
+        if(i<sa_output.length) {
+            var sa_iteration = JSON.parse(sa_output[i]);
 
             if (sa_best == -1 || parseFloat(sa_iteration.cost) <sa_best){
                 sa_best = parseFloat(sa_iteration.cost);
-                display_iteration_path(sa_iteration.path, coordinates, "sa-path");
+                if(custom_parameters["hide-sa"]==false) display_iteration_path(sa_iteration.path, coordinates, "sa-path");
                 updateValue("sa-value", Math.round(sa_best));
                 updateValue("sa-found", i+1);
-
+                last_sa_path = sa_iteration.path;
             }
+        }
+
+        if(!custom_parameters["hide-hk"]){
+            display_iteration_path(hk_output["path"], coordinates, "sa-path");
+            updateValue("hk-value", Math.round(parseFloat(hk_output["cost"])));
         }
         
     }
@@ -229,4 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         display_output(output, custom_parameters);
     });
+    document.getElementById("aco-hide").addEventListener('change', function(){
+
+    })
 });
