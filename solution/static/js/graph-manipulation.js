@@ -1,5 +1,4 @@
-let coordinates = []
-
+let coordinates = [];
 
 function close_to(x, y){
     let n = coordinates.length;
@@ -94,12 +93,15 @@ function generate_cities(div, n){
 
 
 document.addEventListener('DOMContentLoaded', function(){
+    //ACCESS graph_locked variable here
+    console.log(last_aco_path);
 
     const graph_div = document.getElementById("graph-div");
     let selected_node = null;
     let created_node = 0;
 
     graph_div.addEventListener('mousedown', function(event){
+        
         //console.log("mousedown")
         const x = event.clientX;
         const y = event.clientY;
@@ -107,6 +109,11 @@ document.addEventListener('DOMContentLoaded', function(){
         const right_click = (event.button == 2) || (event.ctrlKey);
 
         if(isWithinGraphDiv(graph_div, x, y)){
+
+            if(graph_locked){
+                alert("clear the paths to edit the graph");
+                return;
+            }
 
             let close_to_coordinate = close_to(x, y);
             if (close_to_coordinate[0]!=-1){
@@ -130,6 +137,12 @@ document.addEventListener('DOMContentLoaded', function(){
         const y = event.clientY;
 
         if(isWithinGraphDiv(graph_div, x, y) && selected_node){
+
+            if(graph_locked){
+                alert("clear the paths to edit the graph");
+                return;
+            }
+
             selected_node.style.left = x+'px';
             selected_node.style.top = y+'px';
             selected_node.id = x+"-"+y;
@@ -139,6 +152,12 @@ document.addEventListener('DOMContentLoaded', function(){
     graph_div.addEventListener('mouseup', function(event){
 
         if (selected_node){
+
+            if(graph_locked){
+                alert("clear the paths to edit the graph");
+                return;
+            }
+
             const x = selected_node.id.split("-")[0];
             const y = selected_node.id.split("-")[1];
             coordinates.push([x, y]);
@@ -164,6 +183,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
     const button_clear = document.getElementById("btn-clear");
     button_clear.addEventListener("click", function(){
+
+        if(graph_locked){
+            alert("clear the paths to edit the graph");
+            return;
+        }
+
         clear_graph(graph_div);
     })
 
@@ -171,6 +196,12 @@ document.addEventListener('DOMContentLoaded', function(){
     const no_cities_inp = document.getElementById("cities-input");
 
     button_generate.addEventListener("click", function () {
+
+        if(graph_locked){
+            alert("clear the paths to edit the graph");
+            return;
+        }
+
         const numberOfCities = parseInt(no_cities_inp.value);
         if (!isNaN(numberOfCities) && Number.isInteger(numberOfCities) && numberOfCities > 0) {
             generate_cities(graph_div, numberOfCities);

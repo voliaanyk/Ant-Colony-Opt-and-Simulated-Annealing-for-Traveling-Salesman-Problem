@@ -1,12 +1,10 @@
-
 var last_aco_path = null;
 var last_sa_path = null;
 var last_hk_path = null;
 
 var visualisation_on = false;
 var iteration = -1;
-
-
+var graph_locked = false;
 
 function get_coordinates(){
     coordinates = []
@@ -190,6 +188,15 @@ function update_hide_paths(){
     if(custom_parameters["hide-hk"] == true) hide_path("hk-path");
 }
 
+function clear_outputs(){
+    updateValue("iteration-number", 0);
+    updateValue("aco-value", 0);
+    updateValue("aco-found", 0);
+    updateValue("sa-value", 0);
+    updateValue("sa-found", 0);
+    updateValue("hk-value", 0);
+}
+
 
 function display_output(output, custom_parameters){
 
@@ -269,7 +276,10 @@ function display_output(output, custom_parameters){
 
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.btn-start').addEventListener('click', async function() {
-        if(visualisation_on) return;
+        if(visualisation_on){
+            alert("visualisation is already on");
+            return;
+        }
 
         var output = await get_algorithms_output();
         var custom_parameters = get_custom_parameters();
@@ -277,11 +287,28 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(custom_parameters);
 
         visualisation_on = true;
-        iteration = 0;
+        graph_locked = true;
+        console.log(graph_locked);
+        if (iteration == -1) iteration = 0;
         display_output(output, custom_parameters);
     });
-    document.querySelector('.btn-stop').addEventListener('click', async function() {
+    document.querySelector('.btn-stop').addEventListener('click', function() {
+        if(!visualisation_on){
+            alert("visualisation is not on");
+            return;
+        }
         visualisation_on = false;
+        iteration -= 1;
+    });
+    document.querySelector('.btn-clear-paths').addEventListener('click', function() {
+        visualisation_on = false;
+        iteration = -1;
+        last_aco_path = null;
+        last_sa_path = null;
+        last_hk_path = null;
+        graph_locked = false;
+        hide_path('arc');
+        clear_outputs();
     });
     document.getElementById("aco-hide").addEventListener('change', function(){
         update_hide_paths();
