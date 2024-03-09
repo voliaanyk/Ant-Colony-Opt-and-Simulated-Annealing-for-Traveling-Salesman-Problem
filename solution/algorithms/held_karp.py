@@ -6,7 +6,7 @@ def held_karp(input):
     dist = input.dist
 
     if n>max_n:
-        return heldkarp_output(-1, [])
+        return heldkarp_output(0, [])
 
     dp = [[inf] * max_n for _ in range(1 << n)]  # Set S is represented as a binary number of length n where 1 at position x corresponds to including city x
     path = [[-1] * max_n for _ in range(1 << n)]  # To store the path information

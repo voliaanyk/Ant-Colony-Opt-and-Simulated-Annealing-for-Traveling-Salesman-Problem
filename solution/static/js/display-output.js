@@ -213,8 +213,7 @@ function display_output(output, custom_parameters){
 
     var coordinates = output["coordinates"];
 
-    if (hk_output == -1) custom_parameters["hide-hk"] = true;
-    else last_hk_path = hk_output["path"];
+    last_hk_path = hk_output["path"];
 
     var max_iteration = Math.max(aco_output.length, sa_output.length);
     var aco_best = -1;
