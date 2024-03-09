@@ -3,7 +3,7 @@ $body-color: #7511a3;
 $primary: #A600F3;
 $aco-color: #c3448e;
 $sa-color: #d79840;
-$hk-color: #4f6daa;
+$hk-color: #2858b9;
 $grey: #6e6e6e;
 
 $form-range-track-width: 50%;
@@ -98,7 +98,7 @@ $accordion-padding-x: 0;
     position: absolute;
     background-color: $primary;
     cursor: grab;
-    z-index: 2;
+    z-index: 3;
 }
 
 .arc{
@@ -108,11 +108,13 @@ $accordion-padding-x: 0;
 }
 .aco-path{
     background-color: $aco-color;
+    z-index: 1;
 }
 .sa-path{
     background-color: $sa-color;
+    z-index: 1;
 }
 .hk-path{
     background-color: $hk-color;
-    z-index: 1;
+    z-index: 2;
 }

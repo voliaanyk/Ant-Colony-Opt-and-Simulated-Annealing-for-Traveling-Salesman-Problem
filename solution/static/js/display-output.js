@@ -134,9 +134,16 @@ function draw_arc(div, x1, y1, x2, y2, class_name){
     const line = document.createElement('div');
     line.classList.add(class_name);
     line.classList.add("arc");
+
+    var d = 0;
+    if(class_name=="aco-path") d = 2;
+    if(class_name=="sa-path") d = -2;
     
     const width = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
     const angle = Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
+
+    x1 = x1 - d * Math.sin(angle * (Math.PI / 180));
+    y1 = y1 + d * Math.cos(angle * (Math.PI / 180));
     
     line.style.left = `${x1}px`;
     line.style.top = `${y1}px`;
@@ -217,6 +224,9 @@ function display_output(output, custom_parameters){
 
         //update_hide_paths();
 
+        custom_parameters = get_custom_parameters();
+        if (custom_parameters["fast-forward"]) iteration = max_iteration-1
+
         var i = iteration;
         iteration ++;
         if(iteration > max_iteration){
@@ -227,7 +237,7 @@ function display_output(output, custom_parameters){
 
         if(!visualisation_on) return;
 
-        custom_parameters = get_custom_parameters();
+        
         if (hk_output == -1) custom_parameters["hide-hk"] = true;
 
         var speed = custom_parameters["speed-input"]; //1 to 100

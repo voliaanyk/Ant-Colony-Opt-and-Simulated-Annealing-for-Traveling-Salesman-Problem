@@ -1,7 +1,7 @@
 import math
 
 inf = 10000000000
-max_n = 16 #for held karp
+max_n = 15 #for held karp
         
 class TSP_input():
     def __init__(self, n, dist, coordinates):
