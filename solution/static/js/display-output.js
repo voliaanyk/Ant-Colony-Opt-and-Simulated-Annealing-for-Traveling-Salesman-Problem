@@ -215,6 +215,8 @@ function display_output(output, custom_parameters){
 
     function display_iteration(){
 
+        //update_hide_paths();
+
         var i = iteration;
         iteration ++;
         if(iteration > max_iteration){
@@ -249,7 +251,9 @@ function display_output(output, custom_parameters){
 
             if (sa_best == -1 || parseFloat(sa_iteration.cost) <sa_best){
                 sa_best = parseFloat(sa_iteration.cost);
-                if(custom_parameters["hide-sa"]==false) display_iteration_path(sa_iteration.path, coordinates, "sa-path");
+                if(custom_parameters["hide-sa"]==false){
+                    display_iteration_path(sa_iteration.path, coordinates, "sa-path");
+                }
                 updateValue("sa-value", Math.round(sa_best));
                 updateValue("sa-found", i+1);
                 last_sa_path = sa_iteration.path;
@@ -257,7 +261,7 @@ function display_output(output, custom_parameters){
         }
 
         if(!custom_parameters["hide-hk"]){
-            display_iteration_path(hk_output["path"], coordinates, "sa-path");
+            display_iteration_path(hk_output["path"], coordinates, "hk-path");
             updateValue("hk-value", Math.round(parseFloat(hk_output["cost"])));
         }
         var delay = fast_forward ? 0 : (100 - speed) * 10;

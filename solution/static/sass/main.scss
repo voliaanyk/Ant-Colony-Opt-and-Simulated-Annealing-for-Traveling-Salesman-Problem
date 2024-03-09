@@ -98,7 +98,7 @@ $accordion-padding-x: 0;
     position: absolute;
     background-color: $primary;
     cursor: grab;
-    z-index: 1;
+    z-index: 2;
 }
 
 .arc{
@@ -114,4 +114,5 @@ $accordion-padding-x: 0;
 }
 .hk-path{
     background-color: $hk-color;
+    z-index: 1;
 }

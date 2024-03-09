@@ -1,15 +1,15 @@
 from common import *
-from aco import *
+#from aco import *
 import matplotlib.pyplot as plt
 import math
 import random
-from sa import *
+#from sa import *
 from held_karp import *
 
 def generate_random_tsp(n):
     coordinates = [(random.uniform(0, 100), random.uniform(0, 100)) for _ in range(n)]
     
-    dist = [[0 if i == j else math.dist(coordinates[i], coordinates[j]) 
+    dist = [[-1 if i == j else math.dist(coordinates[i], coordinates[j]) 
              for j in range(n)] for i in range(n)]
     
     return TSP_input(n, dist, coordinates)
@@ -55,7 +55,16 @@ def main():
     print("Actual best (held-karp): ", str(hk_best))
     visualize_routes(route, sa_route, hk_path, tsp_input.coordinates)
 
+def test_hk():
+    n_cities = 15
+    tsp_input = generate_random_tsp(n_cities)
 
+    hk_output = held_karp(tsp_input)
+    print(hk_output.path)
+    print("Actual best (held-karp): ", str(hk_output.cost))
+
+
+"""
 def test_sa():
     n_cities = 10
     tsp_input = generate_random_tsp(n_cities)
@@ -65,3 +74,5 @@ def test_sa():
 
 
 test_sa()
+"""
+test_hk()

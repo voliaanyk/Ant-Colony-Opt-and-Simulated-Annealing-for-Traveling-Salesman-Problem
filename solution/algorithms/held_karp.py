@@ -5,13 +5,12 @@ def held_karp(input):
     n = input.n
     dist = input.dist
 
-    print(n)
     if n>max_n:
-        return -1
-    
-    dp = [[inf] * max_n ]  # Set S is represented as a binary number of length n where 1 at position x corresponds to including city x
+        return heldkarp_output(-1, [])
+
+    dp = [[inf] * max_n for _ in range(1 << n)]  # Set S is represented as a binary number of length n where 1 at position x corresponds to including city x
     path = [[-1] * max_n for _ in range(1 << n)]  # To store the path information
-    print(dp)
+
 
     for mask in range(1, 1 << n): #set all elements of dp array to infinity
         for v in range(1, n):
@@ -42,7 +41,7 @@ def held_karp(input):
         if dist[v][0] != -1 and min_dist > dp[mask][v] + dist[v][0]:
             min_dist = dp[mask][v] + dist[v][0]
             end_vertex = v 
-    
+
     # reconstruct the path
     path_list = []
     while mask > 0 and end_vertex!=-1:
@@ -51,5 +50,5 @@ def held_karp(input):
         mask ^= (1 << end_vertex)
         end_vertex = u
 
-    path_list.append(path_list[-1])
+    path_list.append(path_list[0])
     return heldkarp_output(min_dist, path_list)

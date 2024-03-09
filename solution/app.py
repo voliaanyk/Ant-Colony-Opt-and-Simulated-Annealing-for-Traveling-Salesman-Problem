@@ -43,11 +43,14 @@ def calculate_outputs_api():
     aco_output = solve_aco(tsp_input, aco_input)
     sa_output = solve_sa(tsp_input, sa_input)
 
+    hk_output = json.dumps(vars(hk_output))
+
     for i in range(len(aco_output)):
         aco_output[i] = json.dumps(aco_output[i].__dict__)
 
     for i in range(len(sa_output)):
         sa_output[i] = json.dumps(sa_output[i].__dict__)
+    
 
     return jsonify({
         'hk_output': hk_output,
