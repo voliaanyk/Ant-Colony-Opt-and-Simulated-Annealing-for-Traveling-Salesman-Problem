@@ -77,7 +77,7 @@ function add_node(graph_div, x, y){
     node.style.left = x - nodeWidth/2 +'px';
     node.style.top = y - nodeWidth/2 +'px';
     //add coordinates of created node to the coordinates array to keep track of the nodes
-    coordinates.push([x, y]);
+    coordinates.push([parseFloat(x), parseFloat(y)]);
     //return true because the node was created
     return true;
 }
@@ -161,9 +161,10 @@ document.addEventListener('DOMContentLoaded', function(){
         const y = event.clientY;
         //check whether position is within the bounds (to prevent nodes being moved outside the container) and if node is selected
         if(isWithinGraphDiv(graph_div, x, y) && selected_node){
-            //change the node position to the position of the mouse
-            selected_node.style.left = x+'px';
-            selected_node.style.top = y+'px';
+            //change the node position to the position of the mouse - radius
+            nodeWidth = get_node_width(graph_div);//get node width/diameter
+            selected_node.style.left = x-nodeWidth/2+'px';
+            selected_node.style.top = y-nodeWidth/2+'px';
             //update the id 
             selected_node.id = x+"-"+y;
             //note that we don't edit anything in coordinates array here
@@ -179,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function(){
             //note that we don't use the position of the mouse here, as it could be moved outside of bounds and then released
             const x = selected_node.id.split("-")[0];
             const y = selected_node.id.split("-")[1];
-            coordinates.push([x, y]); //add coordinates to coordinates array to keep it in sync
+            coordinates.push([parseFloat(x), parseFloat(y)]); //add coordinates to coordinates array to keep it in sync
             selected_node.style.cursor = 'grab'; //change cursor back to grab
             selected_node = null;//node is no longer selected, so reset selected_node to null
         }
