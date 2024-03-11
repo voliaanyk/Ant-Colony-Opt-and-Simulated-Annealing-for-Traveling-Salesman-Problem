@@ -47,8 +47,8 @@ def calculate_outputs_api():
 
     #pass the inputs to corresponding functions
     hk_output = held_karp(tsp_input)
-    aco_output = solve_aco(tsp_input, aco_input)
-    sa_output = solve_sa(tsp_input, sa_input)
+    aco_it_found, aco_output = solve_aco(tsp_input, aco_input)
+    sa_it_found, sa_output = solve_sa(tsp_input, sa_input)
 
     #jsonify the held-karp output to be able to return it
     hk_output = json.dumps(vars(hk_output))
@@ -63,7 +63,9 @@ def calculate_outputs_api():
     #return a json with all outputs
     return jsonify({
         'hk_output': hk_output,
+        'aco_it_found': aco_it_found,
         'aco_output': aco_output,
+        'sa_it_found': sa_it_found,
         'sa_output': sa_output
     })
 

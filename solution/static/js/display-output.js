@@ -206,6 +206,8 @@ function display_output(output, custom_parameters){
     var hk_output = JSON.parse(output["hk_output"]);
     var aco_output = output["aco_output"];
     var sa_output = output["sa_output"];
+    var aco_it_found = output["aco_it_found"];
+    var sa_it_found = output["sa_it_found"];
 
     //calculate the number of iterations that wee need to show
     var max_iteration = Math.max(aco_output.length, sa_output.length);
@@ -215,7 +217,6 @@ function display_output(output, custom_parameters){
     var sa_best = -1;
     var sa_found = -1;
 
-
     //we do not iterate through held-karp, so we can display it's output straight away
     last_hk_path = hk_output["path"]; //set last held-karp path to the held-karp path (there is only one path)
     updateValue("hk-value", Math.round(parseFloat(hk_output["cost"]))); //update value of the cost
@@ -223,7 +224,7 @@ function display_output(output, custom_parameters){
         display_iteration_path(hk_output["path"], coordinates, "hk-path");
     }
 
-    function display_iteration(){
+    function display_iterations(){
         //if visualisation isn't on, return
         if(!visualisation_on) return;
         //get custom parameters
@@ -231,63 +232,50 @@ function display_output(output, custom_parameters){
 
         var speed = custom_parameters["speed-input"]; //1 to 100
         var fast_forward = custom_parameters["fast-forward"]; //true if display with maximum speed
-        var update_display = true;
-        if(fast_forward) update_display = false; //if fast forward, we don't update display, only take record of best costs and paths
         var i = iteration;
         iteration ++; //increase iteration
 
-        if(update_display) updateValue("iteration-number", i+1); //update the number of iteration
+        if(fast_forward) updateValue("iteration-number", max_iteration); //if fast forward, show the last iteration number
+        else updateValue("iteration-number", i+1); //update the number of iteration
 
+        if(fast_forward) i=aco_it_found;//if fast forward, show the best aco iteration
         if(i<aco_output.length) { //if current iteration is less or equal to the maximum aco iteration
             var aco_iteration = JSON.parse(aco_output[i]); //get a dictionary of aco iteration
             if (aco_best == -1 || parseFloat(aco_iteration.cost) <aco_best){ //if current iteration is better than the best
                 aco_best = parseFloat(aco_iteration.cost); //set best cost to current cost
                 aco_found = i+1;
                 last_aco_path = aco_iteration.best_route; //update last aco path / best aco path
-                if(update_display){ //if update_display is true, update the costs and path on the display
-                    if(custom_parameters["hide-aco"]==false) display_iteration_path(aco_iteration.best_route, coordinates, "aco-path");
-                    updateValue("aco-value", Math.round(aco_best));
-                    updateValue("aco-found", i+1);
-                }
+                if(custom_parameters["hide-aco"]==false) display_iteration_path(aco_iteration.best_route, coordinates, "aco-path");
+                updateValue("aco-value", Math.round(aco_best));
+                updateValue("aco-found", i+1);
             }
         }
+        if(fast_forward) i=sa_it_found;//if fast forward, show the best sa iteration
         if(i<sa_output.length) {//if current iteration is less or equal to the maximum sa iteration
             var sa_iteration = JSON.parse(sa_output[i]);//get a dictionary of sa iteration
             if (sa_best == -1 || parseFloat(sa_iteration.cost) <sa_best){ //if current iteration is better than the best
                 sa_best = parseFloat(sa_iteration.cost); //set best cost to current cost
                 sa_found = i+1;
                 last_sa_path = sa_iteration.path; //update last sa path / best sa path
-                if(update_display){//if update_display is true, update the costs and path on the display
-                    if(custom_parameters["hide-sa"]==false) display_iteration_path(sa_iteration.path, coordinates, "sa-path");
-                    updateValue("sa-value", Math.round(sa_best));
-                    updateValue("sa-found", i+1);
-                }
+                if(custom_parameters["hide-sa"]==false) display_iteration_path(sa_iteration.path, coordinates, "sa-path");
+                updateValue("sa-value", Math.round(sa_best));
+                updateValue("sa-found", i+1);
             }
         }
-        if(iteration >= max_iteration){ //if iteration is the last possible iteration, we need to stop
-
-            if(fast_forward){ //if fast_forward, we didn't display any of the paths and costs during the loop, so we need to update those
-                if(custom_parameters["hide-aco"]==false) display_iteration_path(last_aco_path, coordinates, "aco-path");
-                updateValue("aco-value", Math.round(aco_best));
-                updateValue("aco-found", aco_found);
-                if(custom_parameters["hide-sa"]==false) display_iteration_path(last_sa_path, coordinates, "sa-path");
-                updateValue("sa-value", Math.round(sa_best));
-                updateValue("sa-found", sa_found);
-                updateValue("iteration-number", i+1);
-            }
+        if(iteration >= max_iteration || fast_forward){ //if iteration is the last possible iteration, we need to stop
             visualisation_on = false; //reset visualisation_on to false
             iteration = -1; //reset iteration to -1
             return;
         }
         //execute next iteration with a time delay, that is calculated using the speed input
-        var delay = fast_forward?0:(100 - speed) * 10;
+        var delay = (100 - speed) * 10;
         setTimeout(function () {
-            display_iteration();
+            display_iterations();
         }, delay);
         
     }
     //display the first iteration
-    display_iteration();
+    display_iterations();
 
 }
 

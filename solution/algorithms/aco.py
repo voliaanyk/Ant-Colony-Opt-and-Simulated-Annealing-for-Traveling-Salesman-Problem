@@ -185,16 +185,22 @@ def solve_aco(input, parameters):
     aco = ACO(input, parameters)
     
     best = inf
-    found = 0
-    best_route = None
+    best_found = 0
     output = []
+
+    
     
     for iteration in range(parameters.iterations):
         iteration_output = aco.iteration()
         output.append(iteration_output)
+
+        if iteration_output.cost < best: #if the length is less than the best length stored#
+            #update the best solution
+            best = iteration_output.cost
+            best_found = iteration
         
         
-    return output
+    return best_found, output
     
     
     

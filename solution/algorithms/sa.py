@@ -156,13 +156,20 @@ class SA():
 def solve_sa(tsp_input, sa_params):
     sa = SA(tsp_input, sa_params) #initialise the problem
     output = []
-    
+    best = inf
+    best_found = 0
+
     for iteration in range(sa_params.iterations):
         
         iteration_output = sa.iteration()
         output.append(iteration_output)
+
+        if iteration_output.cost < best: #if the length is less than the best length stored#
+            #update the best solution
+            best = iteration_output.cost
+            best_found = iteration
     
-    return output
+    return best_found, output
 
 
 """
