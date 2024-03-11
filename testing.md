@@ -45,6 +45,7 @@ I found 3 tests and performed all of them on my held-karp function
 
 ##### test 1
 
+```
 11
 0   29  20  21  16  31  100 12  4   31  18
 29  0   15  29  28  40  72  21  29  41  12
@@ -57,6 +58,7 @@ I found 3 tests and performed all of them on my held-karp function
 4   29  23  25  20  36  101 15  0   35  18
 31  41  27  13  16  3   99  25  35  0   38
 18  12  13  25  22  37  84  13  18  38  0
+```
 
 expected: 253
 
@@ -66,6 +68,7 @@ answer:253
 
 ##### test 2
 
+```
 6
 9999    64  378 519 434 200
 64  9999    318 455 375 164
@@ -73,6 +76,7 @@ answer:253
 519 455 170 9999    223 428
 434 375 265 223 9999    273
 200 164 344 428 273 9999
+```
 
 expected: 1248
 
@@ -82,6 +86,7 @@ answer: 1248
 
 ##### test 3
 
+```
 15
 -1  141 134 152 173 289 326 329 285 401 388 366 343 305 276
 141 -1  152 150 153 312 354 313 249 324 300 272 247 201 176
@@ -98,6 +103,7 @@ answer: 1248
 343 247 237 214 190 264 295 194 140 88  57  26  -1  48  71
 305 201 210 187 165 267 303 210 147 134 104 73  48  -1  30
 276 176 181 158 137 249 287 201 134 150 124 96  71  30  -1
+```
 
 expected: 1194
 
@@ -126,6 +132,7 @@ Since the output may be different every time you run a program, I will it 5 time
 
 ref:[algorithm - Data for simple TSP - Stack Overflow](https://stackoverflow.com/questions/11007355/data-for-simple-tsp)
 
+```
 15
 -1  141 134 152 173 289 326 329 285 401 388 366 343 305 276
 141 -1  152 150 153 312 354 313 249 324 300 272 247 201 176
@@ -142,6 +149,7 @@ ref:[algorithm - Data for simple TSP - Stack Overflow](https://stackoverflow.com
 343 247 237 214 190 264 295 194 140 88  57  26  -1  48  71
 305 201 210 187 165 267 303 210 147 134 104 73  48  -1  30
 276 176 181 158 137 249 287 201 134 150 124 96  71  30  -1
+```
 
 expected: 1194
 
@@ -155,9 +163,8 @@ average: 1209 (1.3% difference)
 
 ref: [TSP - Data for the Traveling Salesperson Problem (fsu.edu)](https://people.sc.fsu.edu/~jburkardt/datasets/tsp/tsp.html) (GR17)
 
-17
-
 ```
+17
   0 633 257  91 412 150  80 134 259 505 353 324  70 211 268 246 121
 633   0 390 661 227 488 572 530 555 289 282 638 567 466 420 745 518
 257 390   0 228 169 112 196 154 372 262 110 437 191  74  53 472 142
@@ -189,9 +196,8 @@ average: 2139.4 (2.6% differece)
 
 ref: [TSP - Data for the Traveling Salesperson Problem (fsu.edu)](https://people.sc.fsu.edu/~jburkardt/datasets/tsp/tsp.html) (**DANTZIG42**)
 
-42
-
 ```
+42
    0   8  39  37  50  61  58  59  62  81 103 108 145 181 187 161 142 174 185 164 137 117 114  85  77  87  91 105 111  91  83  89  95  74  67  74  57  45  35  29   3   5
    8   0  45  47  49  62  60  60  66  81 107 117 149 185 191 170 146 178 186 165 139 122 118  89  80  89  93 106 113  92  85  91  97  81  69  76  59  46  37  33  11  12
   39  45   0   9  21  21  16  15  20  40  62  66 104 140 146 120 101 133 142 120  94  77  73  44  36  44  48  62  69  50  42  55  64  44  42  61  46  41  35  30  41  55
@@ -250,7 +256,8 @@ For visual tests, I just create a random set of nodes on the website, and run th
 
 ##### test 1
 n = 15
-![n=15]("images/testing/aco n=15")
+![n=15](images/testing/aco15)
+
 n = 30
 n = 50
 n = 100
@@ -277,6 +284,7 @@ Since the output may be different every time you run a program, I will it 5 time
 
 ref:[algorithm - Data for simple TSP - Stack Overflow](https://stackoverflow.com/questions/11007355/data-for-simple-tsp)
 
+```
 15
 -1  141 134 152 173 289 326 329 285 401 388 366 343 305 276
 141 -1  152 150 153 312 354 313 249 324 300 272 247 201 176
@@ -293,6 +301,7 @@ ref:[algorithm - Data for simple TSP - Stack Overflow](https://stackoverflow.com
 343 247 237 214 190 264 295 194 140 88  57  26  -1  48  71
 305 201 210 187 165 267 303 210 147 134 104 73  48  -1  30
 276 176 181 158 137 249 287 201 134 150 124 96  71  30  -1
+```
 
 expected: 1194
 
@@ -306,9 +315,9 @@ average: 1194
 
 ref: [TSP - Data for the Traveling Salesperson Problem (fsu.edu)](https://people.sc.fsu.edu/~jburkardt/datasets/tsp/tsp.html) (GR17)
 
-17
 
 ```
+17
   0 633 257  91 412 150  80 134 259 505 353 324  70 211 268 246 121
 633   0 390 661 227 488 572 530 555 289 282 638 567 466 420 745 518
 257 390   0 228 169 112 196 154 372 262 110 437 191  74  53 472 142
@@ -339,8 +348,6 @@ average: 2120 (1.7% difference)
 ##### test 3
 
 ref: [TSP - Data for the Traveling Salesperson Problem (fsu.edu)](https://people.sc.fsu.edu/~jburkardt/datasets/tsp/tsp.html) (**DANTZIG42**)
-
-42
 
 ```
   42
