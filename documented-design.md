@@ -12,7 +12,6 @@ The visualisation is a website with a start page (with a fancy picture of a grap
 - choose if they want to see each iteration or fast-forward to see the answer straight away
 - adjust the speed
 - see outputs of all the other algorithms (inclusing the Held-Karp algorithm)
-- display a simple user guide
 
 I plan to code all of this using the simplest tools and languages such as HTML, CSS, and JavaScript. For the purpose of sympifying the web designing, I'm going to use Bootstrap (just to make the website prettier). All of the other things like graph manipulation, and visulisation of algorithms outputs I plan to do from sctratch in JS.
 

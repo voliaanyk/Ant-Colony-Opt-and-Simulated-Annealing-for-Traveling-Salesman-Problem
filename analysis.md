@@ -217,7 +217,6 @@ This system is more user-friendly than the previous one and has less functionali
    - showing important information such as the number of iteration, the best route and its length, and when it was found
    - make it possible to generate cities, create cities via the interface
    - show the exact best route found using an exact algorithm for smaller problem instances
-   - display user guide
 6. **Link the ACO algorithm and its visualisation** `<br>`
    *Link the systems together so that the visualisation can be updated simultaneously as ACO finds the optimal solution*
 
