@@ -252,19 +252,25 @@ average: 761.2 (8.9% difference)
 
 #### Visual tests
 
-For visual tests, I just create a random set of nodes on the website, and run the aco on it.
+For visual tests, I will create a random set of nodes on the website, and run the aco on it.
 
 ##### test 1
 n = 15
-![n=15](images/testing/aco15)
+![n=15](images/testing/aco15.png)
 
 n = 30
+![n=30](images/testing/aco30.png)
+
 n = 50
+![n=50](images/testing/aco50.png)
+
 n = 100
+![n=100](images/testing/aco100.png)
+
 
 #### **Results**
 
-For all tests percentage difference with the optimal solution was no bigger than 10 percent, which shows that my Ant Colony Optimisation implementation is correct.
+For all tests percentage difference with the optimal solution was no bigger than 10 percent, and visual tests look close to optimal, which shows that my Ant Colony Optimisation implementation is correct.
 
 
 ### Simulated Annealing
@@ -402,3 +408,24 @@ parameters: (0.98, 3000, 5000)
 outputs: 755, 748, 743, 755, 733
 
 average: 746.8 (6.8% difference)
+
+#### Visual tests
+
+For visual tests, I will create a random set of nodes on the website, and run the sa on it.
+
+n = 15
+![n=15](images/testing/sa15.png)
+
+n = 30
+![n=30](images/testing/sa30.png)
+
+n = 50
+![n=50](images/testing/sa50.png)
+
+n = 100
+![n=100](images/testing/sa100.png)
+
+
+#### **Results**
+
+For all tests percentage difference with the optimal solution was no bigger than 7 percent, and visual tests look close to optimal, which shows that my Simulated Annealing implementation is correct.
