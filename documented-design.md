@@ -2,6 +2,72 @@
 
 # DOCUMENTED DESIGN
 
+## Visualisation design
+
+The visualisation is a website with a start page (with a fancy picture of a graph and a button "try"), a main page where users will be able to:
+
+- create a graph (automatically or manualy)
+- vary parameters to see how they affect the performance
+- show/hide outputs of all algorithms
+- choose if they want to see each iteration or fast-forward to see the answer straight away
+- adjust the speed
+- see outputs of all the other algorithms (inclusing the Held-Karp algorithm)
+- display a simple user guide
+
+I plan to code all of this using the simplest tools and languages such as HTML, CSS, and JavaScript. For the purpose of sympifying the web designing, I'm going to use Bootstrap (just to make the website prettier). All of the other things like graph manipulation, and visulisation of algorithms outputs I plan to do from sctratch in JS.
+
+### Start page
+
+The design of the start page is below.
+
+![start page](images/documented-design/start_page.png)
+
+The graph symbolises ACO (in the form of ants on the left side) and Simulated Annealing (fire on the right side). The start page also contains a button "try", that will lead to the main page when pressed; and an additional information icon that will show some context and basic description of what the visualisation (additional information button is not decided yet).
+
+### Main page
+
+![main page](images/documented-design/main_page.png)
+
+The main page has the following features:
+
+- graph container, that displays nodes that can be either created by user (when user clicks inside the container), or generated (when generate button is pressed), or exported (this feature isn't decided yet as it may add extra complexity for users); nodes also can be moved with a mouse and deleted with a double click
+- graph container, that shows the paths (outputs of algorithms) that change / or don't change after each iteration, aiming to find the optimal solution; different coloured paths represent different algorithms, and they can all be hidden/displayed by user with the help of hide checks at the bottom
+- iteration number and algorithms outputs at the bottom, each showing the best cost yet, and iteration at which it was found
+- user can adjust the speed of iteration, and also fast forward through the outputs and show the most optimal solution only
+- when pressing on Ant Colony Optimisation or Simulated Annealing at the right, the accordition item will expand and let the user input the parameters of the according algorithm; for ACO: number of iterations, alpha, beta, Q, number of ants, evaporation rate; for SA: number of iterations, starting temperature, exponential decrease
+- start button that starts/resumes visualisation when pressed; if any of parameters that should be inputed are empty ot not valid, it outputs an alert for the user.
+- stop button that pauses/stops visualisation when pressed, so that no further changes are made to the algorithms outputs.
+
+<div style="page-break-after: always;"></div>
+
+## Bringing it all together
+
+Visualisation is only the small part of this project, and most of its significance are the optimisational algorithms. In order to display the outputs of the algotihms on the website, we need to pass all of the input parameters and variables to the algorithm implementation, and receive the outputs as a response.
+
+At first I was going to implement algorithms in C++, because this way they would be as fast as they can get. But then, after a carefull consideration, I've changed my mind to Python mainly for its wider functionality. Python has frameworks like Flask (Web Application Framework), that can both run the website on itself, and connect front-end with back-end.
+
+### Flask
+
+Flask is a light framework, which means that it's fast and efficient. Furthermore, it's very easy to learn and understand it. For example this is code that returns "Hello world" when you navigate to https:/`<domain>`/hello_world
+
+```
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/hello_world')
+def hello_world():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run()
+```
+
+My main file (app.py) will be written in flask, and it will have 3 routes:
+
+- start page that is the one that is shown by default
+- main page that is shown when "start" button is pressed
+- calculate_outputs, that does not have ui itself, but can be sent requests to from js, and can then pass those parameters from the requests to algorithms that are also writen in python, and then outputs of those functions back to js -> user interface.
+
 ## Algorithms
 
 ### Exact algorithm
@@ -43,7 +109,7 @@ The solution to TSP is found by selecting the minimum distance among the paths t
 #### Bitmasks
 
 For this algorithm I'm going to use bitmasks. Bitmask is a binary number that represents a subset of a set. If the number has 1 at a point x (that is $2^x$ bit), then element number x in the superset is included in the subset.
-<br><br>
+`<br><br>`
 **Example:**
 
 4 3 2 1 0
@@ -51,7 +117,7 @@ For this algorithm I'm going to use bitmasks. Bitmask is a binary number that re
 1 0 0 1 1  = 16 + 2 + 1 = 19
 
 So bitmask 19 represents a subset {0, 1, 4}
-<br><br>
+`<br><br>`
 **Some binary operations in C++:**
 
 1<<n - shift of 1, n times to the left
@@ -61,7 +127,7 @@ x\^y - x xor y
 mask & (1<<x) - returns 1 if element x is in the subset represented by bitmask
 
 mask ^ (1<<x) - bitmask that represents S\x
-<br><br><br>
+`<br><br>``<br>`
 
 <div style="page-break-after: always;"></div>
 
@@ -181,60 +247,3 @@ Similar to Ant Colony, Simulated Annealing has parameters that can be varied suc
 These parameters will affect Simulated Annealing perfomance on TSP, so we need to add the opprtuinity to vary them on the website for better understanding of the algorithm.
 
 <div style="page-break-after: always;"></div>
-
-## Visualisation design
-
-The visualisation is a website with a start page (with a fancy picture of a graph and a button "try"), a main page where users will be able to:
-
-- create a graph (automatically or manualy)
-- choose an algorithm they want to perform (either Ant Colony Optimisation or Simulated Annealing)
-- vary parameters to see how they affect the performance
-- choose if they want to see each iteration or fast-forward to see the answer straight away
-- adjust the speed
-- see outputs of all the other algorithms (inclusing the Held-Karp algorithm)
-- display a simple user guide
-
-I plan to code all of this using the simplest tools and languages such as HTML, CSS, JavaScript (because I have some previous experience in those languages and feel emotiomaly attached), and also exploring frameworks and JS libraries for doing more complex things (like Sigma.js for graph visualisation and vue.js for building user interface).
-
-### Start page
-
-The design of the start page is below. 
-
-![start page](images/documented-design/start_page.png)
-
-The graph symbolises ACO (in the form of ants on the left side) and Simulated Annealing (fire on the right side). The start page also contains a button "try", that will lead to the main page when pressed; and an additional information icon that will show some context and basic description of what the visualisation.
-
-### Main page
-
-![main page](images/documented-design/main_page.png)
-
-
-<div style="page-break-after: always;"></div>
-
-## Bringing it all together
-
-At first I was going to implement algorithms in C++, because this way they would be as fast as they can get. But then, after a carefull consideration, I've changed my mind to Python mainly for its wider functionality. Python has frameworks like Flask (Web Application Framework) and Python functions can be uploaded to Google Cloud Platrofm (this is not the case for C++) and then be triggered from the website, which makes everything much easier.
-
-### Flask
-
-Flask is a light framework, which means that it's fast and efficient. Furthermore, it's very easy to learn and understand it. For example this is code that returns "Hello world" when you navigate to https:/`<domain>`/hello_world
-
-```
-from flask import Flask
-app = Flask(__name__)
-
-@app.route('/hello_world')
-def hello_world():
-    return 'Hello World!'
-
-if __name__ == '__main__':
-    app.run()
-```
-
-I'm going to create 3 functions in Flask, for Held-Karp, Ant Colony Optimisation, and Simulated Annealing. These functions will simply fetch the information and send the output of the corresponding algorithm back to the web application.
-
-### Google Cloud Platform
-
-Google Cloud Platform (GCP) Console is a useful tool for deploying functions of different purposes, including triggered functions. When a function like that is deployed to GCP, it gives back a URL for triggering the function. To trigger a certain function from the deployed file you simply have to send a request to
-
-`gcp_url/function_name?data=your_data`
