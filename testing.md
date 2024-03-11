@@ -107,7 +107,7 @@ answer: 1194
 
 #### **Results**
 
-3/3 tests passed
+3/3 tests passed.
 
 ### Ant Colony Optimisation
 
@@ -244,9 +244,25 @@ outputs: 773, 741, 783, 751, 758
 
 average: 761.2 (8.9% difference)
 
+#### Visual tests
+
+For visual tests, I just create a random set of nodes on the website, and run the aco on it.
+
+##### test 1
+n = 15
+![n=15]("images/testing/aco n=15")
+n = 30
+n = 50
+n = 100
+
+#### **Results**
+
+For all tests percentage difference with the optimal solution was no bigger than 10 percent, which shows that my Ant Colony Optimisation implementation is correct.
+
+
 ### Simulated Annealing
 
-Same as with ACO, we can't directly test Simulated Annealing algorithm, but we can use a similar approach ad above and:
+Same as with ACO, we can't directly test Simulated Annealing algorithm, but we can use a similar approach as above and:
 
 - compare its output to the well-known TSP instances and their solutions (smae as above)
 - visually evaluate its performance
@@ -318,7 +334,7 @@ parameters: (0.94, 800, 800)
 
 outputs: 2155, 2167, 2090, 2085, 2103
 
-average: 2120 (1.7% differece)
+average: 2120 (1.7% difference)
 
 ##### test 3
 

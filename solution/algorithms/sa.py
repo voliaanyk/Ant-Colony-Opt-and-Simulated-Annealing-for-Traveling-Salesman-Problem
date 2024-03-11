@@ -1,5 +1,5 @@
 from math import exp
-from common import *
+from algorithms.common import *
 import numpy as np
 import random
 import copy
