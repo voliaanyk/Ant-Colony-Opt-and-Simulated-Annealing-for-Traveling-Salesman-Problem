@@ -233,7 +233,6 @@ function display_output(output, custom_parameters){
         var fast_forward = custom_parameters["fast-forward"]; //true if display with maximum speed
         var update_display = true;
         if(fast_forward) update_display = false; //if fast forward, we don't update display, only take record of best costs and paths
-
         var i = iteration;
         iteration ++; //increase iteration
 
@@ -296,40 +295,47 @@ function display_output(output, custom_parameters){
 
 //event listener for any of users mouse moves/clicks, etc
 document.addEventListener('DOMContentLoaded', function() {
+    //when the start button is clicked, visualisation starts (unless it's already on)
     document.querySelector('.btn-start').addEventListener('click', async function() {
-        if(visualisation_on){
+        if(visualisation_on){ //if visualisation is on, alert and return
             alert("visualisation is already on");
             return;
         }
-
-        var output = await get_algorithms_output();
-        var custom_parameters = get_custom_parameters();
+        //if visualisation is not on already, get the output of algorithms
+        //await is here so that no further instruction are executed until we get a response
+        var output = await get_algorithms_output(); 
+        var custom_parameters = get_custom_parameters(); //get custom parameters
         console.log(output);
         console.log(custom_parameters);
 
-        visualisation_on = true;
-        graph_locked = true;
-        if (iteration == -1) iteration = 0;
-        display_output(output, custom_parameters);
+        visualisation_on = true; //set visualisation_on to true
+        graph_locked = true; //lock he graph (so that user can't edit the nodes)
+        if (iteration == -1) iteration = 0; 
+        //if iteration was -1, it means that previous visualisation was finished, so we set iteration to 0
+        //if iteration is not -1, it means that the previous visualisation was paused, so we just continue without resetting
+        display_output(output, custom_parameters); //this function displays the output of algorithms
     });
+    //when stop button is clicked, it pauses the visualsitation at current iteration
     document.querySelector('.btn-stop').addEventListener('click', function() {
-        if(!visualisation_on){
+        if(!visualisation_on){ //if visualisation is not on, there is nothing to pause
             alert("visualisation is not on");
             return;
-        }
-        visualisation_on = false;
-        iteration -= 1;
+        }//otherwise, reset visualisation_on to false
+        visualisation_on = false; 
+        iteration -= 1; //sudstract 1 from iteration number (so that when visualisation is resumed, no iterations are skiped)
     });
+    //if clear paths button is clicked, clear visualisation from paths and reset everything
     document.querySelector('.btn-clear-paths').addEventListener('click', function() {
-        visualisation_on = false;
-        iteration = -1;
-        last_aco_path = null;
+        visualisation_on = false; //turn visualisation off
+        iteration = -1; //reset iteration number
+        last_aco_path = null; //reset last_aco_paths
         last_sa_path = null;
         last_hk_path = null;
-        graph_locked = false;
-        hide_path('arc');
-        clear_outputs();
+        graph_locked = false; //unlock the graph
+        hide_path('arc'); //hide all paths
+        clear_outputs(); //clear all text outputs
     });
+    //if any of hide checks are checked/unchecked, update all paths and hide/show them accordingly
     document.getElementById("aco-hide").addEventListener('change', function(){
         update_hide_paths();
     })
