@@ -18,6 +18,7 @@ some possible tests I can do:
 
 ## UI (visualisation)
 
+
 ## Algorithms
 
 ### Held-Karp
@@ -113,7 +114,9 @@ answer: 1194
 
 #### **Results**
 
-3/3 tests passed.
+3/3 tests passed, all of them within a second.
+
+This proves that OBJECTIVES 4.1 (exact algorithm finds the best possible route) and 4.3 (exact algorithm is efficient) were hit.
 
 ### Ant Colony Optimisation
 
@@ -255,6 +258,7 @@ average: 761.2 (8.9% difference)
 For visual tests, I will create a random set of nodes on the website, and run the aco on it.
 
 ##### test 1
+
 n = 15
 ![n=15](images/testing/aco15.png)
 
@@ -267,11 +271,11 @@ n = 50
 n = 100
 ![n=100](images/testing/aco100.png)
 
-
 #### **Results**
 
 For all tests percentage difference with the optimal solution was no bigger than 10 percent, and visual tests look close to optimal, which shows that my Ant Colony Optimisation implementation is correct.
 
+This shows that objectives 2.1 (succesfully construct a route that visits each city and returns to the starting city) and 2.4 (implementation is quick, efficient and accurate) were hit
 
 ### Simulated Annealing
 
@@ -320,7 +324,6 @@ average: 1194
 ##### test 2
 
 ref: [TSP - Data for the Traveling Salesperson Problem (fsu.edu)](https://people.sc.fsu.edu/~jburkardt/datasets/tsp/tsp.html) (GR17)
-
 
 ```
 17
@@ -425,7 +428,8 @@ n = 50
 n = 100
 ![n=100](images/testing/sa100.png)
 
-
 #### **Results**
 
 For all tests percentage difference with the optimal solution was no bigger than 7 percent, and visual tests look close to optimal, which shows that my Simulated Annealing implementation is correct.
+
+This shows that objectives 3.1 (succesfully construct a route that visits each city and returns to the starting city) and 3.4 (implementation is quick, efficient and accurate)

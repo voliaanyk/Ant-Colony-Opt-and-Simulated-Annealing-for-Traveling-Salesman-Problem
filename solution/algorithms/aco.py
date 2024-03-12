@@ -162,6 +162,7 @@ class ACO():
         self.graph.update_pheromone_levels(self.parameters) #update pheromone levels
 
         #the rest of this function is creating the output
+        #OBJECTIVE 2.3 - return data after each iteration
         best_length = inf
         best_route = []
         ant_route = []
@@ -188,8 +189,6 @@ def solve_aco(input, parameters):
     best_found = 0
     output = []
 
-    
-    
     for iteration in range(parameters.iterations):
         iteration_output = aco.iteration()
         output.append(iteration_output)

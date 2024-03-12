@@ -187,42 +187,41 @@ This system is more user-friendly than the previous one and has less functionali
 
 <br>
 
-1. **Explore the maths behind ACO and SA** `<br>`
+1. **Explore the maths behind ACO and SA**
    *This is needed to implement ACO and SA in the next step*
 2. **Implement ACO algorithm for TSP**
 
-   - should succesfully construct a route that visits each city and returns to the starting city
-   - should have input parameters that control its performance such as the number of ants, evaporation, iterations, etc.
-   - should return data about the best route after each iteration for the live visualisation
-   - should be quick, efficient and accurate
-3. **Implement Simulated Annealing** `<br>`
+   1. should succesfully construct a route that visits each city and returns to the starting city
+   2. should have input parameters that control its performance such as the number of ants, evaporation, iterations, etc.
+   3. should return data about the best route after each iteration for the visualisation
+   4. should be quick, efficient and accurate
+3. **Implement Simulated Annealing**
 
-   - should succesfully construct a route that visits each city and returns to the starting city
-   - should have input parameters that control its performance such as initial temperature, Markov chains, alpha, etc.
-   - should return data about the best route, temperature, etc. so that the live visualisation can be created
-   - should be quick, efficient and accurate
-4. **Implement an exact algorithm for TSP** `<br>`
+   1. should succesfully construct a route that visits each city and returns to the starting city
+   2. should have input parameters that control its performance such as initial temperature, alpha, etc.
+   3. should return data about the best route, temperature, etc. after each iteration so that the visualisation can be created
+   4. should be quick, efficient and accurate
+4. **Implement an exact algorithm for TSP**
    *This algorithm should find the exact solution for TSP for smaller problem instances (for comparing to ACO and SA output)*
 
-   - should be a very efficient and fast implementation
-5. **Create a visualisation of algorithms** `<br>`
+   1. should succesfully construct a route that visits each city and returns to the starting city and is the best possible route
+   2. should return data about the best route and its cost
+   3. should be a very efficient and fast implementation
+5. **Create a visualisation of algorithms**
    *Create an informative and interactive interface that allows users with different level of expertise to interact with visualisation easily*
 
-   - visualisation of how the output of Ant Colony Optimization changes with each iteration
-   - visualisation of how the output of Simulated Annealing changes with each iteration
-   - make it possible to hide/show any visualisation
-   - provide the ability for users to customize ACO and SA parameters
-   - adjustable speed and pause functionality
-   - fast-forwarding through iterations
-   - showing important information such as the number of iteration, the best route and its length, and when it was found
-   - make it possible to generate cities, create cities via the interface
-   - show the exact best route found using an exact algorithm for smaller problem instances
-6. **Link the ACO algorithm and its visualisation** `<br>`
+   1. visualisation of how the output of Ant Colony Optimization changes with each iteration
+   2. visualisation of how the output of Simulated Annealing changes with each iteration
+   3. make it possible to hide/show any visualisation
+   4. provide the ability for users to customize ACO and SA parameters
+   5. adjustable speed and pause functionality
+   6. fast-forwarding through iterations
+   7. showing important information such as the number of iteration, the best route and its length, and when it was found
+   8. make it possible to generate cities, create cities via the interface
+   9. show the exact best route found using an exact algorithm for smaller problem instances
+6. **Link the ACO algorithm and its visualisation**
    *Link the systems together so that the visualisation can be updated simultaneously as ACO finds the optimal solution*
 
-   - the visualisation displayed needs to be quick or appropriate to the speed chosen by user `<br>`
-
-`<br><br>`
 
 ## 1.7 Modelling. High level overview and hierarchy diagram
 
