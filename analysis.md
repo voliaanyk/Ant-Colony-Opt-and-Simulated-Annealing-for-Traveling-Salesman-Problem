@@ -219,9 +219,8 @@ This system is more user-friendly than the previous one and has less functionali
    7. showing important information such as the number of iteration, the best route and its length, and when it was found
    8. make it possible to generate cities, create cities via the interface
    9. show the exact best route found using an exact algorithm for smaller problem instances
-6. **Link the ACO algorithm and its visualisation**
-   *Link the systems together so that the visualisation can be updated simultaneously as ACO finds the optimal solution*
-
+6. **Link the algorithms and the visualisation**
+   *Link the systems together so that the visualisation can be created*
 
 ## 1.7 Modelling. High level overview and hierarchy diagram
 

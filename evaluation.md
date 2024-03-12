@@ -1,6 +1,5 @@
 # Evaluation
 
-
 List of objectives from the analysis:
 
 1. **Explore the maths behind ACO and SA**
@@ -31,23 +30,22 @@ List of objectives from the analysis:
    7. showing important information such as the number of iteration, the best route and its length, and when it was found
    8. make it possible to generate cities, create cities via the interface
    9. show the exact best route found using an exact algorithm for smaller problem instances
-6. **Link the ACO algorithm and its visualisation**
-   *Link the systems together so that the visualisation can be updated simultaneously as ACO finds the optimal solution*
+6. **Link the algorithms and the visualisation**
+   *Link the systems together so that the visualisation can be created*
 
-
-| Objective | Description                                          | Was hit? | Where?                          |
-| --------- | ---------------------------------------------------- | -------- | ------------------------------- |
-| 1         | explore maths behind aco, sa, and an exact algorithm | yes      | documented design -> algorithms |
-| 2.1       | aco constructs a valid route that is a tsp solution  | yes      | testing -> ACO -> results       |
-| 2.2       | aco has input parameters                             |          |                                 |
-| 2.3       | aco returns data about every iteration               |          |                                 |
-| 2.4       | aco is quick, efficient, and accurate                | yes      | testing -> ACO -> results       |
-| 3.1       | sa constructs a valid route that is a tsp solution   | yes      | testing -> SA -> results       |
-| 3.2       | sa has input parameters                              |          |                                 |
-| 3.3       | sa returns data about every iteration                |          |                                 |
-| 3.4       | sa is quick, efficient, and accurate                 | yes      | testing -> SA -> results        |
-| 4.1       | exact algorithm constructs the best possible route  | yes      | testing -> HK -> results        |
-| 4.2       | exact algorithm return the route and its cost        |          |                                 |
-| 4.3       | exact algorithm is efficient and fast                | yes      | testing -> HK -> results        |
-| 5         |                                                      |          |                                 |
-| 6         |                                                      |          |                                 |
+| Objective | Description                                          | Was hit? | Where?                             |
+| --------- | ---------------------------------------------------- | -------- | ---------------------------------- |
+| 1         | explore maths behind aco, sa, and an exact algorithm | yes      | documented design -> algorithms    |
+| 2.1       | aco constructs a valid route that is a tsp solution  | yes      | testing -> ACO -> results          |
+| 2.2       | aco has input parameters                             | yes      | technical solution -> common.py    |
+| 2.3       | aco returns data about every iteration               | yes      | technical solution -> aco.py       |
+| 2.4       | aco is quick, efficient, and accurate                | yes      | testing -> ACO -> results          |
+| 3.1       | sa constructs a valid route that is a tsp solution   | yes      | testing -> SA -> results          |
+| 3.2       | sa has input parameters                              | yes      | technical solution -> common.py    |
+| 3.3       | sa returns data about every iteration                | yes      | technical solution -> sa.py        |
+| 3.4       | sa is quick, efficient, and accurate                 | yes      | testing -> SA -> results           |
+| 4.1       | exact algorithm constructs the best possible route  | yes      | testing -> HK -> results           |
+| 4.2       | exact algorithm return the route and its cost        | yes      | technical solution -> held_karp.py |
+| 4.3       | exact algorithm is efficient and fast                | yes      | testing -> HK -> results           |
+| 5         |                                                      |          |                                    |
+| 6         |                                                      |          | technical solution -> app.py       |

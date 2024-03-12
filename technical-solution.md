@@ -1071,7 +1071,7 @@ import math
 
 inf = 10000000000
 max_n = 15 #for held karp
-      
+  
 class TSP_input():
     def __init__(self, n, dist, coordinates):
         self.n = n
@@ -1079,7 +1079,7 @@ class TSP_input():
         self.coordinates = coordinates
 
 
-class ACO_parameters():
+class ACO_parameters(): #OBJECTIVE 2.2
     def __init__(self, alpha, beta, Q, evaporation_rate, n_ants, iterations, shake):
         self.alpha = alpha
         self.beta = beta
@@ -1088,7 +1088,7 @@ class ACO_parameters():
         self.n_ants = n_ants
         self.iterations = iterations
         self.shake = shake
-      
+  
 class ACO_output():
     def __init__(self, n, n_ants, ant_route, best_route, pheromone, cost):
         self.n = n
@@ -1097,14 +1097,14 @@ class ACO_output():
         self.best_route = best_route
         self.pheromone = pheromone
         self.cost = cost
-      
-      
-class SA_parameters():
+  
+  
+class SA_parameters(): #OBJECTIVE 3.2
     def __init__(self, alpha, T, iterations):
         self.alpha = alpha
         self.T = T
         self.iterations = iterations
-      
+  
 class SA_output():
     def __init__(self, T, path, cost, probability):
         self.T = T
@@ -1129,8 +1129,8 @@ def calculate_distance_matrix(coordinates):
         dist.append(dist_row)
     return n, dist
 
-      
-      
+  
+  
 ```
 
 ### aco.py
@@ -1328,7 +1328,7 @@ def solve_aco(input, parameters):
 
     for iteration in range(parameters.iterations):
         iteration_output = aco.iteration()
-        output.append(iteration_output)
+        output.append(iteration_output) #OBJECTIVE 2.3
 
         if iteration_output.cost < best: #if the length is less than the best length stored#
             #update the best solution
@@ -1379,10 +1379,10 @@ class State():
             current_state = kwargs["current_state"]
             self.path = current_state.path
             self.generate_neighbour_state(graph)
-      
+  
         else:
             return
-      
+  
         self.calculate_cost(graph) # finaly, calculate the cost of the state
   
 
@@ -1390,7 +1390,7 @@ class State():
         self.cost = 0 #initialise cost as 0
         for i in range(1, len(self.path)):
             self.cost += graph.dist[self.path[i]][self.path[i-1]] #add the weight of each edge in the path
-      
+  
   
     def generate_random_state(self, graph):
         n = graph.n
@@ -1413,7 +1413,7 @@ class State():
             self.insert_random_node()
         else:
             self.insert_random_segment()
-      
+  
         self.path = np.concatenate((self.path, [self.path[0]])) #append the fist node to the end to create a cycle
   
 
@@ -1430,7 +1430,7 @@ class State():
         self.path[start:end+1] = self.path[start:end+1][::-1] #reverse the segment
 
     def insert_random_node(self):
-      
+  
         index_to_move = random.randint(0, len(self.path)-1) # choose a random index for the item to be moved
         # choose a random destination index different from the source index
         index_destination = random.choice([i for i in range(len(self.path)) if i != index_to_move])
@@ -1445,13 +1445,13 @@ class State():
         #choose 2 random indecies
         index1, index2 = random.sample(range(self.path.size), 2)
         start, end = min(index1, index2), max(index1, index2)
-     
+   
         segment = self.path[start:end+1] # extract the random segment
         self.path = np.delete(self.path, slice(start, end+1)) # delete the segment from the original position
-      
+  
         index_destination = random.randint(0, self.path.size)# choose a random destination index different from the source index
         self.path = np.insert(self.path, index_destination, segment)# insert the segment at the new position
-      
+  
 
 class SA():
     #function to initialise the problem
@@ -1463,34 +1463,35 @@ class SA():
         self.state = State(self.graph, type="random") #create a random state
   
     def iteration(self):
-      
+  
         #generate a neighbouring state
         current_state = self.state
         new_state = State(self.graph, type="neighbour", current_state = copy.deepcopy(current_state))
-      
+  
         accept = False
         probability = 1
-      
+  
         #if cost of new state is less, accept it
         if new_state.cost < current_state.cost:
             accept = True
-      
+  
         #if not, accept it with probability P = exp(-dC/T)
         else:
             delta_cost = new_state.cost - current_state.cost
             probability = exp(-delta_cost/self.T)
-          
+  
             if probability >= random.random():
                 accept = True
-      
+  
         if accept:
             self.state = copy.deepcopy(new_state)
-      
+  
         # Temperature decay 
         self.T = self.alpha*self.T
-      
+  
+	#OBJECTIVE 3.3 - return output after each iteration
         output = SA_output(self.T, current_state.path.tolist(), current_state.cost, probability) 
-      
+  
         return output
 
 
@@ -1501,9 +1502,9 @@ def solve_sa(tsp_input, sa_params):
     best_found = 0
 
     for iteration in range(sa_params.iterations):
-      
+  
         iteration_output = sa.iteration()
-        output.append(iteration_output)
+        output.append(iteration_output) #OBJECTIVE 3.3
 
         if iteration_output.cost < best: #if the length is less than the best length stored#
             #update the best solution
@@ -1569,5 +1570,5 @@ def held_karp(input):
         end_vertex = u
 
     path_list.append(path_list[0])
-    return heldkarp_output(min_dist, path_list)
+    return heldkarp_output(min_dist, path_list) #OBJECTIVE 4.2 - return best route and its cost
 ```
