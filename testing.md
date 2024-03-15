@@ -432,4 +432,4 @@ n = 100
 
 For all tests percentage difference with the optimal solution was no bigger than 7 percent, and visual tests look close to optimal, which shows that my Simulated Annealing implementation is correct.
 
-This shows that objectives 3.1 (succesfully construct a route that visits each city and returns to the starting city) and 3.4 (implementation is quick, efficient and accurate)
+This shows that OBJECTIVES 3.1 (succesfully construct a route that visits each city and returns to the starting city) and 3.4 (implementation is quick, efficient and accurate) were hit.

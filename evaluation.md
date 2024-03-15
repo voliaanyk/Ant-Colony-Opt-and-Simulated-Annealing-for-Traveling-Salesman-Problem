@@ -40,12 +40,12 @@ List of objectives from the analysis:
 | 2.2       | aco has input parameters                             | yes      | technical solution -> common.py    |
 | 2.3       | aco returns data about every iteration               | yes      | technical solution -> aco.py       |
 | 2.4       | aco is quick, efficient, and accurate                | yes      | testing -> ACO -> results          |
-| 3.1       | sa constructs a valid route that is a tsp solution   | yes      | testing -> SA -> results          |
+| 3.1       | sa constructs a valid route that is a tsp solution   | yes      | testing -> SA -> results           |
 | 3.2       | sa has input parameters                              | yes      | technical solution -> common.py    |
 | 3.3       | sa returns data about every iteration                | yes      | technical solution -> sa.py        |
 | 3.4       | sa is quick, efficient, and accurate                 | yes      | testing -> SA -> results           |
-| 4.1       | exact algorithm constructs the best possible route  | yes      | testing -> HK -> results           |
+| 4.1       | exact algorithm constructs the best possible route   | yes      | testing -> HK -> results           |
 | 4.2       | exact algorithm return the route and its cost        | yes      | technical solution -> held_karp.py |
 | 4.3       | exact algorithm is efficient and fast                | yes      | testing -> HK -> results           |
-| 5         |                                                      |          |                                    |
-| 6         |                                                      |          | technical solution -> app.py       |
+| 5         | create a visualisation                               | yes      |                                    |
+| 6         | link back-end and front-end                          | yes      | technical solution -> app.py       |

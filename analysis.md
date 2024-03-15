@@ -1,10 +1,10 @@
 # ANALYSIS
 
-<br>
+
 
 ## 1.1 What is the problem and why do I want to solve it?
 
-<br>
+
 
 The problem I want to solve is implementing 3 algorithms such as **Ant Colony Optimization(ACO)**, **Simulated Annealing(SA)** and an **Exact Algorithm(EA)** to compare their solutions to the **Travelling Salesman problem (TSP)** and create a visualisation in order to understand better how these algorithms work. **TSP** is a well-known optimization problem in combinatorial computer science. The TSP has the following statement:
 
@@ -16,11 +16,11 @@ Moreover, the Travelling Salesman Problem is an NP-hard (nondeterministic polyno
 
 Also, I want to build a visualization of the algorithms, so that it is easier to understand how they work for people who have no background in optimizational computer science. Furthermore, this visualization can then become a powerful learning tool for students who want to specialize in this field.
 
-`<br><br>`
+``
 
 ## 1.2 Interview with a primary user
 
-<br>
+
 
 When it comes to developing and implementing complex algorithms such as ACO, it's always nice to have friends who has expertise in the field and can give you a piece of valuable advice. Luckily, I have such friends, and I talked to them about implementing ACO for TSP, which was my initial idea and this is the feedback I got:
 
@@ -32,7 +32,7 @@ So after hearing the exact thing twice from different people, I got interested i
 
 My primary user is a decision maths teacher from my school, Ms. Sharp.
 
-<br>
+
 
 > Why is Travelling Salesman Problem important in decision mathematics and where can we use it practically?
 
@@ -66,7 +66,7 @@ Students need to be experienced at running through algorithms by hand, and on ex
 - Automatic inputs or choose own inputs
 - Show either description of step only, or brief explanation as well
 
-`<br><br>`
+``
 
 ## 1.3 List of user requirements
 
@@ -84,7 +84,7 @@ Also, advice from my friends
 
 - Compare Ant Colony Optimization to Simulated Annealing
 
-`<br><br>`
+``
 
 ## 1.4 Background analysis
 
@@ -110,7 +110,7 @@ There are many algorithms that can be used to solve TSP, the most common ones ar
 6. **Reinforcement Learning**
    - *Potential to work on larger problem sizes, but efficiency depends on the complexity of the learning process.*
    - The time complexity of reinforcement learning algorithms can vary significantly depending on the specific approach, learning rate, and the complexity of the problem.
-     `<br><br>`
+     ``
 
 Exact algorthms simply check every route and choose the best. They are guaranteed to find the best possible solution, but the the time comlexity is exponential, so it increases vastly as the problem size increases. This means that they can only be used for small data instances (up to 10 cities on an average computer).
 
@@ -121,7 +121,7 @@ The way it works to solve TSP, is such that each artificial ant starts from a ra
 
 SA is a combinatorial optimizational technique just like ACO. It's inspired by the process of annealing a metal or glass by raising it to a high temperature and then gradually reducing the temperature, allowing local regions of order to grow outward. In simulated annealing, the equivalent of temperature is a measure of the randomness by which changes are made to the best path, in order to minimise it. When the temperature is high, larger random changes are made, avoiding the risk of becoming trapped in a local minimum. And as the temperature decreases, the probability of accepting worse solution reduces exponentially, allowing the algorithm to converge towards an optimal or near-optimal solution.
 
-`<br><br>``<br>`
+````
 
 ![diagram](images/analysis/tsp_diagrams.png)
 
@@ -129,15 +129,15 @@ The figure above is taken from
 [Cheikhrouhou, O., Khoufi, I. (2021). A comprehensive survey on the Multiple Traveling Salesman Problem: Applications, approaches and taxonomy.](https://arxiv.org/pdf/2102.12772.pdf)
 The first figure shows that ACO is being used to solve TSP in 18% of reviewed papers, same as Exact Algorithms. The most common algorithm appears to be GA (genetic algorithms), 36%. The figure also shows the range of applications of TSP from Transport and Delivery to Disaster Managing, the most common application is General.
 
-`<br><br>`
+``
 
 ## 1.5 Analysis of current systems
 
-<br>
+
 
 I will examine 2 visualisation of ACO for TSP open-source tools, compare them to gain insight into their strengths and weaknesses, and then apply this knowledge to developing my own project.
 
-<br>
+
 
 - **The first system is [visual-aco created in the University of Tartu](https://courses.cs.ut.ee/demos/visual-aco/#/visualisation)**
 
@@ -151,7 +151,7 @@ Visual-aco has a fairly simple and easy-to-understand design, I quite like how i
 | shows ants and pheromone levels | limited control over city point manipulation |
 | adjustable parameters           |                                              |
 
-`<br><br>`
+``
 
 - **The second system is [Ant Colony Optimization Visualization for the Traveling Salesman Problem (aco-tsp)](https://jtp.io/2015/11/22/ant-colony-tsp-visualization.html)**
 
@@ -165,7 +165,7 @@ This system is more user-friendly than the previous one and has less functionali
 | control over cities   | doesn't show how ants move                |
 | perfect for beginners |                                           |
 
-`<br><br>`
+``
 
 **The comparison table for both systems is below**
 
@@ -178,14 +178,14 @@ This system is more user-friendly than the previous one and has less functionali
 | pheromone levels                | shows pheromone levels                                                       | shows pheromone levels                                                               |
 | adjustable speed                | ants speed is adjustable and fast forwarding through iterations is available | iterations speed is adjustable, only fast forwarding through iterations is available |
 
-`<br><br>`
+``
 **Overall**, both systems provide great visualisation of Ant Colony Optimisation for Travelling Salesman Problem, however the first system has more functionality, and the second system has more intuitive design. I want to strike the balance between functionality and user-friendliness, drawing inspiration from both systems.
 
-`<br><br>`
+``
 
 ## 1.6 Table of objectives
 
-<br>
+
 
 1. **Explore the maths behind ACO and SA**
    *This is needed to implement ACO and SA in the next step*
@@ -224,26 +224,26 @@ This system is more user-friendly than the previous one and has less functionali
 
 ## 1.7 Modelling. High level overview and hierarchy diagram
 
-<br>
+
 
 1. **ACO Algorithm Implementation**. Implement the Ant Colony Optimization algorithm to solve the Traveling Salesman Problem
-   `<br>`**input**: cities and distances between them, the number of iterations, ACO parameters (such as evaporation, Q, alpha, etc)
-   `<br>`**output**: pheromone levels, ants' routes and the best route after each iteration
-   `<br>`**implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation
+   ``**input**: cities and distances between them, the number of iterations, ACO parameters (such as evaporation, Q, alpha, etc)
+   ``**output**: pheromone levels, ants' routes and the best route after each iteration
+   ``**implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation
 2. **Simulated Annealing Implemenation**. Implement the Simulated Annealing algorithm to solve the Traveling Salesman Problem
-   `<br>`**input**: cities and distances between them, SA parameters (initial temperature, Markov chains, alpha)
-   `<br>`**output**: the best route, temperature, acceptance probability after each iteration
-   `<br>`**implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation
+   ``**input**: cities and distances between them, SA parameters (initial temperature, Markov chains, alpha)
+   ``**output**: the best route, temperature, acceptance probability after each iteration
+   ``**implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation
 3. **Exact Algorithm Implementation**. Implement an exact algorithm (Dynamic Programming) to find the optimal solution for smaller TSP instances (for comparison purposes).
-   `<br>`**input**: cities and distances between them
-   `<br>`**output**: the best route
-   `<br>`**implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation
+   ``**input**: cities and distances between them
+   ``**output**: the best route
+   ``**implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation
 4. **Visualization Creation**. Create an interactive visualization to show the algorithms' progresses and results
-   `<br>`**input**: user's actions
-   `<br>`**ouput**: interactive visualisation
-   `<br>`**implementation**: JavaScript, HTML, CSS
+   ``**input**: user's actions
+   ``**ouput**: interactive visualisation
+   ``**implementation**: JavaScript, HTML, CSS
 5. **Integration of Algorithm and Visualization**. Link the algorithms and the visualization together.
-   `<br>`**implementation**: Flask is a sensible option as it's very intuitive, I've used it before and the algorithms will be written in python
+   ``**implementation**: Flask is a sensible option as it's very intuitive, I've used it before and the algorithms will be written in python
    ![hierarchy diagram](images/analysis/hierarchy_diagram.png)
 
-`<br><br>`
+``

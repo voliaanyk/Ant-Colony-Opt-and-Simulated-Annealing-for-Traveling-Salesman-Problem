@@ -108,7 +108,7 @@ The solution to TSP is found by selecting the minimum distance among the paths t
 #### Bitmasks
 
 For this algorithm I'm going to use bitmasks. Bitmask is a binary number that represents a subset of a set. If the number has 1 at a point x (that is $2^x$ bit), then element number x in the superset is included in the subset.
-`<br><br>`
+``
 **Example:**
 
 4 3 2 1 0
@@ -116,7 +116,7 @@ For this algorithm I'm going to use bitmasks. Bitmask is a binary number that re
 1 0 0 1 1  = 16 + 2 + 1 = 19
 
 So bitmask 19 represents a subset {0, 1, 4}
-`<br><br>`
+``
 **Some binary operations in C++:**
 
 1<<n - shift of 1, n times to the left
@@ -126,7 +126,7 @@ x\^y - x xor y
 mask & (1<<x) - returns 1 if element x is in the subset represented by bitmask
 
 mask ^ (1<<x) - bitmask that represents S\x
-`<br><br>``<br>`
+````
 
 <div style="page-break-after: always;"></div>
 
