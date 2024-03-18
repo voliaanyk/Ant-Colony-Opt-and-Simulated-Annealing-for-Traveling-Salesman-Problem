@@ -289,12 +289,12 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("visualisation is already on");
             return;
         }
-        visualisation_on = true; //set visualisation_on to true
-        graph_locked = true; //lock he graph (so that user can't edit the nodes)
         //if visualisation is not on already, get the output of algorithms
         //await is here so that no further instruction are executed until we get a response
         var output = await get_algorithms_output(); 
         var custom_parameters = get_custom_parameters(); //get custom parameters
+        visualisation_on = true; //set visualisation_on to true
+        graph_locked = true; //lock he graph (so that user can't edit the nodes)
         console.log(output);
         console.log(custom_parameters);
         if (iteration == -1) iteration = 0; 

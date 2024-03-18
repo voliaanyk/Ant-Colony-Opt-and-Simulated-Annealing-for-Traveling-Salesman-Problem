@@ -225,6 +225,16 @@ This system is more user-friendly than the previous one and has less functionali
 ## 1.7 Modelling. High level overview and hierarchy diagram
 
 
+0:00 5.8 cities manipulation
+0:28 5.4 customise input parameters
+1:10 5.5 adjusting speed
+1:25 5.3 hide/show paths
+1:38 5.5 pause functionality
+1:53 5.8 cities manipulation
+2:08 bigger problem example
+2:52 5.6 fast-forwarding
+3:06 5.3 hide/show paths
+
 
 1. **ACO Algorithm Implementation**. Implement the Ant Colony Optimization algorithm to solve the Traveling Salesman Problem
    ``**input**: cities and distances between them, the number of iterations, ACO parameters (such as evaporation, Q, alpha, etc)

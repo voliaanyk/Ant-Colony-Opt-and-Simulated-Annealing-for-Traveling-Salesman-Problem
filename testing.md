@@ -1,22 +1,41 @@
-some possible tests I can do:
-
-- a video of the visualisation
-- test whether n nodes are generated
-- test deleting, adding nodes
-- test clear function
-- test whether nodes can't be created outside the container
-- start button
-- alerts when some of the inputs are not valid
-- speed adjusting
-- fast forward
-- stop and start again
-- stop and clear paths
-- held-karp showing up for smaller instances
-- hide checks
-
 # Testing
 
 ## UI (visualisation)
+
+the list of objectives for the visualisation is following:
+
+   *Create an informative and interactive interface that allows users with different level of expertise to interact with visualisation easily*
+   1. visualisation of how the output of Ant Colony Optimization changes with each iteration
+   2. visualisation of how the output of Simulated Annealing changes with each iteration
+   3. make it possible to hide/show any visualisation
+   4. provide the ability for users to customize ACO and SA parameters
+   5. adjustable speed and pause functionality
+   6. fast-forwarding through iterations
+   7. showing important information such as the number of iteration, the best route and its length, and when it was found
+   8. make it possible to generate cities, create cities via the interface
+   9. show the exact best route found using an exact algorithm for smaller problem instances
+
+
+I have uploaded a video to YouTube to show how the visualisation looks and works and to test the objectives. The video can be accessed by this QR code.
+
+![video](images/testing/qr_code.png)
+
+Here is the list of objectives that relate to the visualisation, time codes (time when they appear in the youtube video) and details.
+
+| Objective   | Short description   | Time codes    | Details                           |
+| ----------- | ------------------- | ------------- | ---------------------------------- |
+| 5.1         | output of ACO       | 1:10 and 2:13 | ACO output on the graph is the pink lines that show the optimal solution found. It can be seen on the video how the output changes as visualisation iterates |
+| 5.2         | output of SA        | 1:10 and 2:13 | SA output on the graph is the yellow lines that show the optimal solution found. It can be seen on the video how the output changes as visualisation iterates |
+| 5.3         | hide/show           | 1:25 and 3:06 | When hide beneath the according algorithm name is checked, the output of the algorithm isn't shown on the graph. But when it's unchecked, output appears |
+| 5.4         | parameters          | 0:28          | User can input all of the parameters for the algorithms. If some fields are empty, or values are invlaid, an alert us shown to the user so that thet know where the problem is |
+| 5.5         | speed and pause     | 1:10 and 1:38 | When user presses stop, visualisation is put on pause (but only if it was previously on, otherwise the user recieves an alert). If visualisation is on pause and user presses start, the visualisation is resumed from the moment when it was stopped at. User can adjust the speed of the visualisation with the slider |
+| 5.6         | fast-forward        | 2:52          | When user checks the fast-forward, all iterations are skipped, and the final iteration is shown |
+| 5.7         | information output  | 1:10 and 2:13 | Beneath the graph the values of the algorithms outputs are shown (each beneath the according algorithm). The values that are shown are: the length of the optimal route next to the name of the algorithm, and the number of iteration when it was found below |
+| 5.8         | cities manipulation | 0:00 and 1:53 | User can add citites by clicking on the graph area, move the cities by holding the mouse on them and moving it, and deleting them using right-click or holding control button while clicking on a city. Other functionality includes cities generation and clearing the graph area |
+| 5.9         | exact solution      | 1:10          | For smaller outputs (number of cities is less than 17), output of the exact algorithm (Held-Karp) is shown on the graph as blue lines. It doesn't change with iterations as it's not a meta-heuristic and visualisation of each iteration is not applicable to it.|
+
+
+Overall, the visualisation passed all of the test and all of the objectives regarding the visualisation have been satisfied.
 
 
 ## Algorithms
