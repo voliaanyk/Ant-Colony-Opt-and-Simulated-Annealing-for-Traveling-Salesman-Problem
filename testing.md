@@ -37,6 +37,8 @@ Here is the list of objectives that relate to the visualisation, time codes (tim
 
 Overall, the visualisation passed all of the test and all of the objectives regarding the visualisation have been satisfied.
 
+<div style="page-break-after: always;"></div>
+
 
 ## Algorithms
 
@@ -136,6 +138,8 @@ answer: 1194
 3/3 tests passed, all of them within a second.
 
 This proves that OBJECTIVES 4.1 (exact algorithm finds the best possible route) and 4.3 (exact algorithm is efficient) were hit.
+
+<div style="page-break-after: always;"></div>
 
 ### Ant Colony Optimisation
 
@@ -272,6 +276,8 @@ outputs: 773, 741, 783, 751, 758
 
 average: 761.2 (8.9% difference)
 
+<div style="page-break-after: always;"></div>
+
 #### Visual tests
 
 For visual tests, I will create a random set of nodes on the website, and run the aco on it.
@@ -294,6 +300,8 @@ n = 100
 For all tests percentage difference with the optimal solution was no bigger than 10 percent, and visual tests look close to optimal, which shows that my Ant Colony Optimisation implementation is correct.
 
 This shows that objectives 2.1 (succesfully construct a route that visits each city and returns to the starting city) and 2.4 (implementation is quick, efficient and accurate) were hit
+
+<div style="page-break-after: always;"></div>
 
 ### Simulated Annealing
 
@@ -429,6 +437,8 @@ parameters: (0.98, 3000, 5000)
 outputs: 755, 748, 743, 755, 733
 
 average: 746.8 (6.8% difference)
+
+<div style="page-break-after: always;"></div>
 
 #### Visual tests
 
