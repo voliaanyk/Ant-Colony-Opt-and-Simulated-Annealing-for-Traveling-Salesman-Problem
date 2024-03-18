@@ -19,6 +19,8 @@ Below is the list of objectives, and for each a verdict (whether it was hit) and
 | 5         | create a visualisation                               | yes      | testing -> UI                      |
 | 6         | link back-end and front-end                          | yes      | technical solution -> app.py       |
 
-As a result, all of the objectives were hit. I ended up doing a bit more functionality on the website than I aimed to in the first place which made it even easier to use. I've loved doing this project because I got to explore and learn a lot of maths that is behind the algorithms and TSP, and compare how the algorithms perfrom on TSP. I can say that I fulfilled my curiosity for the topic and am very happy with the result. 
+As a result, all of the objectives were hit. I ended up doing a bit more functionality on the website than I aimed for in the first place which made it even easier to use. I've loved doing this project because I got to explore and learn a lot of maths that is behind the algorithms and TSP, and compare how the algorithms perfrom on TSP. I can say that I fulfilled my curiosity for the topic and am very happy with the result. 
+
 Other people who used the visualisation are saying that it's simple, easy to understand and to use, and looks cool, so I think it's a success. 
+
 TSP turned out to be a perfect problem to visually learn how meta-heuristics work and to compare their performance. So in the future, I'm planning to continue adding new algorithms such as Genetic Algorithm, Particle Swarm and others to the website. Hopefully not only to fulfill my personal curiosity, but also to share this tool wih others.
