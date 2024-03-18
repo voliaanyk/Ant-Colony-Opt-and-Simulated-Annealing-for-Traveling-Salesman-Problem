@@ -278,18 +278,17 @@ For visual tests, I will create a random set of nodes on the website, and run th
 
 ##### test 1
 
-n = 15
-![n=15](images/testing/aco15.png)
+n = 15 
+<br> <img src="images/testing/aco15.png" alt="aco" width="777"/>
 
 n = 30
-![n=30](images/testing/aco30.png)
+<br> <img src="images/testing/aco30.png" alt="aco" width="777"/>
 
 n = 50
-![n=50](images/testing/aco50.png)
+<br> <img src="images/testing/aco50.png" alt="aco" width="777"/>
 
 n = 100
-![n=100](images/testing/aco100.png)
-
+<br> <img src="images/testing/aco100.png" alt="aco" width="777"/>
 #### **Results**
 
 For all tests percentage difference with the optimal solution was no bigger than 10 percent, and visual tests look close to optimal, which shows that my Ant Colony Optimisation implementation is correct.
@@ -436,16 +435,16 @@ average: 746.8 (6.8% difference)
 For visual tests, I will create a random set of nodes on the website, and run the sa on it.
 
 n = 15
-![n=15](images/testing/sa15.png)
+<br> <img src="images/testing/sa15.png" alt="sa" width="777"/>
 
 n = 30
-![n=30](images/testing/sa30.png)
+<br> <img src="images/testing/sa30.png" alt="sa" width="777"/>
 
 n = 50
-![n=50](images/testing/sa50.png)
+<br> <img src="images/testing/sa50.png" alt="sa" width="777"/>
 
 n = 100
-![n=100](images/testing/sa100.png)
+<br> <img src="images/testing/sa100.png" alt="sa" width="777"/>
 
 #### **Results**
 
