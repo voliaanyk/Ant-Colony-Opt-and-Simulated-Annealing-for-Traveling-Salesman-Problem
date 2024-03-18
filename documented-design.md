@@ -4,7 +4,7 @@
 
 ## Visualisation design
 
-The visualisation is a website with a start page (with a fancy picture of a graph and a button "try"), a main page where users will be able to:
+The visualisation is a website with a start page (with a picture of a graph and a button "try"), a main page where users will be able to:
 
 - create a graph (automatically or manualy)
 - vary parameters to see how they affect the performance
@@ -67,6 +67,8 @@ My main file (app.py) will be written in flask, and it will have 3 routes:
 - main page that is shown when "start" button is pressed
 - calculate_outputs, that does not have ui itself, but can be sent requests to from js, and can then pass those parameters from the requests to algorithms that are also writen in python, and then outputs of those functions back to js -> user interface.
 
+<div style="page-break-after: always;"></div>
+
 ## Algorithms
 
 ### Exact algorithm
@@ -108,7 +110,7 @@ The solution to TSP is found by selecting the minimum distance among the paths t
 #### Bitmasks
 
 For this algorithm I'm going to use bitmasks. Bitmask is a binary number that represents a subset of a set. If the number has 1 at a point x (that is $2^x$ bit), then element number x in the superset is included in the subset.
-``
+
 **Example:**
 
 4 3 2 1 0
@@ -116,7 +118,7 @@ For this algorithm I'm going to use bitmasks. Bitmask is a binary number that re
 1 0 0 1 1  = 16 + 2 + 1 = 19
 
 So bitmask 19 represents a subset {0, 1, 4}
-``
+
 **Some binary operations in C++:**
 
 1<<n - shift of 1, n times to the left
@@ -126,7 +128,6 @@ x\^y - x xor y
 mask & (1<<x) - returns 1 if element x is in the subset represented by bitmask
 
 mask ^ (1<<x) - bitmask that represents S\x
-````
 
 <div style="page-break-after: always;"></div>
 
