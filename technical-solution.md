@@ -42,7 +42,9 @@
 >>>
 >>
 >> app.py
->>
+
+<div style="page-break-after: always;"></div>
+
 
 ## app.py
 
@@ -129,6 +131,7 @@ def calculate_outputs_api():
 if __name__ == '__main__':
     app.run(debug=True)
 ```
+<div style="page-break-after: always;"></div>
 
 
 ## Templates
@@ -159,6 +162,8 @@ Start.html is a simple web-page, that contains 2 headings, an image and a button
   </body>
 </html>
 ```
+<div style="page-break-after: always;"></div>
+
 
 ### main.html
 
@@ -193,6 +198,7 @@ Main page has a bit more complex design, so I will split it into a few sections.
   </body>   
 </html>
 ```
+<div style="page-break-after: always;"></div>
 
 Below is the html code for the input div. The container contans all of the parameters that user can input, discussed in documented design and analysis. 
 
@@ -286,6 +292,8 @@ Below is the html code for the input div. The container contans all of the param
 </div>
 
 ```
+<div style="page-break-after: always;"></div>
+
 
 Below is the code for the graph-output-div, which contains the graph div, where users can add/edit/delete nodes, and a text output.
 
@@ -331,6 +339,7 @@ Below is the code for the graph-output-div, which contains the graph div, where 
       </div>
 </div>
 ```
+<div style="page-break-after: always;"></div>
 
 ## Style (scss)
 
@@ -474,6 +483,8 @@ $accordion-padding-x: 0;
     z-index: 2;
 }
 ```
+<div style="page-break-after: always;"></div>
+
 
 ## JS
 
@@ -714,6 +725,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 })
 ```
+<div style="page-break-after: always;"></div>
 
 ### display-output.js
 
@@ -1058,6 +1070,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 ```
+<div style="page-break-after: always;"></div>
 
 
 ## Algorithms
@@ -1132,6 +1145,8 @@ def calculate_distance_matrix(coordinates):
   
   
 ```
+<div style="page-break-after: always;"></div>
+
 
 ### aco.py
 
@@ -1339,6 +1354,8 @@ def solve_aco(input, parameters):
     return best_found, output
 
 ```
+<div style="page-break-after: always;"></div>
+
 
 ### sa.py
 
@@ -1513,6 +1530,7 @@ def solve_sa(tsp_input, sa_params):
   
     return best_found, output
 ```
+<div style="page-break-after: always;"></div>
 
 ### held_karp.py
 
