@@ -18,7 +18,7 @@ the list of objectives for the visualisation is following:
 
 I have uploaded a video to YouTube to show how the visualisation looks and works and to test the objectives. The video can be accessed by this QR code.
 
-![video](images/testing/qr_code.png)
+<img src="images/testing/qr_code.png" alt="video qr code" width="333"/>
 
 Here is the list of objectives that relate to the visualisation, time codes (time when they appear in the youtube video) and details.
 
