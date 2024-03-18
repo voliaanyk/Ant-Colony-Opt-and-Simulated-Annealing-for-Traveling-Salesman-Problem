@@ -1,3 +1,5 @@
+<div style="page-break-after: always;"></div>
+
 # DOCUMENTED DESIGN
 
 ## Visualisation design
@@ -42,6 +44,8 @@ The main page has the following features:
 Visualisation is only the small part of this project, and most of its significance are the optimisational algorithms. In order to display the outputs of the algotihms on the website, we need to pass all of the input parameters and variables to the algorithm implementation, and receive the outputs as a response.
 
 At first I was going to implement algorithms in C++, because this way they would be as fast as they can get. But then, after a carefull consideration, I've changed my mind to Python mainly for its wider functionality. Python has frameworks like Flask (Web Application Framework), that can both run the website on itself, and connect front-end with back-end.
+
+
 
 ### Flask
 

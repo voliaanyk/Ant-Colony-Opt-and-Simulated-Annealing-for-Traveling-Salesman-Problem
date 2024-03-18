@@ -16,6 +16,7 @@ Moreover, the Travelling Salesman Problem is an NP-hard (nondeterministic polyno
 
 Also, I want to build a visualization of the algorithms, so that it is easier to understand how they work for people who have no background in optimizational computer science. Furthermore, this visualization can then become a powerful learning tool for students who want to specialize in this field.
 
+<div style="page-break-after: always;"></div>
 
 ## 1.2 Interview with a primary user
 
@@ -65,7 +66,6 @@ Students need to be experienced at running through algorithms by hand, and on ex
 - Automatic inputs or choose own inputs
 - Show either description of step only, or brief explanation as well
 
-
 ## 1.3 List of user requirements
 
 Based on the interview with Ms. Sharp, here are the main user requirements I outlined:
@@ -82,6 +82,7 @@ Also, advice from my friends
 
 - Compare Ant Colony Optimization to Simulated Annealing
 
+<div style="page-break-after: always;"></div>
 
 ## 1.4 Background analysis
 
@@ -126,6 +127,7 @@ The figure above is taken from
 The first figure shows that ACO is being used to solve TSP in 18% of reviewed papers, same as Exact Algorithms. The most common algorithm appears to be GA (genetic algorithms), 36%. The figure also shows the range of applications of TSP from Transport and Delivery to Disaster Managing, the most common application is General.
 
 
+<div style="page-break-after: always;"></div>
 
 ## 1.5 Analysis of current systems
 
@@ -147,6 +149,7 @@ Visual-aco has a fairly simple and easy-to-understand design, I quite like how i
 | shows ants and pheromone levels | limited control over city point manipulation |
 | adjustable parameters           |                                              |
 
+<div style="page-break-after: always;"></div>
 
 - **The second system is [Ant Colony Optimization Visualization for the Traveling Salesman Problem (aco-tsp)](https://jtp.io/2015/11/22/ant-colony-tsp-visualization.html)**
 
@@ -160,6 +163,7 @@ This system is more user-friendly than the previous one and has less functionali
 | control over cities   | doesn't show how ants move                |
 | perfect for beginners |                                           |
 
+<div style="page-break-after: always;"></div>
 
 **The comparison table for both systems is below**
 
@@ -172,12 +176,13 @@ This system is more user-friendly than the previous one and has less functionali
 | pheromone levels                | shows pheromone levels                                                       | shows pheromone levels                                                               |
 | adjustable speed                | ants speed is adjustable and fast forwarding through iterations is available | iterations speed is adjustable, only fast forwarding through iterations is available |
 
-``
+
 **Overall**, both systems provide great visualisation of Ant Colony Optimisation for Travelling Salesman Problem, however the first system has more functionality, and the second system has more intuitive design. I want to strike the balance between functionality and user-friendliness, drawing inspiration from both systems.
+
+<div style="page-break-after: always;"></div>
 
 
 ## 1.6 Table of objectives
-
 
 
 1. **Explore the maths behind ACO and SA**
@@ -215,37 +220,28 @@ This system is more user-friendly than the previous one and has less functionali
 6. **Link the algorithms and the visualisation**
    *Link the systems together so that the visualisation can be created*
 
-## 1.7 Modelling. High level overview and hierarchy diagram
+<div style="page-break-after: always;"></div>
 
-
-0:00 5.8 cities manipulation
-0:28 5.4 customise input parameters
-1:10 5.5 adjusting speed
-1:25 5.3 hide/show paths
-1:38 5.5 pause functionality
-1:53 5.8 cities manipulation
-2:08 bigger problem example
-2:52 5.6 fast-forwarding
-3:06 5.3 hide/show paths
+## 1.7 Modelling. High level overview
 
 
 1. **ACO Algorithm Implementation**. Implement the Ant Colony Optimization algorithm to solve the Traveling Salesman Problem
-   ``**input**: cities and distances between them, the number of iterations, ACO parameters (such as evaporation, Q, alpha, etc)
-   ``**output**: pheromone levels, ants' routes and the best route after each iteration
-   ``**implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation
+   **input**: cities and distances between them, the number of iterations, ACO parameters (such as evaporation, Q, alpha, etc)
+   **output**: pheromone levels, ants' routes and the best route after each iteration
+   **implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation
 2. **Simulated Annealing Implemenation**. Implement the Simulated Annealing algorithm to solve the Traveling Salesman Problem
-   ``**input**: cities and distances between them, SA parameters (initial temperature, Markov chains, alpha)
-   ``**output**: the best route, temperature, acceptance probability after each iteration
-   ``**implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation
+   **input**: cities and distances between them, SA parameters (initial temperature, Markov chains, alpha)
+   **output**: the best route, temperature, acceptance probability after each iteration
+   **implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation
 3. **Exact Algorithm Implementation**. Implement an exact algorithm (Dynamic Programming) to find the optimal solution for smaller TSP instances (for comparison purposes).
-   ``**input**: cities and distances between them
-   ``**output**: the best route
-   ``**implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation
+   **input**: cities and distances between them
+   **output**: the best route
+   **implementation**: Python has a variety of frameworks that can help to connect evrything together and it's relatively fast, which makes it a good choice for algorithms implementation
 4. **Visualization Creation**. Create an interactive visualization to show the algorithms' progresses and results
-   ``**input**: user's actions
-   ``**ouput**: interactive visualisation
-   ``**implementation**: JavaScript, HTML, CSS
+   **input**: user's actions
+   **ouput**: interactive visualisation
+   **implementation**: JavaScript, HTML, CSS
 5. **Integration of Algorithm and Visualization**. Link the algorithms and the visualization together.
-   ``**implementation**: Flask is a sensible option as it's very intuitive, I've used it before and the algorithms will be written in python
-   ![hierarchy diagram](images/analysis/hierarchy_diagram.png)
-
+   **implementation**: Flask is a sensible option as it's very intuitive, I've used it before and the algorithms will be written in python
+   
+![hierarchy diagram](images/analysis/hierarchy_diagram.png)
