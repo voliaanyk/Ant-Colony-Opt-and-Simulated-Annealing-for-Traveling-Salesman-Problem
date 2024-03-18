@@ -20,6 +20,9 @@ I have uploaded a video to YouTube to show how the visualisation looks and works
 
 <img src="images/testing/qr_code.png" alt="video qr code" width="333"/>
 
+<div style="page-break-after: always;"></div>
+
+
 Here is the list of objectives that relate to the visualisation, time codes (time when they appear in the youtube video) and details.
 
 | Objective   | Short description   | Time codes    | Details                           |
@@ -44,7 +47,7 @@ Overall, the visualisation passed all of the test and all of the objectives rega
 
 ### Held-Karp
 
-To test held-karp algorithm, I created a simple test.py file and found some small instances of tsp wih the answers to them here: [algorithm - Data for simple TSP - Stack Overflow](https://stackoverflow.com/questions/11007355/data-for-simple-tsp)
+To test held-karp algorithm, I created a simple test.py file and found some small instances of tsp wih the answers to them here: https://stackoverflow.com/questions/11007355/data-for-simple-tsp
 
 ```
 import common
@@ -156,7 +159,7 @@ Since the output may be different every time you run a program, I will it 5 time
 
 ##### test 1
 
-ref:[algorithm - Data for simple TSP - Stack Overflow](https://stackoverflow.com/questions/11007355/data-for-simple-tsp)
+https://stackoverflow.com/questions/11007355/data-for-simple-tsp
 
 ```
 15
@@ -187,7 +190,7 @@ average: 1209 (1.3% difference)
 
 ##### test 2
 
-ref: [TSP - Data for the Traveling Salesperson Problem (fsu.edu)](https://people.sc.fsu.edu/~jburkardt/datasets/tsp/tsp.html) (GR17)
+https://people.sc.fsu.edu/~jburkardt/datasets/tsp/tsp.html (GR17)
 
 ```
 17
@@ -220,7 +223,7 @@ average: 2139.4 (2.6% differece)
 
 ##### test 3
 
-ref: [TSP - Data for the Traveling Salesperson Problem (fsu.edu)](https://people.sc.fsu.edu/~jburkardt/datasets/tsp/tsp.html) (**DANTZIG42**)
+https://people.sc.fsu.edu/~jburkardt/datasets/tsp/tsp.html (**DANTZIG42**)
 
 ```
 42
@@ -318,7 +321,7 @@ Since the output may be different every time you run a program, I will it 5 time
 
 ##### test 1
 
-ref:[algorithm - Data for simple TSP - Stack Overflow](https://stackoverflow.com/questions/11007355/data-for-simple-tsp)
+https://stackoverflow.com/questions/11007355/data-for-simple-tsp
 
 ```
 15
@@ -349,7 +352,7 @@ average: 1194
 
 ##### test 2
 
-ref: [TSP - Data for the Traveling Salesperson Problem (fsu.edu)](https://people.sc.fsu.edu/~jburkardt/datasets/tsp/tsp.html) (GR17)
+https://people.sc.fsu.edu/~jburkardt/datasets/tsp/tsp.html (GR17)
 
 ```
 17
@@ -382,7 +385,7 @@ average: 2120 (1.7% difference)
 
 ##### test 3
 
-ref: [TSP - Data for the Traveling Salesperson Problem (fsu.edu)](https://people.sc.fsu.edu/~jburkardt/datasets/tsp/tsp.html) (**DANTZIG42**)
+https://people.sc.fsu.edu/~jburkardt/datasets/tsp/tsp.html (**DANTZIG42**)
 
 ```
   42

@@ -1,5 +1,3 @@
-<div style="page-break-after: always;"></div>
-
 # DOCUMENTED DESIGN
 
 ## Visualisation design
@@ -37,7 +35,6 @@ The main page has the following features:
 - start button that starts/resumes visualisation when pressed; if any of parameters that should be inputed are empty ot not valid, it outputs an alert for the user.
 - stop button that pauses/stops visualisation when pressed, so that no further changes are made to the algorithms outputs.
 
-<div style="page-break-after: always;"></div>
 
 ## Bringing it all together
 
