@@ -16,7 +16,6 @@ Moreover, the Travelling Salesman Problem is an NP-hard (nondeterministic polyno
 
 Also, I want to build a visualization of the algorithms, so that it is easier to understand how they work for people who have no background in optimizational computer science. Furthermore, this visualization can then become a powerful learning tool for students who want to specialize in this field.
 
-``
 
 ## 1.2 Interview with a primary user
 
@@ -66,7 +65,6 @@ Students need to be experienced at running through algorithms by hand, and on ex
 - Automatic inputs or choose own inputs
 - Show either description of step only, or brief explanation as well
 
-``
 
 ## 1.3 List of user requirements
 
@@ -84,7 +82,6 @@ Also, advice from my friends
 
 - Compare Ant Colony Optimization to Simulated Annealing
 
-``
 
 ## 1.4 Background analysis
 
@@ -121,7 +118,6 @@ The way it works to solve TSP, is such that each artificial ant starts from a ra
 
 SA is a combinatorial optimizational technique just like ACO. It's inspired by the process of annealing a metal or glass by raising it to a high temperature and then gradually reducing the temperature, allowing local regions of order to grow outward. In simulated annealing, the equivalent of temperature is a measure of the randomness by which changes are made to the best path, in order to minimise it. When the temperature is high, larger random changes are made, avoiding the risk of becoming trapped in a local minimum. And as the temperature decreases, the probability of accepting worse solution reduces exponentially, allowing the algorithm to converge towards an optimal or near-optimal solution.
 
-````
 
 ![diagram](images/analysis/tsp_diagrams.png)
 
@@ -129,7 +125,7 @@ The figure above is taken from
 [Cheikhrouhou, O., Khoufi, I. (2021). A comprehensive survey on the Multiple Traveling Salesman Problem: Applications, approaches and taxonomy.](https://arxiv.org/pdf/2102.12772.pdf)
 The first figure shows that ACO is being used to solve TSP in 18% of reviewed papers, same as Exact Algorithms. The most common algorithm appears to be GA (genetic algorithms), 36%. The figure also shows the range of applications of TSP from Transport and Delivery to Disaster Managing, the most common application is General.
 
-``
+
 
 ## 1.5 Analysis of current systems
 
@@ -151,7 +147,6 @@ Visual-aco has a fairly simple and easy-to-understand design, I quite like how i
 | shows ants and pheromone levels | limited control over city point manipulation |
 | adjustable parameters           |                                              |
 
-``
 
 - **The second system is [Ant Colony Optimization Visualization for the Traveling Salesman Problem (aco-tsp)](https://jtp.io/2015/11/22/ant-colony-tsp-visualization.html)**
 
@@ -165,7 +160,6 @@ This system is more user-friendly than the previous one and has less functionali
 | control over cities   | doesn't show how ants move                |
 | perfect for beginners |                                           |
 
-``
 
 **The comparison table for both systems is below**
 
@@ -181,7 +175,6 @@ This system is more user-friendly than the previous one and has less functionali
 ``
 **Overall**, both systems provide great visualisation of Ant Colony Optimisation for Travelling Salesman Problem, however the first system has more functionality, and the second system has more intuitive design. I want to strike the balance between functionality and user-friendliness, drawing inspiration from both systems.
 
-``
 
 ## 1.6 Table of objectives
 
@@ -256,4 +249,3 @@ This system is more user-friendly than the previous one and has less functionali
    ``**implementation**: Flask is a sensible option as it's very intuitive, I've used it before and the algorithms will be written in python
    ![hierarchy diagram](images/analysis/hierarchy_diagram.png)
 
-``
