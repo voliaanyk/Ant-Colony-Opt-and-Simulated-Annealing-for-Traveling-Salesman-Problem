@@ -4,12 +4,11 @@
 
 The program consists of 3 main part: app.py (local server coded in flask that connects front-end to back-end), algorithms and the user interface (visualisation). The top-down diagram is below:
 
-![1711369639934](image/documented-design/1711369639934.png)
+<img src="images/documented-design/top_down.png" alt="top_down" width="500"/>
 
 and the data flow is following:
 
-![1711369686804](image/documented-design/1711369686804.png)
-
+<img src="images/documented-design/data_flow.png" alt="data_flow" width="570"/>
 
 <div style="page-break-after: always;"></div>
 
