@@ -6,7 +6,7 @@ The program consists of 3 main part: app.py (local server coded in flask that co
 
 ![1711369639934](image/documented-design/1711369639934.png)
 
-ans the data flow is following:
+and the data flow is following:
 
 ![1711369686804](image/documented-design/1711369686804.png)
 
@@ -203,37 +203,43 @@ $\rho$ is the evaporation rate
 
 $\Delta\tau_{ij}^{(k)}$ is a change in the pheremone level of the edge from i to j, contributed by ant k
 
+
+<div style="page-break-after: always;"></div>
+
+
 #### Pseudo code
 
-initialise artificial ants
+> initialise artificial ants
 
-set pheromone levels to small random values
+> set pheromone levels to small random values
 
-for each iteration:
+> for each iteration:
+>
+>>  for each ant:
+>>
+>>> choose starting city randomly
+>>>
+>>> while there are cities not in the route:
+>>>
+>>>> choose the next city that is not yet in the route randomly using the probabilistic function described in **Route Construction**
+>>>>
+>>>
+>>> calculate the length of the ant's route
+>>>
+>>> calculate pheromone contribution as described in **Comparison**
+>>>
+>>
+>> for each edge:
+>>
+>>> deacrease pheromone value by the evaporation rate
+>>>
+>>> add the ants' pheromone contibution as desrcibed in **Update**
+>>>
+>>
+>> best solution = best(best solution, best ants' route in the iteration)
+>>
 
-    for each ant:
-
-    choose starting city randomly
-
-    while there are cities not in the route:
-
-    choose the next city that is not yet in the route randomly using the probabilistic function described in**Route Construction**
-
-    calculate the length of the ant's route
-
-    calculate pheromone contribution as described in**Comparison**
-
-    for each edge:
-
-    deacrease pheromone value by the evaporation rate
-
-    add the ants' pheromone contibution as desrcibed in**Update**
-
-    best solution = best(best solution, best ants' route in the iteration)
-
-    *visualise the current best solution*
-
-return the best solution
+> return best solution
 
 #### Varying parameters
 
@@ -265,6 +271,10 @@ where $ΔC$ is $Cost(s*) - Cost(s)$ and $T$ is the current teperature and change
 
 This is repeated until the stopping critea is satisfied (such as the Temperature drops below Critical Temperature, or the maximum number of iteration is reached)
 
+
+<div style="page-break-after: always;"></div>
+
+
 #### Neighbouring states
 
 In my implemetaton of Simulated Annealing I'm going to use three methods of state modification:
@@ -282,29 +292,34 @@ There are two ways of decreasing Temperature in Simulated Annealing:
 
 I'm going to use exponential decrease as it usualy shows better results for Traveling Salesman Problem
 
+
+<div style="page-break-after: always;"></div>
+
+
 #### Pseudo code
 
-create a random solution 
+> create a random solution
 
-for each iteration:
+> for each iteration:
+>
+>> create a neighbouring state (randomly choose one of 3 modifications in **Neighbouring States**)
+>>
+>> if the cost of the neighbouring state is less than the cost of current state:
+>>
+>>> current state <- neighbouring state
+>>>
+>>
+>> else:
+>>
+>>> accept the neighbouring state with the probability$P = e^{-ΔC/T}$, where `ΔC` is the change in cost
+>>>
+>>
+>> cool the Temperature (T) exponentially as described in **Cooling**
+>>
+>> best solution = best(best solution, current state)
+>>
 
-    create a neighbouring state (randomly choose one of 3 modifications in**Neighbouring States**)
-
-    if the cost of the neighbouring state is less than the cost of current state:
-
-    current state <- neighbouring state
-
-    else:
-
-    accept the neighbouring state with the probability$P = e^{-ΔC/T}$, where `ΔC` is the change in cost
-
-    cool the Temperature (T) exponentially as described in**Cooling**
-
-    best solution = best(best solution, current state)
-
-    *visualise the current best solution*
-
-return the best solution
+> return the best solution
 
 #### Varying parameters
 
