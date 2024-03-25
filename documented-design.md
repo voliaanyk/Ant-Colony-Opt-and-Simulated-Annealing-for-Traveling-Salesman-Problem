@@ -1,5 +1,19 @@
 # DOCUMENTED DESIGN
 
+## General overview
+
+The program consists of 3 main part: app.py (local server coded in flask that connects front-end to back-end), algorithms and the user interface (visualisation). The top-down diagram is below:
+
+![1711369639934](image/documented-design/1711369639934.png)
+
+ans the data flow is following:
+
+![1711369686804](image/documented-design/1711369686804.png)
+
+
+<div style="page-break-after: always;"></div>
+
+
 ## Visualisation design
 
 The visualisation is a website with a start page (with a picture of a graph and a button "try"), a main page where users will be able to:
@@ -35,14 +49,11 @@ The main page has the following features:
 - start button that starts/resumes visualisation when pressed; if any of parameters that should be inputed are empty ot not valid, it outputs an alert for the user.
 - stop button that pauses/stops visualisation when pressed, so that no further changes are made to the algorithms outputs.
 
-
 ## Bringing it all together
 
 Visualisation is only the small part of this project, and most of its significance are the optimisational algorithms. In order to display the outputs of the algotihms on the website, we need to pass all of the input parameters and variables to the algorithm implementation, and receive the outputs as a response.
 
 At first I was going to implement algorithms in C++, because this way they would be as fast as they can get. But then, after a carefull consideration, I've changed my mind to Python mainly for its wider functionality. Python has frameworks like Flask (Web Application Framework), that can both run the website on itself, and connect front-end with back-end.
-
-
 
 ### Flask
 
@@ -192,6 +203,38 @@ $\rho$ is the evaporation rate
 
 $\Delta\tau_{ij}^{(k)}$ is a change in the pheremone level of the edge from i to j, contributed by ant k
 
+#### Pseudo code
+
+initialise artificial ants
+
+set pheromone levels to small random values
+
+for each iteration:
+
+    for each ant:
+
+    choose starting city randomly
+
+    while there are cities not in the route:
+
+    choose the next city that is not yet in the route randomly using the probabilistic function described in**Route Construction**
+
+    calculate the length of the ant's route
+
+    calculate pheromone contribution as described in**Comparison**
+
+    for each edge:
+
+    deacrease pheromone value by the evaporation rate
+
+    add the ants' pheromone contibution as desrcibed in**Update**
+
+    best solution = best(best solution, best ants' route in the iteration)
+
+    *visualise the current best solution*
+
+return the best solution
+
 #### Varying parameters
 
 Number of ants, iterations, $\alpha$, $\beta$, $\eta_{ij}$, $Q$, $\rho$ are input parameters of ACO, so varying them can increase or decrease the algorithm performance, and they need to be tuned individually for each TSP problem instance.
@@ -238,6 +281,30 @@ There are two ways of decreasing Temperature in Simulated Annealing:
 - Linear. $T = T - ΔT$
 
 I'm going to use exponential decrease as it usualy shows better results for Traveling Salesman Problem
+
+#### Pseudo code
+
+create a random solution 
+
+for each iteration:
+
+    create a neighbouring state (randomly choose one of 3 modifications in**Neighbouring States**)
+
+    if the cost of the neighbouring state is less than the cost of current state:
+
+    current state <- neighbouring state
+
+    else:
+
+    accept the neighbouring state with the probability$P = e^{-ΔC/T}$, where `ΔC` is the change in cost
+
+    cool the Temperature (T) exponentially as described in**Cooling**
+
+    best solution = best(best solution, current state)
+
+    *visualise the current best solution*
+
+return the best solution
 
 #### Varying parameters
 
