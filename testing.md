@@ -16,9 +16,12 @@ the list of objectives for the visualisation is following:
    9. show the exact best route found using an exact algorithm for smaller problem instances
 
 
-I have uploaded a video to YouTube to show how the visualisation looks and works and to test the objectives. The video can be accessed by this link:
-**https://www.youtube.com/watch?v=d4Gl0wcxYcQ**
+I have uploaded a video to YouTube to show how the visualisation looks and works and to test the objectives. The video can be accessed by this QR code:
 
+<img src="images/testing/qr_code.png" alt="video qr code" width="333"/>
+
+Alternatively here's the original link to the youtube video: <br>
+**https://www.youtube.com/watch?v=d4Gl0wcxYcQ**
 
 <div style="page-break-after: always;"></div>
 
